@@ -3,26 +3,61 @@
 const path = require('path');
 const ZwaveDriver = require('homey-zwavedriver');
 
-// http://www.cd-jackson.com/index.php/zwave/zwave-device-database/zwave-device-list/devicesummary/63
+// http://www.cd-jackson.com/index.php/zwave/zwave-device-database/zwave-device-list/devicesummary/275
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	debug: true,
 	capabilities: {
 		onoff: [
 			{
-				command_class: 'COMMAND_CLASS_SWITCH_BINARY',
-				command_set: 'SWITCH_BINARY_SET',
+				command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
+				command_set: 'SWITCH_MULTILEVEL_SET',
 				command_set_parser: value => {
-					console.log('SWITCH_BINARY_SET:', value);
-					return { 'Switch Value': value }
+					return {
+						'Value': (value) ? 'on/enable' : 'off/disable',
+						'Dimming Duration': 255
+					}
 				}
 			},
 			{
 				command_class: 'COMMAND_CLASS_BASIC',
+				command_get: 'BASIC_GET',
 				command_report: 'BASIC_REPORT',
 				command_report_parser: report => {
 					if (report.hasOwnProperty('Current Value')) return report['Current Value'] !== 0;
 					if (report.hasOwnProperty('Value')) return report['Value'] !== 0;
+				}
+			}
+		],
+		dim: [
+			{
+				command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
+				command_set: 'SWITCH_MULTILEVEL_SET',
+				command_set_parser: value => {
+
+					// Parse value from 0 - 1 to 0 - 99
+					if (value) value = value * 100;
+					if (value >= 100) value = 99;
+
+					return {
+						'Value': value,
+						'Dimming Duration': 255
+					}
+				}
+			},
+			{
+				command_class: 'COMMAND_CLASS_BASIC',
+				command_get: 'BASIC_GET',
+				command_report: 'BASIC_REPORT',
+				command_report_parser: report => {
+					if (report.hasOwnProperty('Value') && !isNaN(report['Value'])) {
+
+						// Parse value from 0 - 99 to 0 -1
+						let value = report['Value'];
+						if (value) value = value / 100;
+
+						return value;
+					}
 				}
 			}
 		],
@@ -81,7 +116,8 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			index: 103,
 			size: 4,
 			parser: input => new Buffer([0, 0, 0, Number(input)])
-		}, time_interval_1: {
+		},
+		time_interval_1: {
 			index: 111,
 			size: 4,
 			parser: input => new Buffer([0, 0, 0, Number(input)])
@@ -95,7 +131,6 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			index: 113,
 			size: 4,
 			parser: input => new Buffer([0, 0, 0, Number(input)])
-
 		}
 	}
 });

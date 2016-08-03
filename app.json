@@ -5,9 +5,19 @@
 	},
 	"version": "1.0.0",
 	"compatibility": ">=0.9.1",
+	"category": [
+		"appliances",
+		"lights",
+		"security",
+		"climate"
+	],
 	"description": {
 		"en": "Aeotec devices for Homey",
 		"nl": "Aeotec ondersteuning voor Homey"
+	},
+	"images": {
+		"large": "/assets/images/large.png",
+		"small": "/assets/images/small.png"
 	},
 	"author": {
 		"name": "Athom B.V.",
@@ -27,7 +37,7 @@
 					"image": "/drivers/ZW096/assets/learnmode.svg",
 					"instruction": {
 						"en": "Press the (action) button on the Smart Switch to enter learn mode",
-						"nl": "Druk op de (action) knop op de Smart Switch om de leer modus te activeren"
+						"nl": "Druk op de (actie) knop op de Smart Switch om de leer modus te activeren"
 					}
 				},
 				"associationGroups": [
@@ -358,6 +368,705 @@
 					"min": 1,
 					"max": 268435456,
 					"value": 600
+				}
+			]
+		},
+		{
+			"id": "ZW099",
+			"name": {
+				"en": "Smart Dimmer 6"
+			},
+			"zwave": {
+				"manufacturerId": 134,
+				"productTypeId": 3,
+				"productId": 99,
+				"learnmode": {
+					"image": "/drivers/ZW099/assets/learnmode.svg",
+					"instruction": {
+						"en": "Press the (action) button on the Smart Dimmer to enter learn mode",
+						"nl": "Druk op de (actie) knop op de Smart Dimmer om de leer modus te activeren"
+					}
+				},
+				"associationGroups": [
+					1,
+					2
+				],
+				"defaultConfiguration": [
+					{
+						"id": "current_overload_protection",
+						"size": 1,
+						"value": true
+					},
+					{
+						"id": "notify_associated_devices",
+						"size": 1,
+						"value": true
+					},
+					{
+						"id": "min_watt_change",
+						"size": 4,
+						"value": 3
+					},
+					{
+						"id": "report_group_1",
+						"size": 4,
+						"value": "4"
+					},
+					{
+						"id": "time_interval_1",
+						"size": 4,
+						"value": 15
+					}
+				]
+			},
+			"class": "socket",
+			"capabilities": [
+				"onoff",
+				"dim",
+				"measure_power"
+			],
+			"images": {
+				"large": "/drivers/ZW099/assets/images/large.png",
+				"small": "/drivers/ZW099/assets/images/small.png"
+			},
+			"settings": [
+				{
+					"id": "current_overload_protection",
+					"type": "checkbox",
+					"label": {
+						"en": "Current overload protection",
+						"nl": "Bescherming tegen overbelasting"
+					},
+					"value": true,
+					"hint": {
+						"en": "If enabled, the Smart Switch will protect the plugged-in devices against current overload",
+						"nl": "Wanneer ingeschakeld zal de Smart Switch de aangesloten apparaten beschermen tegen overbelasting"
+					}
+				},
+				{
+					"id": "output_load_status",
+					"type": "dropdown",
+					"label": {
+						"en": "Configure the output load status after re-power",
+						"nl": "Zet na een stroomonderbreking deze Smart Switch:"
+					},
+					"value": "0",
+					"hint": {
+						"en": "When the device has been re-powered, it will set it status as configured",
+						"nl": "Wanneer de Smart Switch zonder stroom heeft gezeten, zal deze automatisch terug worden gezet naar deze status"
+					},
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "Status before re-power",
+								"nl": "Status voor stroomonderbreking"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Always on",
+								"nl": "Altijd aan"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "Always off",
+								"nl": "Altijd uit"
+							}
+						}
+					]
+				},
+				{
+					"id": "notify_associated_devices",
+					"type": "checkbox",
+					"label": {
+						"en": "Notify associated devices when Smart Switch is toggled",
+						"nl": "Stuur notificaties naar geassocieerde apparaten wanneer de Smart Switch aan of uit wordt gezet"
+					},
+					"hint": {
+						"en": "Enable this to let Homey know when you or another device turned the Smart Switch on or off",
+						"nl": "Zet dit aan om Homey te laten weten wanneer jij of een ander apparaat de Smart Switch aan of uit hebt gezet"
+					},
+					"value": true
+				},
+				{
+					"id": "configure_led_state",
+					"type": "dropdown",
+					"label": {
+						"en": "Configure the color of the LED",
+						"nl": "Stel de kleur van de LED in"
+					},
+					"hint": {
+						"en": "This parameter changes the behaviour of the LED",
+						"nl": "Deze parameter past het gedrag van de LED aan"
+					},
+					"value": "0",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "LED color follows load",
+								"nl": "LED kleur representeert stroom verbruik"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "LED color follows load for 5 seconds",
+								"nl": "LED kleur representeert stroom verbruik voor 5 seconden"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "Night light mode",
+								"nl": "Nacht licht modus"
+							}
+						}
+					]
+				},
+				{
+					"id": "min_watt_change",
+					"type": "number",
+					"label": {
+						"en": "Minimum wattage change needed before an update report is send",
+						"nl": "Minimale verandering in wattage nodig voor het verzenden van een update"
+					},
+					"value": 3,
+					"min": 0,
+					"max": 60000,
+					"hint": {
+						"en": "Minimum change of wattage value needed before value is updated",
+						"nl": "Minimale verandering in wattage nodig voor het verzenden van een update"
+					}
+				},
+				{
+					"id": "report_group_1",
+					"type": "dropdown",
+					"label": {
+						"en": "Information reports send to association group 1",
+						"nl": "Informatie updates naar associatie groep 1"
+					},
+					"hint": {
+						"en": "Which information needs to be send to devices in association group 1",
+						"nl": "Welke informatie moet naar apparaten in associatie groep 1 worden gestuurd"
+					},
+					"value": "4",
+					"values": [
+						{
+							"id": "1",
+							"label": {
+								"en": "Voltage (V)",
+								"nl": "Voltage (V)"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "Current (A)",
+								"nl": "Current (A)"
+							}
+						},
+						{
+							"id": "4",
+							"label": {
+								"en": "Power (Watt)",
+								"nl": "Vermogen (Watt)"
+							}
+						},
+						{
+							"id": "8",
+							"label": {
+								"en": "Energy (kWh)",
+								"nl": "Energie (kWh)"
+							}
+						}
+					]
+				},
+				{
+					"id": "report_group_2",
+					"type": "dropdown",
+					"label": {
+						"en": "Information reports send to association group 2",
+						"nl": "Informatie updates naar associatie groep 2"
+					},
+					"hint": {
+						"en": "Which information needs to be send to devices in association group 2",
+						"nl": "Welke informatie moet naar apparaten in associatie groep 2 worden gestuurd"
+					},
+					"value": "4",
+					"values": [
+						{
+							"id": "1",
+							"label": {
+								"en": "Voltage (V)",
+								"nl": "Voltage (V)"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "Current (A)",
+								"nl": "Current (A)"
+							}
+						},
+						{
+							"id": "4",
+							"label": {
+								"en": "Power (Watt)",
+								"nl": "Vermogen (Watt)"
+							}
+						},
+						{
+							"id": "8",
+							"label": {
+								"en": "Energy (kWh)",
+								"nl": "Energie (kWh)"
+							}
+						}
+					]
+				},
+				{
+					"id": "report_group_3",
+					"type": "dropdown",
+					"label": {
+						"en": "Information reports send to association group 3",
+						"nl": "Informatie updates naar associatie groep 3"
+					},
+					"hint": {
+						"en": "Which information needs to be send to devices in association group 3",
+						"nl": "Welke informatie moet naar apparaten in associatie groep 3 worden gestuurd"
+					},
+					"value": "4",
+					"values": [
+						{
+							"id": "1",
+							"label": {
+								"en": "Voltage (V)",
+								"nl": "Voltage (V)"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "Current (A)",
+								"nl": "Current (A)"
+							}
+						},
+						{
+							"id": "4",
+							"label": {
+								"en": "Power (Watt)",
+								"nl": "Vermogen (Watt)"
+							}
+						},
+						{
+							"id": "8",
+							"label": {
+								"en": "Energy (kWh)",
+								"nl": "Energie (kWh)"
+							}
+						}
+					]
+				},
+				{
+					"id": "time_interval_1",
+					"type": "number",
+					"label": {
+						"en": "Reporting interval association group 1",
+						"nl": "Informatie update interval associatie groep 1"
+					},
+					"hint": {
+						"en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 1",
+						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de eerste associatie group zou moeten sturen"
+					},
+					"min": 1,
+					"max": 268435456,
+					"value": 15
+				},
+				{
+					"id": "time_interval_2",
+					"type": "number",
+					"label": {
+						"en": "Reporting interval association group 2",
+						"nl": "Informatie update interval associatie groep 2"
+					},
+					"hint": {
+						"en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 2",
+						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de tweede associatie group zou moeten sturen"
+					},
+					"min": 1,
+					"max": 268435456,
+					"value": 600
+				},
+				{
+					"id": "time_interval_3",
+					"type": "number",
+					"label": {
+						"en": "Reporting interval association group 3",
+						"nl": "Informatie update interval associatie groep 3"
+					},
+					"hint": {
+						"en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 3",
+						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de derde associatie group zou moeten sturen"
+					},
+					"min": 1,
+					"max": 268435456,
+					"value": 600
+				}
+			]
+		},
+		{
+			"id": "ZW100",
+			"name": {
+				"en": "MultiSensor 6"
+			},
+			"zwave": {
+				"manufacturerId": 134,
+				"productTypeId": 2,
+				"productId": 100,
+				"learnmode": {
+					"image": "/drivers/ZW100/assets/learnmode.svg",
+					"instruction": {
+						"en": "Press the (action) button on your MultiSensor 6",
+						"nl": "Druk op de (actie) knop op de MultiSensor 6"
+					}
+				},
+				"associationGroups": [
+					1
+				]
+			},
+			"class": "sensor",
+			"capabilities": [
+				"alarm_battery",
+				"measure_battery",
+				"alarm_motion",
+				"measure_temperature",
+				"measure_luminance",
+				"measure_humidity",
+				"alarm_tamper",
+				"measure_ultraviolet"
+			],
+			"images": {
+				"large": "/drivers/ZW100/assets/images/large.png",
+				"small": "/drivers/ZW100/assets/images/small.png"
+			},
+			"settings": [
+				{
+					"id": "wake_up_after_repower",
+					"type": "checkbox",
+					"label": {
+						"en": "Wake up for 10 minutes after re-power (on battery mode)",
+						"nl": "Maak wakker voor 10 minuten na onderbreking van stroom (in batterij modus)"
+					},
+					"value": false,
+					"hint": {
+						"en": "By enabling the device will be woken up for 10 minutes when the batteries are removed and inserted",
+						"nl": "Als deze optie is ingeschakeld zal het apparaat voor 10 minuten worden wakker gemaakt wanneer de batterijen zijn vervangen"
+					}
+				},
+				{
+					"id": "pir_off_time",
+					"type": "number",
+					"label": {
+						"en": "Time between last motion detected notification and no motion detected notification",
+						"nl": "Tijd tussen laatste bewegingsdetectie en uitschakeling van bewegingsdetectie alarm"
+					},
+					"value": 240,
+					"min": 10,
+					"max": 15300,
+					"hint": {
+						"en": "Time before motion alarm is turned off since last motion detected event",
+						"nl": "Tijd voordat bewegingsdetectie alarm wordt uitgeschakeld na laatste beweging"
+					}
+				},
+				{
+					"id": "pir_sensitivity",
+					"type": "dropdown",
+					"label": {
+						"en": "Motion sensor sensitivity",
+						"nl": "Bewegingssensor gevoeligheid"
+					},
+					"hint": {
+						"en": "Determines sensitivity off motion sensor.",
+						"nl": "Bepaald de gevoeligheid van de bewegingssensor"
+					},
+					"value": "5",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "Off",
+								"nl": "Uit"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Level 1",
+								"nl": "Level 1"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "Level 2",
+								"nl": "Level 2"
+							}
+						},
+						{
+							"id": "3",
+							"label": {
+								"en": "Level 3",
+								"nl": "Level 3"
+							}
+						},
+						{
+							"id": "4",
+							"label": {
+								"en": "Level 4",
+								"nl": "Level 4"
+							}
+						},
+						{
+							"id": "5",
+							"label": {
+								"en": "Level 5",
+								"nl": "Level 5"
+							}
+						}
+					]
+				},
+				{
+					"id": "motion_sensor_trigger_command",
+					"type": "dropwdown",
+					"label": {
+						"en": "Command to send when motion sensor triggered",
+						"nl": "Commando om te verzenden wanneer beweging is gedetecteerd"
+					},
+					"value": "1",
+					"values": [
+						{
+							"id": "1",
+							"label": {
+								"en": "Basic Set CC"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "Sensor Binary Report CC"
+							}
+						}
+					]
+				},
+				{
+					"id": "low_battery_value",
+					"type": "number",
+					"label": {
+						"en": "Percentage below which the device should send a low battery alarm",
+						"nl": "Percentage waaronder het apparaat een lege batterij waarschuwing zou moeten geven"
+					},
+					"min": 10,
+					"max": 50
+				},
+				{
+					"id": "report_group_1",
+					"type": "dropdown",
+					"label": {
+						"en": "Information reports send to association group 1",
+						"nl": "Informatie updates naar associatie groep 1"
+					},
+					"hint": {
+						"en": "Which information needs to be send to devices in association group 1",
+						"nl": "Welke informatie moet naar apparaten in associatie groep 1 worden gestuurd"
+					},
+					"value": "4",
+					"values": [
+						{
+							"id": "1",
+							"label": {
+								"en": "Battery",
+								"nl": "Batterij"
+							}
+						},
+						{
+							"id": "16",
+							"label": {
+								"en": "Ultraviolet",
+								"nl": "Ultraviolet"
+							}
+						},
+						{
+							"id": "32",
+							"label": {
+								"en": "Temperature",
+								"nl": "Temperatuur"
+							}
+						},
+						{
+							"id": "64",
+							"label": {
+								"en": "Humidity",
+								"nl": "Vochtigheid"
+							}
+						},
+						{
+							"id": "128",
+							"label": {
+								"en": "Luminance",
+								"nl": "Licht"
+							}
+						}
+					]
+				},
+				{
+					"id": "report_group_2",
+					"type": "dropdown",
+					"label": {
+						"en": "Information reports send to association group 2",
+						"nl": "Informatie updates naar associatie groep 2"
+					},
+					"hint": {
+						"en": "Which information needs to be send to devices in association group 2",
+						"nl": "Welke informatie moet naar apparaten in associatie groep 2 worden gestuurd"
+					},
+					"value": "4",
+					"values": [
+						{
+							"id": "1",
+							"label": {
+								"en": "Battery",
+								"nl": "Batterij"
+							}
+						},
+						{
+							"id": "16",
+							"label": {
+								"en": "Ultraviolet",
+								"nl": "Ultraviolet"
+							}
+						},
+						{
+							"id": "32",
+							"label": {
+								"en": "Temperature",
+								"nl": "Temperatuur"
+							}
+						},
+						{
+							"id": "64",
+							"label": {
+								"en": "Humidity",
+								"nl": "Vochtigheid"
+							}
+						},
+						{
+							"id": "128",
+							"label": {
+								"en": "Luminance",
+								"nl": "Licht"
+							}
+						}
+					]
+				},
+				{
+					"id": "report_group_3",
+					"type": "dropdown",
+					"label": {
+						"en": "Information reports send to association group 3",
+						"nl": "Informatie updates naar associatie groep 3"
+					},
+					"hint": {
+						"en": "Which information needs to be send to devices in association group 3",
+						"nl": "Welke informatie moet naar apparaten in associatie groep 3 worden gestuurd"
+					},
+					"value": "4",
+					"values": [
+						{
+							"id": "1",
+							"label": {
+								"en": "Battery",
+								"nl": "Batterij"
+							}
+						},
+						{
+							"id": "16",
+							"label": {
+								"en": "Ultraviolet",
+								"nl": "Ultraviolet"
+							}
+						},
+						{
+							"id": "32",
+							"label": {
+								"en": "Temperature",
+								"nl": "Temperatuur"
+							}
+						},
+						{
+							"id": "64",
+							"label": {
+								"en": "Humidity",
+								"nl": "Vochtigheid"
+							}
+						},
+						{
+							"id": "128",
+							"label": {
+								"en": "Luminance",
+								"nl": "Licht"
+							}
+						}
+					]
+				},
+				{
+					"id": "time_interval_1",
+					"type": "number",
+					"label": {
+						"en": "Reporting interval association group 1",
+						"nl": "Informatie update interval associatie groep 1"
+					},
+					"hint": {
+						"en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 1",
+						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de eerste associatie group zou moeten sturen"
+					},
+					"min": 5,
+					"max": 2678400,
+					"value": 3600
+				},
+				{
+					"id": "time_interval_2",
+					"type": "number",
+					"label": {
+						"en": "Reporting interval association group 2",
+						"nl": "Informatie update interval associatie groep 2"
+					},
+					"hint": {
+						"en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 2",
+						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de tweede associatie group zou moeten sturen"
+					},
+					"min": 5,
+					"max": 2678400,
+					"value": 3600
+				},
+				{
+					"id": "time_interval_3",
+					"type": "number",
+					"label": {
+						"en": "Reporting interval association group 3",
+						"nl": "Informatie update interval associatie groep 3"
+					},
+					"hint": {
+						"en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 3",
+						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de derde associatie group zou moeten sturen"
+					},
+					"min": 5,
+					"max": 2678400,
+					"value": 3600
 				}
 			]
 		},
