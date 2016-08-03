@@ -3,6 +3,8 @@
 const path = require('path');
 const ZwaveDriver = require('homey-zwavedriver');
 
+// http://www.cd-jackson.com/index.php/zwave/zwave-device-database/zwave-device-list/devicesummary/63
+
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	debug: true,
 	capabilities: {
@@ -11,9 +13,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_get: 'BASIC_GET',
 			command_set: 'BASIC_SET',
 			command_set_parser: value => {
-				return {
-					'Value': (value) ? 255 : 0
-				}
+				return { 'Value': (value) ? 255 : 0 }
 			},
 			command_report: 'BASIC_REPORT',
 			command_report_parser: report => {
@@ -33,9 +33,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				}
 			},
 			command_report: 'METER_REPORT',
-			command_report_parser: report => {
-				return report['Meter Value (Parsed)'];
-			}
+			command_report_parser: report => report['Meter Value (Parsed)']
 		}
 	},
 	settings: {
@@ -52,7 +50,6 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 1,
 			parser: input => {
 				console.log('Output load status: ', Number(input));
-
 				return new Buffer([Number(input)]);
 			}
 		},

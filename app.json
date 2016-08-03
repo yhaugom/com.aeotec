@@ -5,13 +5,17 @@
 	},
 	"version": "1.0.0",
 	"compatibility": ">=0.9.1",
+	"description": {
+		"en": "Aeotec devices for Homey",
+		"nl": "Aeotec ondersteuning voor Homey"
+	},
 	"author": {
 		"name": "Athom B.V.",
 		"email": "info@athom.nl"
 	},
 	"drivers": [
 		{
-			"id": "smart_switch_6",
+			"id": "ZW096",
 			"name": {
 				"en": "Smart Switch 6"
 			},
@@ -20,7 +24,7 @@
 				"productTypeId": 3,
 				"productId": 96,
 				"learnmode": {
-					"image": "/drivers/smart_switch_6/assets/learnmode.svg",
+					"image": "/drivers/ZW096/assets/learnmode.svg",
 					"instruction": {
 						"en": "Press the (action) button on the Smart Switch to enter learn mode",
 						"nl": "Druk op de (action) knop op de Smart Switch om de leer modus te activeren"
@@ -64,8 +68,8 @@
 				"measure_power"
 			],
 			"images": {
-				"large": "/drivers/smart_switch_6/assets/images/large.png",
-				"small": "/drivers/smart_switch_6/assets/images/small.png"
+				"large": "/drivers/ZW096/assets/images/large.png",
+				"small": "/drivers/ZW096/assets/images/small.png"
 			},
 			"settings": [
 				{
@@ -174,6 +178,8 @@
 						"nl": "Minimale verandering in wattage nodig voor het verzenden van een update"
 					},
 					"value": 3,
+					"min": 0,
+					"max": 60000,
 					"hint": {
 						"en": "Minimum change of wattage value needed before value is updated",
 						"nl": "Minimale verandering in wattage nodig voor het verzenden van een update"
@@ -319,6 +325,8 @@
 						"en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 1",
 						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de eerste associatie group zou moeten sturen"
 					},
+					"min": 1,
+					"max": 268435456,
 					"value": 15
 				},
 				{
@@ -332,6 +340,8 @@
 						"en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 2",
 						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de tweede associatie group zou moeten sturen"
 					},
+					"min": 1,
+					"max": 268435456,
 					"value": 600
 				},
 				{
@@ -345,91 +355,98 @@
 						"en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 3",
 						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de derde associatie group zou moeten sturen"
 					},
+					"min": 1,
+					"max": 268435456,
 					"value": 600
 				}
 			]
 		},
 		{
-			"id": "ZW089-C",
+			"id": "ZW089",
 			"name": {
-		 		"en": "Aeotec Recessed Door Sensor Gen5"
+				"en": "Recessed Door Sensor Gen5"
 			},
 			"zwave": {
-		 		"manufacturerId": 134,
-		 		"productTypeId": 2,
-		 		"productId": 89,
-		 		"learnmode": {
-					"image": "/drivers/ZW089-C/assets/learnmode.svg",
+				"manufacturerId": 134,
+				"productTypeId": 2,
+				"productId": 89,
+				"learnmode": {
+					"image": "/drivers/ZW089/assets/learnmode.svg",
 					"instruction": {
-			 			"en": "Press the button on your Aeotec Recessed Door Sensor",
-			 			"nl": "Druk op de knop op de Aeotec Recessed Door Sensor"
+						"en": "Press the button on your Recessed Door Sensor",
+						"nl": "Druk op de knop op de Recessed Door Sensor"
 					}
 				},
-		 		"associationGroups": [ 1 ]
+				"associationGroups": [
+					1
+				]
 			},
 			"class": "sensor",
-			"capabilities": [ "alarm_contact", "measure_battery" ],
+			"capabilities": [
+				"alarm_contact",
+				"measure_battery"
+			],
 			"images": {
-		 		"large": "/drivers/ZW089-C/assets/images/large.png",
-		 		"small": "/drivers/ZW089-C/assets/images/small.png"
+				"large": "/drivers/ZW089/assets/images/large.png",
+				"small": "/drivers/ZW089/assets/images/small.png"
 			},
- 			"settings": [
+			"settings": [
 				{
-	 				"id": "parameter-1",
-	 				"type": "dropdown",
-	 				"value": "0",
-	 				"label": {
-						"en": "Sensor Binary Report (1)",
-						"nl": "Sensor Binary Report (1)"
+					"id": "parameter-1",
+					"type": "dropdown",
+					"value": "0",
+					"label": {
+						"en": "Sensor Binary Report",
+						"nl": "Sensor Binary Report"
 					},
-	 			"hint": {
-					"en": "Which value of the Sensor Binary Report will be sent when the magnet switches to open/close.",
-					"nl": "Welke waarde van de Sensor Binary Report wordt er gestuurd als de magneet schakelaar opent/sluit."
-	 			},
-	 			"values": [
-					{
-		 				"id": "0",
-		 				"label": {
-							"en": "Open=0xFF, Close=0x00",
-							"nl": "Open=0xFF, Gesloten=0x00"
-		 				}
+					"hint": {
+						"en": "Which value of the Sensor Binary Report will be sent when the magnet switches to open/close.",
+						"nl": "Welke waarde van de Sensor Binary Report wordt er gestuurd als de magneet schakelaar opent/sluit."
 					},
-					{
-		 				"id": "1",
-		 				"label": {
-							"en": "Open=0x00, Close=0xFF",
-							"nl": "Open=0x00, Gesloten=0xFF"
-		 				}
-					}
-	 			]
-			},
-			{
-	 			"id": "parameter-101",
-				"type": "checkbox",
-				"label": {
-					"en": "Low battery warning (101)",
-					"nl": "Lege batterij waarschuwing (101)"
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "Open=0xFF, Close=0x00",
+								"nl": "Open=0xFF, Gesloten=0x00"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Open=0x00, Close=0xFF",
+								"nl": "Open=0x00, Gesloten=0xFF"
+							}
+						}
+					]
 				},
-				"value": true,
-				"hint": {
-					"en": "Send Low Battery Report",
-					"nl": "Stuur lege batterij waarschuwing"
+				{
+					"id": "parameter-101",
+					"type": "checkbox",
+					"label": {
+						"en": "Low battery warning",
+						"nl": "Lege batterij waarschuwing"
+					},
+					"value": true,
+					"hint": {
+						"en": "Send low battery Report",
+						"nl": "Stuur lege batterij waarschuwing"
+					}
+				},
+				{
+					"id": "parameter-121",
+					"type": "text",
+					"label": {
+						"en": "Command to send",
+						"nl": "Te sturen commando"
+					},
+					"value": "8",
+					"hint": {
+						"en": "To set which command will be sent to the associated nodes when the magnet switch is triggered",
+						"nl": "Configureer welk commando er gestuurd wordt naar de geassocieerde nodes als de magneetschakelaar van status wijzigt"
+					}
 				}
-			},
-			{
-	 			"id": "parameter-121",
-	 			"type": "text",
-	 			"label" : {
-					"en": "Command to send (121)",
-					"nl": "Te sturen commando (121)"
-	 			},
-	 			"value": "8",
-	 			"hint": {
-					"en": "To set which command will be sent to the associated nodes when the magnet switch is triggered",
-					"nl": "Configureer welk commando er gestuurd wordt naar de geassocieerde nodes als de magneetschakelaar van status wijzigt"
-	 			}
-			}
 			]
 		}
-  ]
+	]
 }
