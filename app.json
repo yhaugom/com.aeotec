@@ -348,6 +348,88 @@
 					"value": 600
 				}
 			]
+		},
+		{
+			"id": "ZW089-C",
+			"name": {
+		 		"en": "Aeotec Recessed Door Sensor Gen5"
+			},
+			"zwave": {
+		 		"manufacturerId": 134,
+		 		"productTypeId": 2,
+		 		"productId": 89,
+		 		"learnmode": {
+					"image": "/drivers/ZW089-C/assets/learnmode.svg",
+					"instruction": {
+			 			"en": "Press the button on your Aeotec Recessed Door Sensor",
+			 			"nl": "Druk op de knop op de Aeotec Recessed Door Sensor"
+					}
+				},
+		 		"associationGroups": [ 1 ]
+			},
+			"class": "sensor",
+			"capabilities": [ "alarm_contact", "measure_battery" ],
+			"images": {
+		 		"large": "/drivers/ZW089-C/assets/images/large.png",
+		 		"small": "/drivers/ZW089-C/assets/images/small.png"
+			},
+ 			"settings": [
+				{
+	 				"id": "parameter-1",
+	 				"type": "dropdown",
+	 				"value": "0",
+	 				"label": {
+						"en": "Sensor Binary Report (1)",
+						"nl": "Sensor Binary Report (1)"
+					},
+	 			"hint": {
+					"en": "Which value of the Sensor Binary Report will be sent when the magnet switches to open/close.",
+					"nl": "Welke waarde van de Sensor Binary Report wordt er gestuurd als de magneet schakelaar opent/sluit."
+	 			},
+	 			"values": [
+					{
+		 				"id": "0",
+		 				"label": {
+							"en": "Open=0xFF, Close=0x00",
+							"nl": "Open=0xFF, Gesloten=0x00"
+		 				}
+					},
+					{
+		 				"id": "1",
+		 				"label": {
+							"en": "Open=0x00, Close=0xFF",
+							"nl": "Open=0x00, Gesloten=0xFF"
+		 				}
+					}
+	 			]
+			},
+			{
+	 			"id": "parameter-101",
+				"type": "checkbox",
+				"label": {
+					"en": "Low battery warning (101)",
+					"nl": "Lege batterij waarschuwing (101)"
+				},
+				"value": true,
+				"hint": {
+					"en": "Send Low Battery Report",
+					"nl": "Stuur lege batterij waarschuwing"
+				}
+			},
+			{
+	 			"id": "parameter-121",
+	 			"type": "text",
+	 			"label" : {
+					"en": "Command to send (121)",
+					"nl": "Te sturen commando (121)"
+	 			},
+	 			"value": "8",
+	 			"hint": {
+					"en": "To set which command will be sent to the associated nodes when the magnet switch is triggered",
+					"nl": "Configureer welk commando er gestuurd wordt naar de geassocieerde nodes als de magneetschakelaar van status wijzigt"
+	 			}
+			}
+			]
 		}
-	]
+  ]
 }
