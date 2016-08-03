@@ -3,7 +3,7 @@
 const path = require('path');
 const ZwaveDriver = require('homey-zwavedriver');
 
-// http://www.cd-jackson.com/index.php/zwave/zwave-device-database/zwave-device-list/devicesummary/63
+// http://www.cd-jackson.com/zwave_device_uploads/355/9-Multisensor-6-V1-07.pdf
 
 // TODO check report group settings, values are probably wrong
 
@@ -22,11 +22,11 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 	settings: {
 		wake_up_after_repower: {
 			index: 2,
-			size: 1
+			size: 1,
 			parser: input => new Buffer([(input) ? 1 : 0])
 		},
 		pir_off_time: {
-			index: 3
+			index: 3,
 			size: 2,
 			parser: input => new Buffer([0, Number(input)])
 		},
