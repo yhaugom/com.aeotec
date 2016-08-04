@@ -760,7 +760,7 @@
 					"type": "checkbox",
 					"label": {
 						"en": "Wake up for 10 minutes after re-power (on battery mode)",
-						"nl": "Maak wakker voor 10 minuten na onderbreking van stroom (in batterij modus)"
+						"nl": "Maak apparaat wakker voor 10 minuten na onderbreking van stroom (in batterij modus)"
 					},
 					"value": false,
 					"hint": {
@@ -772,12 +772,12 @@
 					"id": "pir_off_time",
 					"type": "number",
 					"label": {
-						"en": "Time between last motion detected notification and no motion detected notification",
-						"nl": "Tijd tussen laatste bewegingsdetectie en uitschakeling van bewegingsdetectie alarm"
+						"en": "Motion alarm will be cancelled in the main controller and the associated devices after the period of time set in this parameter",
+						"nl": "Bewegingsalarm wordt geannuleerd na het verstrijken van de tijd in deze parameter"
 					},
 					"value": 240,
 					"min": 10,
-					"max": 15300,
+					"max": 3600,
 					"hint": {
 						"en": "Time before motion alarm is turned off since last motion detected event",
 						"nl": "Tijd voordat bewegingsdetectie alarm wordt uitgeschakeld na laatste beweging"
@@ -788,10 +788,10 @@
 					"type": "dropdown",
 					"label": {
 						"en": "Motion sensor sensitivity",
-						"nl": "Bewegingssensor gevoeligheid"
+						"nl": "Gevoeligheid bewegingssensor"
 					},
 					"hint": {
-						"en": "Determines sensitivity off motion sensor.",
+						"en": "Determines sensitivity of the motion sensor.",
 						"nl": "Bepaald de gevoeligheid van de bewegingssensor"
 					},
 					"value": "5",
@@ -842,7 +842,7 @@
 				},
 				{
 					"id": "motion_sensor_trigger_command",
-					"type": "dropwdown",
+					"type": "dropdown",
 					"label": {
 						"en": "Command to send when motion sensor triggered",
 						"nl": "Commando om te verzenden wanneer beweging is gedetecteerd"
@@ -867,9 +867,10 @@
 					"id": "low_battery_value",
 					"type": "number",
 					"label": {
-						"en": "Percentage below which the device should send a low battery alarm",
-						"nl": "Percentage waaronder het apparaat een lege batterij waarschuwing zou moeten geven"
+						"en": "Percentage of battery power below which the device should send a low battery alarm",
+						"nl": "Percentage batterij niveau waaronder het apparaat een lege batterij waarschuwing zou moeten geven"
 					},
+					"value": 20,
 					"min": 10,
 					"max": 50
 				},
