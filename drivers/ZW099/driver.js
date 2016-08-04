@@ -3,7 +3,7 @@
 const path = require('path');
 const ZwaveDriver = require('homey-zwavedriver');
 
-// http://www.cd-jackson.com/index.php/zwave/zwave-device-database/zwave-device-list/devicesummary/275
+// http://www.cd-jackson.com/zwave_device_uploads/275/Aeon-Labs-Smart-Dimmer-6.pdf
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	debug: true,
@@ -16,7 +16,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 					return {
 						'Value': (value) ? 'on/enable' : 'off/disable',
 						'Dimming Duration': 255
-					}
+					};
 				}
 			},
 			{

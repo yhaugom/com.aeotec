@@ -13,7 +13,6 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				command_class: 'COMMAND_CLASS_SWITCH_BINARY',
 				command_set: 'SWITCH_BINARY_SET',
 				command_set_parser: value => {
-					console.log('SWITCH_BINARY_SET:', value);
 					return { 'Switch Value': value }
 				}
 			},

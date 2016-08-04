@@ -737,17 +737,27 @@
 				},
 				"associationGroups": [
 					1
+				],
+				"defaultConfiguration": [
+					{
+						"id": "motion_sensor_trigger_command",
+						"value": "2",
+						"size": 1
+					},
+					{
+						"id": "time_interval_1",
+						"value": 300,
+						"size": 4
+					}
 				]
 			},
 			"class": "sensor",
 			"capabilities": [
-				"alarm_battery",
 				"measure_battery",
 				"alarm_motion",
 				"measure_temperature",
 				"measure_luminance",
 				"measure_humidity",
-				"alarm_tamper",
 				"measure_ultraviolet"
 			],
 			"images": {
@@ -806,8 +816,8 @@
 						{
 							"id": "1",
 							"label": {
-								"en": "Level 1",
-								"nl": "Level 1"
+								"en": "Level 1 (minimum)",
+								"nl": "Level 1 (minimum)"
 							}
 						},
 						{
@@ -834,8 +844,8 @@
 						{
 							"id": "5",
 							"label": {
-								"en": "Level 5",
-								"nl": "Level 5"
+								"en": "Level 5 (maximum)",
+								"nl": "Level 5 (maximum)"
 							}
 						}
 					]
@@ -847,7 +857,7 @@
 						"en": "Command to send when motion sensor triggered",
 						"nl": "Commando om te verzenden wanneer beweging is gedetecteerd"
 					},
-					"value": "1",
+					"value": "2",
 					"values": [
 						{
 							"id": "1",
@@ -875,6 +885,50 @@
 					"max": 50
 				},
 				{
+					"id": "temperature_threshold",
+					"type": "number",
+					"label": {
+						"en": "Temperature threshold value, if exceeded device will send an automatic report (Celsius)",
+						"nl": "Temperatuur verandering nodig voordat het apparaat een automatische update verstuurt (Celsius)"
+					},
+					"value": 2,
+					"min": 1,
+					"max": 50
+				},
+				{
+					"id": "humidity_threshold",
+					"type": "number",
+					"label": {
+						"en": "Humidity threshold value, if exceeded device will send an automatic report (%)",
+						"nl": "Vochtigheidsgraad verandering nodig voordat het apparaat een automatische update verstuurt (%)"
+					},
+					"value": 10,
+					"min": 1,
+					"max": 100
+				},
+				{
+					"id": "luminance_threshold",
+					"type": "number",
+					"label": {
+						"en": "Luminance threshold value, if exceeded device will send an automatic report (lux)",
+						"nl": "Licht verandering nodig voordat het apparaat een automatische update verstuurt (lux)"
+					},
+					"value": 100,
+					"min": 1,
+					"max": 10000
+				},
+				{
+					"id": "battery_threshold",
+					"type": "number",
+					"label": {
+						"en": "Battery threshold value, if exceeded device will send an automatic report (%)",
+						"nl": "Batterij lading verandering nodig voordat het apparaat een automatische update verstuurt (%)"
+					},
+					"value": 10,
+					"min": 1,
+					"max": 100
+				},
+				{
 					"id": "report_group_1",
 					"type": "dropdown",
 					"label": {
@@ -885,7 +939,7 @@
 						"en": "Which information needs to be send to devices in association group 1",
 						"nl": "Welke informatie moet naar apparaten in associatie groep 1 worden gestuurd"
 					},
-					"value": "4",
+					"value": "1",
 					"values": [
 						{
 							"id": "1",
@@ -920,6 +974,13 @@
 							"label": {
 								"en": "Luminance",
 								"nl": "Licht"
+							}
+						},
+						{
+							"id": "241",
+							"label": {
+								"en": "All",
+								"nl": "Alles"
 							}
 						}
 					]
@@ -935,7 +996,7 @@
 						"en": "Which information needs to be send to devices in association group 2",
 						"nl": "Welke informatie moet naar apparaten in associatie groep 2 worden gestuurd"
 					},
-					"value": "4",
+					"value": "0",
 					"values": [
 						{
 							"id": "1",
@@ -970,6 +1031,13 @@
 							"label": {
 								"en": "Luminance",
 								"nl": "Licht"
+							}
+						},
+						{
+							"id": "241",
+							"label": {
+								"en": "All",
+								"nl": "Alles"
 							}
 						}
 					]
@@ -985,7 +1053,7 @@
 						"en": "Which information needs to be send to devices in association group 3",
 						"nl": "Welke informatie moet naar apparaten in associatie groep 3 worden gestuurd"
 					},
-					"value": "4",
+					"value": "0",
 					"values": [
 						{
 							"id": "1",
@@ -1020,6 +1088,13 @@
 							"label": {
 								"en": "Luminance",
 								"nl": "Licht"
+							}
+						},
+						{
+							"id": "241",
+							"label": {
+								"en": "All",
+								"nl": "Alles"
 							}
 						}
 					]
@@ -1037,7 +1112,7 @@
 					},
 					"min": 5,
 					"max": 2678400,
-					"value": 3600
+					"value": 300
 				},
 				{
 					"id": "time_interval_2",
@@ -1068,6 +1143,66 @@
 					"min": 5,
 					"max": 2678400,
 					"value": 3600
+				},
+				{
+					"id": "temperature_calibration",
+					"type": "number",
+					"label": {
+						"en": "Temperature calibration value (Celsius)",
+						"nl": "Temperatuur kalibratie waarde (Celsius)"
+					},
+					"hint": {
+						"en": "This parameter determines the calibration offset, to calibrate take the calibration value (standard) and subtract the temperature measured by the sensor, this is the value to enter",
+						"nl": "Deze parameter bepaald de kalibratie, om te kalibreren neem de kalibratie waarde (standaard) en trek daar de door de sensor gemeten waarde van af, dit is de waarde om in te voeren"
+					},
+					"min": -12.8,
+					"max": 12.7,
+					"value": 0
+				},
+				{
+					"id": "humidity_calibration",
+					"type": "number",
+					"label": {
+						"en": "Humidity calibration value",
+						"nl": "Vochtigheidsgraad kalibratie waarde"
+					},
+					"hint": {
+						"en": "This parameter determines the calibration offset, to calibrate take the calibration value (standard) and subtract the humidity value measured by the sensor, this is the value to enter",
+						"nl": "Deze parameter bepaald de kalibratie, om te kalibreren neem de kalibratie waarde (standaard) en trek daar de door de sensor gemeten waarde van af, dit is de waarde om in te voeren"
+					},
+					"min": -50,
+					"max": 50,
+					"value": 0
+				},
+				{
+					"id": "luminance_calibration",
+					"type": "number",
+					"label": {
+						"en": "Luminance calibration value",
+						"nl": "Licht kalibratie waarde"
+					},
+					"hint": {
+						"en": "This parameter determines the calibration offset, to calibrate take the calibration value (standard) and subtract the luminance value measured by the sensor, this is the value to enter",
+						"nl": "Deze parameter bepaald de kalibratie, om te kalibreren neem de kalibratie waarde (standaard) en trek daar de door de sensor gemeten waarde van af, dit is de waarde om in te voeren"
+					},
+					"min": -1000,
+					"max": 1000,
+					"value": 0
+				},
+				{
+					"id": "ultraviolet_calibration",
+					"type": "number",
+					"label": {
+						"en": "Ultraviolet calibration value",
+						"nl": "Ultraviolet kalibratie waarde"
+					},
+					"hint": {
+						"en": "This parameter determines the calibration offset, to calibrate take the calibration value (standard) and subtract the ultraviolet value measured by the sensor, this is the value to enter",
+						"nl": "Deze parameter bepaald de kalibratie, om te kalibreren neem de kalibratie waarde (standaard) en trek daar de door de sensor gemeten waarde van af, dit is de waarde om in te voeren"
+					},
+					"min": -10,
+					"max": 10,
+					"value": 0
 				}
 			]
 		},
