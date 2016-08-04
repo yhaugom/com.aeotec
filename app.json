@@ -939,7 +939,7 @@
 						"en": "Which information needs to be send to devices in association group 1",
 						"nl": "Welke informatie moet naar apparaten in associatie groep 1 worden gestuurd"
 					},
-					"value": "1",
+					"value": "241",
 					"values": [
 						{
 							"id": "1",

@@ -12,7 +12,6 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 	capabilities: {
 		measure_battery: {
 			command_class: 'COMMAND_CLASS_BATTERY',
-			command_get: 'BATTERY_GET',
 			command_get_parser: () => {
 				return {
 					'Sensor Type': 'Electric meter',
@@ -23,23 +22,20 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			},
 			command_report: 'BATTERY_REPORT',
 			command_report_parser: report => {
-				// console.log(report);
-				if (typeof report['Battery Level'] === 'object') return undefined;
-				return report['Battery Level'] || 0;
+				if (report['Battery Level (Raw)']) return report['Battery Level (Raw)'][0];
+				return null;
 			}
 		},
 		alarm_motion: {
 			command_class: 'COMMAND_CLASS_SENSOR_BINARY',
-			command_get: 'SENSOR_BINARY_GET',
 			command_report: 'SENSOR_BINARY_REPORT',
+			command_get: 'SENSOR_BINARY_GET',
 			command_report_parser: report => {
-				console.log(report);
-				return report['Sensor Value'] === 'detected an event'
+				return report['Sensor Value'] === 'detected an event';
 			}
 		},
 		measure_temperature: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
-			command_get: 'SENSOR_MULTILEVEL_GET',
 			command_get_parser: () => {
 				return {
 					'Sensor Type': 'Temperature (version 1)',
@@ -50,13 +46,12 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			},
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
 			command_report_parser: report => {
-				console.log(report);
 				if (report['Sensor Type'] === 'Temperature (version 1)') return report['Sensor Value (Parsed)'];
+				return null;
 			}
 		},
 		measure_luminance: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
-			command_get: 'SENSOR_MULTILEVEL_GET',
 			command_get_parser: () => {
 				return {
 					'Sensor Type': 'Luminance (version 1)',
@@ -68,11 +63,11 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
 			command_report_parser: report => {
 				if (report['Sensor Type'] === 'Luminance (version 1)') return report['Sensor Value (Parsed)'];
+				return null;
 			}
 		},
 		measure_humidity: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
-			command_get: 'SENSOR_MULTILEVEL_GET',
 			command_get_parser: () => {
 				return {
 					'Sensor Type': 'Relative humidity (version 2)',
@@ -84,11 +79,11 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
 			command_report_parser: report => {
 				if (report['Sensor Type'] === 'Relative humidity (version 2)') return report['Sensor Value (Parsed)'];
+				return null;
 			}
 		},
 		measure_ultraviolet: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
-			command_get: 'SENSOR_MULTILEVEL_GET',
 			command_get_parser: () => {
 				return {
 					'Sensor Type': 'Ultraviolet (v5)',
@@ -99,9 +94,8 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			},
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
 			command_report_parser: report => {
-				// console.log(report);
 				if (report['Sensor Type'] === 'Ultraviolet (v5)') return report['Sensor Value (Parsed)'];
-				return undefined;
+				return null;
 			}
 		},
 	},
