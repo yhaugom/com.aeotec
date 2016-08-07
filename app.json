@@ -25,6 +25,93 @@
 	},
 	"drivers": [
 		{
+			"id": "DSB45-ZWEU",
+			"name": {
+				"en": "Water Sensor"
+			},
+			"zwave": {
+				"manufacturerId": 134,
+				"productTypeId": 2,
+				"productId": 45,
+				"learnmode": {
+					"image": "/drivers/DSB45-ZWEU/assets/learnmode.svg",
+					"instruction": {
+						"en": "Press the Z-Wave button on your Water Sensor",
+						"nl": "Druk op de Z-Wave knop op de Water Sensor"
+					}
+				},
+				"associationGroups": [
+					1
+				],
+				"defaultConfiguration": [
+					{
+						"id": "sensor_binary_report",
+						"size": 1,
+						"value": 0
+					},
+					{
+						"id": "Reports_that_will_be_sent",
+						"size": 4,
+						"value": 256
+					}
+				]
+			},
+			"class": "sensor",
+			"capabilities": [
+				"alarm_water",
+				"measure_battery"
+			],
+			"images": {
+				"large": "/drivers/DSB45-ZWEU/assets/images/large.png",
+				"small": "/drivers/DSB45-ZWEU/assets/images/small.png"
+			},
+			"settings": [
+				{
+					"id": "sensor_binary_report",
+					"type": "dropdown",
+					"value": "0",
+					"label": {
+						"en": "Sensor Binary Report",
+						"nl": "Sensor Binary Report"
+					},
+					"hint": {
+						"en": "Which value of the Sensor Binary Report will be sent when the Water Sensor detects water",
+						"nl": "Welke waarde van de Sensor Binary Report wordt er gestuurd als de Water Sensor water detecteert"
+					},
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "Open=0xFF, Close=0x00",
+								"nl": "Open=0xFF, Gesloten=0x00"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Open=0x00, Close=0xFF",
+								"nl": "Open=0x00, Gesloten=0xFF"
+							}
+						}
+					]
+				},
+				{
+					"id": "Reports_that_will_be_sent",
+					"type": "number",
+					"label": {
+						"en": "Command to send",
+						"nl": "Te sturen commando"
+					},
+					"value": 256,
+					"hint": {
+						"en": "To set which report will be sent to the associated nodes when the Water Sensor detects water",
+						"nl": "Configureer welk rapport er gestuurd wordt naar de geassocieerde nodes als de Water Sensor water detecteert"
+					}
+				}
+			]
+		},
+
+		{
 			"id": "ZW096",
 			"name": {
 				"en": "Smart Switch 6"
