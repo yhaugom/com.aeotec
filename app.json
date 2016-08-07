@@ -68,29 +68,29 @@
 			"settings": [
 				{
 					"id": "sensor_binary_report",
-					"type": "dropdown",
+					"type": "radio",
 					"value": "0",
 					"label": {
-						"en": "Sensor Binary Report",
-						"nl": "Sensor Binary Report"
+						"en": "Operation mode",
+						"nl": "Werking"
 					},
 					"hint": {
-						"en": "Which value of the Sensor Binary Report will be sent when the Water Sensor detects water",
-						"nl": "Welke waarde van de Sensor Binary Report wordt er gestuurd als de Water Sensor water detecteert"
+						"en": "With this setting you can control if you get an alarm when water is detected or when water is not detected",
+						"nl": "Met deze instelling kan je kiezen of je een alarm krijgt als er water gedetecteerd wordt of als er geen water meer gedetecteerd wordt"
 					},
 					"values": [
 						{
 							"id": "0",
 							"label": {
-								"en": "Open=0xFF, Close=0x00",
-								"nl": "Open=0xFF, Gesloten=0x00"
+								"en": "Warn when water detected",
+								"nl": "Waarschuwen als er water gedetecteerd wordt"
 							}
 						},
 						{
 							"id": "1",
 							"label": {
-								"en": "Open=0x00, Close=0xFF",
-								"nl": "Open=0x00, Gesloten=0xFF"
+								"en": "Warn when no water detected",
+								"nl": "Waarschuwen als er geen water gedetecteerd wordt."
 							}
 						}
 					]

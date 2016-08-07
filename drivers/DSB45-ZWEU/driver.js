@@ -31,7 +31,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		sensor_binary_report: {
 			index: 1,
 			size: 1,
-			parser: input => new Buffer([parseInt(input)])
+			parser: input => new Buffer([Number(input)])
 		},
 		Reports_that_will_be_sent: {
 			index: 121,
