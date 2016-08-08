@@ -414,6 +414,592 @@
 			]
 		},
 		{
+			"id": "ZW089",
+			"name": {
+				"en": "Recessed Door Sensor Gen5"
+			},
+			"zwave": {
+				"manufacturerId": 134,
+				"productTypeId": 2,
+				"productId": 89,
+				"learnmode": {
+					"image": "/drivers/ZW089/assets/learnmode.svg",
+					"instruction": {
+						"en": "Press the button on your Recessed Door Sensor",
+						"nl": "Druk op de knop op de Recessed Door Sensor"
+					}
+				},
+				"associationGroups": [
+					1
+				]
+			},
+			"class": "sensor",
+			"capabilities": [
+				"alarm_contact",
+				"measure_battery"
+			],
+			"images": {
+				"large": "/drivers/ZW089/assets/images/large.png",
+				"small": "/drivers/ZW089/assets/images/small.png"
+			},
+			"settings": [
+				{
+					"id": "parameter-1",
+					"type": "dropdown",
+					"value": "0",
+					"label": {
+						"en": "Sensor Binary Report",
+						"nl": "Sensor Binary Report"
+					},
+					"hint": {
+						"en": "Which value of the Sensor Binary Report will be sent when the magnet switches to open/close.",
+						"nl": "Welke waarde van de Sensor Binary Report wordt er gestuurd als de magneet schakelaar opent/sluit."
+					},
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "Open=0xFF, Close=0x00",
+								"nl": "Open=0xFF, Gesloten=0x00"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Open=0x00, Close=0xFF",
+								"nl": "Open=0x00, Gesloten=0xFF"
+							}
+						}
+					]
+				},
+				{
+					"id": "parameter-101",
+					"type": "checkbox",
+					"label": {
+						"en": "Low battery warning",
+						"nl": "Lege batterij waarschuwing"
+					},
+					"value": true,
+					"hint": {
+						"en": "Send low battery Report",
+						"nl": "Stuur lege batterij waarschuwing"
+					}
+				},
+				{
+					"id": "parameter-121",
+					"type": "text",
+					"label": {
+						"en": "Command to send",
+						"nl": "Te sturen commando"
+					},
+					"value": "8",
+					"hint": {
+						"en": "To set which command will be sent to the associated nodes when the magnet switch is triggered",
+						"nl": "Configureer welk commando er gestuurd wordt naar de geassocieerde nodes als de magneetschakelaar van status wijzigt"
+					}
+				}
+			]
+		},
+		{
+			"id": "ZW095",
+			"name": {
+				"en": "Home Energy Meter Gen5"
+			},
+			"zwave": {
+				"manufacturerId": 134,
+				"productTypeId": 258,
+				"productId": 95,
+				"learnmode": {
+					"image": "/drivers/ZW095/assets/learnmode.svg",
+					"instruction": {
+						"en": "Press the (z-wave) button on the Home Energy Meter to enter learn mode",
+						"nl": "Druk op de (z-wave) knop op de Home Energy Meter om de leer modus te activeren"
+					}
+				},
+				"associationGroups": [
+					1
+				],
+				"defaultConfiguration": [
+					{
+						"id": "min_watt_change",
+						"size": 4,
+						"value": 3
+					},
+					{
+						"id": "report_group_1",
+						"size": 4,
+						"value": "4"
+					},
+					{
+						"id": "time_interval_1",
+						"size": 4,
+						"value": 15
+					}
+				],
+				"multiChannelNodes": {
+					"1": {
+						"class": "sensor",
+						"capabilities": [
+							"measure_power"
+						],
+						"icon": "/drivers/ZW095/assets/icon.svg",
+						"name": {
+							"en": "Clamp 1",
+							"nl": "Klem 1"
+						}
+					},
+					"2": {
+						"class": "sensor",
+						"capabilities": [
+							"measure_power"
+						],
+						"icon": "/drivers/ZW095/assets/icon.svg",
+						"name": {
+							"en": "Clamp 2",
+							"nl": "Klem 2"
+						}
+					}
+				}
+			},
+			"class": "sensor",
+			"capabilities": [
+				"measure_power"
+			],
+			"images": {
+				"large": "/drivers/ZW095/assets/images/large.png",
+				"small": "/drivers/ZW095/assets/images/small.png"
+			},
+			"settings": [
+				{
+					"id": "energy_detection_mode",
+					"type": "dropdown",
+					"label": {
+						"en": "Configure energy detection mode",
+						"nl": "Configureer energie detectie modus"
+					},
+					"value": "0",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "Report Wattage and the absolute kWh value",
+								"nl": "Rapporteer Wattage en de absolute kWh waarde"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Report positive/negative Wattage and the algebraic sum kWh value",
+								"nl": "Rapporteer positieve/negatieve Wattage en de algebraïsche kWh waarde"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "Report positive/negative Wattage and the positive kWh value (consuming electricity)",
+								"nl": "Rapporteer positieve/negatieve Wattage en de positieve kWh waarde"
+							}
+						},
+						{
+							"id": "3",
+							"label": {
+								"en": "Report positive/negative Wattage and the negative kWh value (generating electricity)",
+								"nl": "Rapporteer positieve/negatieve Wattage en de negatieve kWh waarde"
+							}
+						}
+					]
+				},
+				{
+					"id": "toggle_automatic_reporting",
+					"type": "checkbox",
+					"label": {
+						"en": "Enable automatic reporting",
+						"nl": "Zet automatisch rapporteren aan"
+					},
+					"hint": {
+						"en": "When enabled the device will send a report when the value threshold has been crossed (see parameters below)",
+						"nl": "Laat apparaat automatisch rapporteren wanneer een waarde een bepaalde grens heeft overschreden (zie parameters hieronder)"
+					},
+					"value": true
+				},
+				{
+					"id": "wattage_threshold_clamp1",
+					"type": "number",
+					"label": {
+						"en": "Wattage threshold before automatic report is send (for clamp 1)",
+						"nl": "Wattage grens, bij overschrijden wordt automatisch rapport verstuurd (klem 1)"
+					},
+					"value": 50,
+					"min": 1,
+					"max": 32767
+				},
+				{
+					"id": "wattage_threshold_clamp2",
+					"type": "number",
+					"label": {
+						"en": "Wattage threshold before automatic report is send (for clamp 2)",
+						"nl": "Wattage grens, bij overschrijden wordt automatisch rapport verstuurd (klem 2)"
+					},
+					"value": 50,
+					"min": 1,
+					"max": 32767
+				},
+				{
+					"id": "wattage_threshold_hem",
+					"type": "number",
+					"label": {
+						"en": "Wattage threshold before automatic report is send (for whole HEM)",
+						"nl": "Wattage grens, bij overschrijden wordt automatisch rapport verstuurd (HEM)"
+					},
+					"value": 50,
+					"min": 1,
+					"max": 32767
+				},
+				{
+					"id": "report_group_1",
+					"type": "dropdown",
+					"label": {
+						"en": "Information reports send to association group 1",
+						"nl": "Informatie updates naar associatie groep 1"
+					},
+					"hint": {
+						"en": "Which information needs to be send to devices in association group 1",
+						"nl": "Welke informatie moet naar apparaten in associatie groep 1 worden gestuurd"
+					},
+					"value": "2",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "Send Meter report (for kWh, whole HEM)",
+								"nl": "Verstuur Meter rapport (voor kWh, hele HEM)"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Send Meter report (for wattage, whole HEM)",
+								"nl": "Verstuur Meter rapport (voor Wattage, hele HEM)"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "Send Meter report (for V, whole HEM)",
+								"nl": "Verstuur Meter rapport (voor V, hele HEM)"
+							}
+						},
+						{
+							"id": "3",
+							"label": {
+								"en": "Send Meter report (for A, whole HEM)",
+								"nl": "Verstuur Meter rapport (voor A, hele HEM)"
+							}
+						},
+						{
+							"id": "8",
+							"label": {
+								"en": "Send Meter report (for Watt, clamp 1)",
+								"nl": "Verstuur Meter rapport (voor Wattage, klem 1)"
+							}
+						},
+						{
+							"id": "9",
+							"label": {
+								"en": "Send Meter report (for Watt, clamp 2)",
+								"nl": "Verstuur Meter rapport (voor Wattage, klem 2)"
+							}
+						},
+						{
+							"id": "11",
+							"label": {
+								"en": "Send Meter report (for kWh, clamp 1)",
+								"nl": "Verstuur Meter rapport (voor kWh, klem 1)"
+							}
+						},
+						{
+							"id": "12",
+							"label": {
+								"en": "Send Meter report (for kWh, clamp 2)",
+								"nl": "Verstuur Meter rapport (voor kWh, klem 2)"
+							}
+						},
+						{
+							"id": "16",
+							"label": {
+								"en": "Send Meter report (for V, clamp 1)",
+								"nl": "Verstuur Meter rapport (voor V, klem 1)"
+							}
+						},
+						{
+							"id": "17",
+							"label": {
+								"en": "Send Meter report (for V, clamp 2)",
+								"nl": "Verstuur Meter rapport (voor V, klem 2)"
+							}
+						},
+						{
+							"id": "19",
+							"label": {
+								"en": "Send Meter report (for A, clamp 1)",
+								"nl": "Verstuur Meter rapport (voor A, klem 1)"
+							}
+						},
+						{
+							"id": "20",
+							"label": {
+								"en": "Send Meter report (for A, clamp 2)",
+								"nl": "Verstuur Meter rapport (voor A, klem 2)"
+							}
+						}
+					]
+				},
+				{
+					"id": "report_group_2",
+					"type": "dropdown",
+					"label": {
+						"en": "Information reports send to association group 2",
+						"nl": "Informatie updates naar associatie groep 2"
+					},
+					"hint": {
+						"en": "Which information needs to be send to devices in association group 2",
+						"nl": "Welke informatie moet naar apparaten in associatie groep 2 worden gestuurd"
+					},
+					"value": "1",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "Send Meter report (for kWh, whole HEM)",
+								"nl": "Verstuur Meter rapport (voor kWh, hele HEM)"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Send Meter report (for wattage, whole HEM)",
+								"nl": "Verstuur Meter rapport (voor Wattage, hele HEM)"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "Send Meter report (for V, whole HEM)",
+								"nl": "Verstuur Meter rapport (voor V, hele HEM)"
+							}
+						},
+						{
+							"id": "3",
+							"label": {
+								"en": "Send Meter report (for A, whole HEM)",
+								"nl": "Verstuur Meter rapport (voor A, hele HEM)"
+							}
+						},
+						{
+							"id": "8",
+							"label": {
+								"en": "Send Meter report (for Watt, clamp 1)",
+								"nl": "Verstuur Meter rapport (voor Wattage, klem 1)"
+							}
+						},
+						{
+							"id": "9",
+							"label": {
+								"en": "Send Meter report (for Watt, clamp 2)",
+								"nl": "Verstuur Meter rapport (voor Wattage, klem 2)"
+							}
+						},
+						{
+							"id": "11",
+							"label": {
+								"en": "Send Meter report (for kWh, clamp 1)",
+								"nl": "Verstuur Meter rapport (voor kWh, klem 1)"
+							}
+						},
+						{
+							"id": "12",
+							"label": {
+								"en": "Send Meter report (for kWh, clamp 2)",
+								"nl": "Verstuur Meter rapport (voor kWh, klem 2)"
+							}
+						},
+						{
+							"id": "16",
+							"label": {
+								"en": "Send Meter report (for V, clamp 1)",
+								"nl": "Verstuur Meter rapport (voor V, klem 1)"
+							}
+						},
+						{
+							"id": "17",
+							"label": {
+								"en": "Send Meter report (for V, clamp 2)",
+								"nl": "Verstuur Meter rapport (voor V, klem 2)"
+							}
+						},
+						{
+							"id": "19",
+							"label": {
+								"en": "Send Meter report (for A, clamp 1)",
+								"nl": "Verstuur Meter rapport (voor A, klem 1)"
+							}
+						},
+						{
+							"id": "20",
+							"label": {
+								"en": "Send Meter report (for A, clamp 2)",
+								"nl": "Verstuur Meter rapport (voor A, klem 2)"
+							}
+						}
+					]
+				},
+				{
+					"id": "report_group_3",
+					"type": "dropdown",
+					"label": {
+						"en": "Information reports send to association group 3",
+						"nl": "Informatie updates naar associatie groep 3"
+					},
+					"hint": {
+						"en": "Which information needs to be send to devices in association group 3",
+						"nl": "Welke informatie moet naar apparaten in associatie groep 3 worden gestuurd"
+					},
+					"value": "0",
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "Send Meter report (for kWh, whole HEM)",
+								"nl": "Verstuur Meter rapport (voor kWh, hele HEM)"
+							}
+						},
+						{
+							"id": "1",
+							"label": {
+								"en": "Send Meter report (for wattage, whole HEM)",
+								"nl": "Verstuur Meter rapport (voor Wattage, hele HEM)"
+							}
+						},
+						{
+							"id": "2",
+							"label": {
+								"en": "Send Meter report (for V, whole HEM)",
+								"nl": "Verstuur Meter rapport (voor V, hele HEM)"
+							}
+						},
+						{
+							"id": "3",
+							"label": {
+								"en": "Send Meter report (for A, whole HEM)",
+								"nl": "Verstuur Meter rapport (voor A, hele HEM)"
+							}
+						},
+						{
+							"id": "8",
+							"label": {
+								"en": "Send Meter report (for Watt, clamp 1)",
+								"nl": "Verstuur Meter rapport (voor Wattage, klem 1)"
+							}
+						},
+						{
+							"id": "9",
+							"label": {
+								"en": "Send Meter report (for Watt, clamp 2)",
+								"nl": "Verstuur Meter rapport (voor Wattage, klem 2)"
+							}
+						},
+						{
+							"id": "11",
+							"label": {
+								"en": "Send Meter report (for kWh, clamp 1)",
+								"nl": "Verstuur Meter rapport (voor kWh, klem 1)"
+							}
+						},
+						{
+							"id": "12",
+							"label": {
+								"en": "Send Meter report (for kWh, clamp 2)",
+								"nl": "Verstuur Meter rapport (voor kWh, klem 2)"
+							}
+						},
+						{
+							"id": "16",
+							"label": {
+								"en": "Send Meter report (for V, clamp 1)",
+								"nl": "Verstuur Meter rapport (voor V, klem 1)"
+							}
+						},
+						{
+							"id": "17",
+							"label": {
+								"en": "Send Meter report (for V, clamp 2)",
+								"nl": "Verstuur Meter rapport (voor V, klem 2)"
+							}
+						},
+						{
+							"id": "19",
+							"label": {
+								"en": "Send Meter report (for A, clamp 1)",
+								"nl": "Verstuur Meter rapport (voor A, klem 1)"
+							}
+						},
+						{
+							"id": "20",
+							"label": {
+								"en": "Send Meter report (for A, clamp 2)",
+								"nl": "Verstuur Meter rapport (voor A, klem 2)"
+							}
+						}
+					]
+				},
+				{
+					"id": "time_interval_1",
+					"type": "number",
+					"label": {
+						"en": "Reporting interval association group 1",
+						"nl": "Informatie update interval associatie groep 1"
+					},
+					"hint": {
+						"en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 1",
+						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de eerste associatie group zou moeten sturen"
+					},
+					"min": 1,
+					"max": 2147483647,
+					"value": 60
+				},
+				{
+					"id": "time_interval_2",
+					"type": "number",
+					"label": {
+						"en": "Reporting interval association group 2",
+						"nl": "Informatie update interval associatie groep 2"
+					},
+					"hint": {
+						"en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 2",
+						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de tweede associatie group zou moeten sturen"
+					},
+					"min": 1,
+					"max": 2147483647,
+					"value": 120
+				},
+				{
+					"id": "time_interval_3",
+					"type": "number",
+					"label": {
+						"en": "Reporting interval association group 3",
+						"nl": "Informatie update interval associatie groep 3"
+					},
+					"hint": {
+						"en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 3",
+						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de derde associatie group zou moeten sturen"
+					},
+					"min": 1,
+					"max": 2147483647,
+					"value": 120
+				}
+			]
+		},
+		{
 			"id": "ZW096",
 			"name": {
 				"en": "Smart Switch 6"
@@ -1592,93 +2178,6 @@
 					"min": -10,
 					"max": 10,
 					"value": 0
-				}
-			]
-		},
-		{
-			"id": "ZW089",
-			"name": {
-				"en": "Recessed Door Sensor Gen5"
-			},
-			"zwave": {
-				"manufacturerId": 134,
-				"productTypeId": 2,
-				"productId": 89,
-				"learnmode": {
-					"image": "/drivers/ZW089/assets/learnmode.svg",
-					"instruction": {
-						"en": "Press the button on your Recessed Door Sensor",
-						"nl": "Druk op de knop op de Recessed Door Sensor"
-					}
-				},
-				"associationGroups": [
-					1
-				]
-			},
-			"class": "sensor",
-			"capabilities": [
-				"alarm_contact",
-				"measure_battery"
-			],
-			"images": {
-				"large": "/drivers/ZW089/assets/images/large.png",
-				"small": "/drivers/ZW089/assets/images/small.png"
-			},
-			"settings": [
-				{
-					"id": "parameter-1",
-					"type": "dropdown",
-					"value": "0",
-					"label": {
-						"en": "Sensor Binary Report",
-						"nl": "Sensor Binary Report"
-					},
-					"hint": {
-						"en": "Which value of the Sensor Binary Report will be sent when the magnet switches to open/close.",
-						"nl": "Welke waarde van de Sensor Binary Report wordt er gestuurd als de magneet schakelaar opent/sluit."
-					},
-					"values": [
-						{
-							"id": "0",
-							"label": {
-								"en": "Open=0xFF, Close=0x00",
-								"nl": "Open=0xFF, Gesloten=0x00"
-							}
-						},
-						{
-							"id": "1",
-							"label": {
-								"en": "Open=0x00, Close=0xFF",
-								"nl": "Open=0x00, Gesloten=0xFF"
-							}
-						}
-					]
-				},
-				{
-					"id": "parameter-101",
-					"type": "checkbox",
-					"label": {
-						"en": "Low battery warning",
-						"nl": "Lege batterij waarschuwing"
-					},
-					"value": true,
-					"hint": {
-						"en": "Send low battery Report",
-						"nl": "Stuur lege batterij waarschuwing"
-					}
-				},
-				{
-					"id": "parameter-121",
-					"type": "text",
-					"label": {
-						"en": "Command to send",
-						"nl": "Te sturen commando"
-					},
-					"value": "8",
-					"hint": {
-						"en": "To set which command will be sent to the associated nodes when the magnet switch is triggered",
-						"nl": "Configureer welk commando er gestuurd wordt naar de geassocieerde nodes als de magneetschakelaar van status wijzigt"
-					}
 				}
 			]
 		}
