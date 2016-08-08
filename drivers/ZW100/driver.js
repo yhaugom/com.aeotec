@@ -5,8 +5,6 @@ const ZwaveDriver = require('homey-zwavedriver');
 
 // http://www.cd-jackson.com/zwave_device_uploads/355/9-Multisensor-6-V1-07.pdf
 
-// TODO check report group settings, values are probably wrong
-
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	debug: true,
 	capabilities: {
@@ -29,10 +27,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		alarm_motion: {
 			command_class: 'COMMAND_CLASS_SENSOR_BINARY',
 			command_report: 'SENSOR_BINARY_REPORT',
-			command_get: 'SENSOR_BINARY_GET',
-			command_report_parser: report => {
-				return report['Sensor Value'] === 'detected an event';
-			}
+			command_report_parser: report => report['Sensor Value'] === 'detected an event'
 		},
 		measure_temperature: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
