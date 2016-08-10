@@ -595,6 +595,11 @@
 						"value": 3
 					},
 					{
+						"id": "notify_associated_devices",
+						"size": 1,
+						"value": 2
+					},
+					{
 						"id": "report_group_1",
 						"size": 4,
 						"value": "4"
