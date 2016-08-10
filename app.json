@@ -595,11 +595,6 @@
 						"value": 3
 					},
 					{
-						"id": "notify_associated_devices",
-						"size": 1,
-						"value": 2
-					},
-					{
 						"id": "report_group_1",
 						"size": 4,
 						"value": "4"
@@ -1102,7 +1097,7 @@
 					{
 						"id": "notify_associated_devices",
 						"size": 1,
-						"value": true
+						"value": 2
 					},
 					{
 						"id": "min_watt_change",
@@ -1518,7 +1513,7 @@
 					{
 						"id": "notify_associated_devices",
 						"size": 1,
-						"value": true
+						"value": 2
 					},
 					{
 						"id": "min_watt_change",
