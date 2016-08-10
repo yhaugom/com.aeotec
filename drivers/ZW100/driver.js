@@ -101,6 +101,11 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 1,
 			parser: input => new Buffer([(input) ? 1 : 0])
 		},
+		pir_sensitivity: {
+			index: 4,
+			size: 1,
+			parser: input => new Buffer([Number(input)])
+		},
 		pir_off_time: {
 			index: 3,
 			size: 2,
@@ -115,6 +120,11 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			index: 39,
 			size: 1,
 			parser: input => new Buffer([input])
+		},
+		selective_reporting: {
+			index: 40,
+			size: 1,
+			parser: input => new Buffer([Number(input)])
 		},
 		temperature_threshold: {
 			index: 41,
