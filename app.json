@@ -1428,8 +1428,8 @@
 				"light_temperature"
 			],
 			"images": {
-				"large": "/drivers/ZW099/assets/images/large.png",
-				"small": "/drivers/ZW099/assets/images/small.png"
+				"large": "/drivers/ZW098/assets/images/large.png",
+				"small": "/drivers/ZW098/assets/images/small.png"
 			},
 			"zwave": {
 				"manufacturerId": 134,
