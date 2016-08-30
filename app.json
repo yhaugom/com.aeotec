@@ -1078,7 +1078,6 @@
 				"productTypeId": 3,
 				"productId": 96,
 				"learnmode": {
-					"image": "/drivers/ZW096/assets/learnmode.svg",
 					"instruction": {
 						"en": "Press the (action) button on the Smart Switch to enter learn mode",
 						"nl": "Druk op de (actie) knop op de Smart Switch om de leer modus te activeren"
@@ -1436,7 +1435,6 @@
 				"productTypeId": 3,
 				"productId": 98,
 				"learnmode": {
-					"image": "/drivers/ZW098/assets/learnmode.svg",
 					"instruction": {
 						"en": "Turn the bulb off and on to enter learning mode",
 						"nl": "Schakel de lamp uit en aan om leer modus te activeren"
@@ -1494,7 +1492,6 @@
 				"productTypeId": 3,
 				"productId": 99,
 				"learnmode": {
-					"image": "/drivers/ZW099/assets/learnmode.svg",
 					"instruction": {
 						"en": "Press the (action) button on the Smart Dimmer to enter learn mode",
 						"nl": "Druk op de (actie) knop op de Smart Dimmer om de leer modus te activeren"
@@ -1842,7 +1839,6 @@
 				"productTypeId": 2,
 				"productId": 100,
 				"learnmode": {
-					"image": "/drivers/ZW100/assets/learnmode.svg",
 					"instruction": {
 						"en": "Press the (action) button on your MultiSensor 6",
 						"nl": "Druk op de (actie) knop op de MultiSensor 6"
