@@ -7,8 +7,6 @@ const tinycolor = require("tinycolor2");
 
 // http://www.smarthome.com.au/media/manuals/Aeotec_Z-Wave_LED_Bulb_Product_Manual.pdf
 
-// TODO: get initial saturation. Not for now to save network traffic
-
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	debug: true,
 	capabilities: {
@@ -50,6 +48,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				}
 			}
 		},
+		/*
 		light_hue: {
 			command_class: 'COMMAND_CLASS_SWITCH_COLOR',
 			command_get: 'SWITCH_COLOR_GET',
@@ -267,6 +266,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				// TODO
 			}
 		}
+		*/
 	},
 	settings: {
 		color_report: {
@@ -277,6 +277,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 	}
 });
 
+/*
 function hueCommandSetParser(value, node) {
 	return tinycolor({
 		h: value * 360,
@@ -323,10 +324,10 @@ function colorCommandReportParser(color, report, node) {
 	}).toHsv();
 
 	return hsv.h / 360;
-
 }
 
 
 function map(input_start, input_end, output_start, output_end, input) {
 	return output_start + ((output_end - output_start) / (input_end - input_start)) * (input - input_start);
 }
+*/

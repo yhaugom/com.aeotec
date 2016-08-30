@@ -121,7 +121,6 @@
 				"productId": 62,
 				"requireSecure": true,
 				"learnmode": {
-					"image": "/drivers/ZW062/assets/learnmode.svg",
 					"instruction": {
 						"en": "Press the (z-wave) button on your Garage Door Controller",
 						"nl": "Druk op de (z-wave) knop op de Garage Door Controller"
@@ -579,7 +578,6 @@
 				"productTypeId": 258,
 				"productId": 95,
 				"learnmode": {
-					"image": "/drivers/ZW095/assets/learnmode.svg",
 					"instruction": {
 						"en": "Press the (z-wave) button on the Home Energy Meter to enter learn mode",
 						"nl": "Druk op de (z-wave) knop op de Home Energy Meter om de leer modus te activeren"
@@ -1422,9 +1420,7 @@
 			"class": "light",
 			"capabilities": [
 				"onoff",
-				"dim",
-				"light_hue",
-				"light_temperature"
+				"dim"
 			],
 			"images": {
 				"large": "/drivers/ZW098/assets/images/large.png",
