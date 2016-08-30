@@ -422,7 +422,6 @@
 				"productTypeId": 1,
 				"productId": 88,
 				"learnmode": {
-					"image": "/drivers/ZW088/assets/learnmode.svg",
 					"instruction": {
 						"en": "Press the inclusion button on your Key Fob",
 						"nl": "Druk op de inclusie knop op de Key Fob"
@@ -433,7 +432,7 @@
 				]
 			},
 			"class": "other",
-			"capabilities": ["onoff"],
+			"capabilities": ["measure_battery"],
 			"mobile": {
 				"components": [
 					{

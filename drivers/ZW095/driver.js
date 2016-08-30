@@ -17,7 +17,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 					'Properties1': {
 						'Scale': 0
 					}
-				}
+				};
 			},
 			command_report: 'METER_REPORT',
 			command_report_parser: report => report['Meter Value (Parsed)']
