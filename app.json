@@ -170,7 +170,7 @@
 					},
 					"hint": {
 						"en": "Calibration procedure: 1. Let the garage door move to full close position. 2. Enable this parameter, and save the settings. 3. Disable this parameter again and save, then let the garage door move to full open position. 4. Let the garage door move to full close position after step 3 is completed.",
-						"nl": "Kalibratie process: 1. Laat de garagedeur naar de volledig gesloten positie gaan. 2. Vink deze parameter aan en sla de instellingen op. 3. Vink deze parameter uit en sla de instellingen opnieuw op, laat vervolgens de garagedeur naar de volledig geopende positie gaan. 4. Laat de garagedeur naar de volledige gesloten positie gaan nadat stap 3 is voltooid."
+						"nl": "Kalibratie process: 1. Laat de garagedeur naar de volledig gesloten positie gaan. 2. Vink deze parameter aan en sla de instellingen op. 3. Vink deze parameter uit en sla de instellingen opnieuw op, laat vervolgens de garagedeur naar de volledig geopende positie gaan. 4. Laat de garagedeur naar de volledig gesloten positie gaan nadat stap 3 is voltooid."
 					},
 					"value": false
 				},

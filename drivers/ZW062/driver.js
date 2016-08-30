@@ -3,7 +3,8 @@
 const path = require('path');
 const ZwaveDriver = require('homey-zwavedriver');
 
-// https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/6009584687/original/16%20Garage%20Door%20Controller%20Gen5.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ2JSYZ7O3I4JO6DA%2F20160808%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20160808T125747Z&X-Amz-Expires=300&X-Amz-Signature=6cb55207d2d498b7719c2ac11f305a6630a727870a1adcae149f0edb96f9771b&X-Amz-SignedHeaders=Host&response-content-type=application%2Fpdf
+// http://www.pepper1.net/zwavedb/device/781
+// http://www.zwaveproducts.com/product-documentation/AeonLabs-ZW062-A1_manual.pdf
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	debug: true,
