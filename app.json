@@ -27,7 +27,7 @@
         {
             "id": "DSB05-ZWEU",
             "name": {
-                "en": "Motion sensor DSB05-ZWEU(1.18)"
+                "en": "Motion Sensor"
             },
             "zwave": {
                 "manufacturerId": 134,
