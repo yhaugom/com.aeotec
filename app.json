@@ -3,7 +3,7 @@
     "name": {
         "en": "Aeotec"
     },
-    "version": "1.0.1",
+    "version": "1.0.2",
     "compatibility": ">=0.9.1",
     "category": [
         "appliances",
@@ -96,8 +96,8 @@
                 "measure_humidity"
             ],
             "images": {
-                "large": "/drivers/DSB05-ZWEU/assets/images/large.png",
-                "small": "/drivers/DSB05-ZWEU/assets/images/small.png"
+                "large": "/drivers/DSB05-ZWEU/assets/images/large.jpg",
+                "small": "/drivers/DSB05-ZWEU/assets/images/small.jpg"
             },
             "settings": [{
                     "id": "sensor_report_type_on_get_without_instances",
