@@ -26,18 +26,15 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 	settings: {
 		'parameter-1': {
 			index: 1,
-			size: 1,
-			parser: input => new Buffer([parseInt(input)])
+			size: 1
 		},
 		'parameter-101': {
 			index: 101,
-			size: 1,
-			parser: input => new Buffer([parseInt(input)])
+			size: 1
 		},
 		'parameter-121': {
 			index: 121,
-			size: 4,
-			parser: input => new Buffer([parseInt(input)])
+			size: 4
 		}
 	}
 });
