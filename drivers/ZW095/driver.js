@@ -6,7 +6,6 @@ const ZwaveDriver = require('homey-zwavedriver');
 // http://www.pepper1.net/zwavedb/device/815
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
-	debug: true,
 	capabilities: {
 		measure_power: {
 			command_class: 'COMMAND_CLASS_METER',
@@ -26,13 +25,11 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 	settings: {
 		energy_detection_mode: {
 			index: 2,
-			size: 1,
-			parser: input => new Buffer([Number(input)])
+			size: 1
 		},
 		toggle_automatic_reporting: {
 			index: 3,
-			size: 1,
-			parser: input => new Buffer([Number(input)])
+			size: 1
 		},
 		wattage_threshold_hem: {
 			index: 4,
@@ -48,33 +45,27 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		},
 		report_group_1: {
 			index: 101,
-			size: 4,
-			parser: input => new Buffer([0, 0, 0, Number(input)])
+			size: 4
 		},
 		report_group_2: {
 			index: 102,
-			size: 4,
-			parser: input => new Buffer([0, 0, 0, Number(input)])
+			size: 4
 		},
 		report_group_3: {
 			index: 103,
-			size: 4,
-			parser: input => new Buffer([0, 0, 0, Number(input)])
+			size: 4
 		},
 		time_interval_1: {
 			index: 111,
-			size: 4,
-			parser: input => new Buffer([0, 0, 0, Number(input)])
+			size: 4
 		},
 		time_interval_2: {
 			index: 112,
-			size: 4,
-			parser: input => new Buffer([0, 0, 0, Number(input)])
+			size: 4
 		},
 		time_interval_3: {
 			index: 113,
-			size: 4,
-			parser: input => new Buffer([0, 0, 0, Number(input)])
+			size: 4
 		}
 	}
 });

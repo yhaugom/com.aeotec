@@ -9,14 +9,14 @@ const ZwaveDriver = require('homey-zwavedriver');
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	capabilities: {
 		alarm_water: {
-			command_class: 'COMMAND_CLASS_SENSOR_BINARY', 
- 			command_get: 'SENSOR_BINARY_GET', 
- 			command_report: 'SENSOR_BINARY_REPORT',
- 			command_report_parser: report => {
-				 if( report['Sensor Value'] !== 'detected an event') return false;
-				 	return true;
-			 }
- 		},
+			command_class: 'COMMAND_CLASS_SENSOR_BINARY',
+			command_get: 'SENSOR_BINARY_GET',
+			command_report: 'SENSOR_BINARY_REPORT',
+			command_report_parser: report => {
+				if (report['Sensor Value'] !== 'detected an event') return false;
+				return true;
+			}
+		},
 		measure_battery: {
 			command_class: 'COMMAND_CLASS_BATTERY',
 			command_get: 'BATTERY_GET',
@@ -30,13 +30,11 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 	settings: {
 		sensor_binary_report: {
 			index: 1,
-			size: 1,
-			parser: input => new Buffer([Number(input)])
+			size: 1
 		},
-		Reports_that_will_be_sent: {
+		reports_that_will_be_sent: {
 			index: 121,
-			size: 4,
-			parser: input => new Buffer([0, 0, 0, Number(input)])
+			size: 4
 		}
 	}
 });

@@ -34,7 +34,7 @@
     },
     "drivers": [
         {
-            "id": "DSB05-ZWEU",
+            "id": "DSB05",
             "name": {
                 "en": "Motion Sensor"
             },
@@ -43,7 +43,7 @@
                 "productTypeId": 2,
                 "productId": 5,
                 "learnmode": {
-                    "image": "/drivers/DSB05-ZWEU/assets/learnmode.svg",
+                    "image": "/drivers/DSB05/assets/learnmode.svg",
                     "instruction": {
                         "en": "Press the Z-Wave button on your Motion Sensor",
                         "nl": "Druk op de Z-Wave knop op de Bewegings Sensor"
@@ -105,8 +105,8 @@
                 "measure_humidity"
             ],
             "images": {
-                "large": "/drivers/DSB05-ZWEU/assets/images/large.jpg",
-                "small": "/drivers/DSB05-ZWEU/assets/images/small.jpg"
+                "large": "/drivers/DSB05/assets/images/large.jpg",
+                "small": "/drivers/DSB05/assets/images/small.jpg"
             },
             "settings": [{
                     "id": "sensor_report_type_on_get_without_instances",
@@ -292,7 +292,7 @@
                         "value": 0
                     },
                     {
-                        "id": "Reports_that_will_be_sent",
+                        "id": "reports_that_will_be_sent",
                         "size": 4,
                         "value": 256
                     }
@@ -707,8 +707,8 @@
                 "measure_power"
             ],
             "images": {
-                "large": "/drivers/ZW096/assets/images/large.png",
-                "small": "/drivers/ZW096/assets/images/small.png"
+                "large": "/drivers/ZW075/assets/images/large.png",
+                "small": "/drivers/ZW075/assets/images/small.png"
             },
             "settings": [
                 {
@@ -817,8 +817,10 @@
                         "nl": "Minimale verandering in wattage nodig voor het verzenden van een update"
                     },
                     "value": 3,
-                    "min": 0,
-                    "max": 60000,
+                    "attr": {
+                        "min": 0,
+                        "max": 60000
+                    },
                     "hint": {
                         "en": "Minimum change of wattage value needed before value is updated",
                         "nl": "Minimale verandering in wattage nodig voor het verzenden van een update"
@@ -964,8 +966,10 @@
                         "en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 1",
                         "nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de eerste associatie group zou moeten sturen"
                     },
-                    "min": 1,
-                    "max": 268435456,
+                    "attr": {
+											"min": 1,
+											"max": 268435456
+										},
                     "value": 15
                 },
                 {
@@ -979,8 +983,10 @@
                         "en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 2",
                         "nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de tweede associatie group zou moeten sturen"
                     },
-                    "min": 1,
-                    "max": 268435456,
+                    "attr":{
+											"min": 1,
+											"max": 268435456
+										},
                     "value": 600
                 },
                 {
@@ -994,8 +1000,10 @@
                         "en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 3",
                         "nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de derde associatie group zou moeten sturen"
                     },
-                    "min": 1,
-                    "max": 268435456,
+										"attr":{
+											"min": 1,
+											"max": 268435456
+										},
                     "value": 600
                 }
             ]
@@ -1092,7 +1100,7 @@
                         "id": "parameter-121",
                         "size": 1,
                         "value": 16
-                    }                    
+                    }
                 ]
             },
             "class": "sensor",

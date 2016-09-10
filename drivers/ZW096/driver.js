@@ -6,7 +6,6 @@ const ZwaveDriver = require('homey-zwavedriver');
 // http://www.cd-jackson.com/index.php/zwave/zwave-device-database/zwave-device-list/devicesummary/63
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
-	debug: true,
 	capabilities: {
 		onoff: [
 			{
@@ -43,13 +42,11 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 	settings: {
 		current_overload_protection: {
 			index: 3,
-			size: 1,
-			parser: input => new Buffer([Number(input)])
+			size: 1
 		},
 		output_load_status: {
 			index: 20,
-			size: 1,
-			parser: input => new Buffer([Number(input)])
+			size: 1
 		},
 		notify_associated_devices: {
 			index: 80,
@@ -58,43 +55,35 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		},
 		configure_led_state: {
 			index: 81,
-			size: 1,
-			parser: input => new Buffer([Number(input)])
+			size: 1
 		},
 		min_watt_change: {
 			index: 91,
-			size: 4,
-			parser: input => new Buffer([input])
+			size: 4
 		},
 		report_group_1: {
 			index: 101,
-			size: 4,
-			parser: input => new Buffer([0, 0, 0, Number(input)])
+			size: 4
 		},
 		report_group_2: {
 			index: 102,
-			size: 4,
-			parser: input => new Buffer([0, 0, 0, Number(input)])
+			size: 4
 		},
 		report_group_3: {
 			index: 103,
-			size: 4,
-			parser: input => new Buffer([0, 0, 0, Number(input)])
-		}, time_interval_1: {
+			size: 4
+		},
+		time_interval_1: {
 			index: 111,
-			size: 4,
-			parser: input => new Buffer([0, 0, 0, Number(input)])
+			size: 4
 		},
 		time_interval_2: {
 			index: 112,
-			size: 4,
-			parser: input => new Buffer([0, 0, 0, Number(input)])
+			size: 4
 		},
 		time_interval_3: {
 			index: 113,
-			size: 4,
-			parser: input => new Buffer([0, 0, 0, Number(input)])
-
+			size: 4
 		}
 	}
 });

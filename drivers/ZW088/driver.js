@@ -19,8 +19,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 	settings: {
 		mode_control: {
 			index: 250,
-			size: 1,
-			parser: input => new Buffer([Number(input)])
+			size: 1
 		}
 	}
 });

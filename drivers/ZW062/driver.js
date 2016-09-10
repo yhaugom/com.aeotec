@@ -7,7 +7,6 @@ const ZwaveDriver = require('homey-zwavedriver');
 // http://www.zwaveproducts.com/product-documentation/AeonLabs-ZW062-A1_manual.pdf
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
-	debug: true,
 	capabilities: {
 		locked: [{
 			command_class: 'COMMAND_CLASS_BARRIER_OPERATOR',
@@ -195,8 +194,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		},
 		report_type_state_changed: {
 			index: 80,
-			size: 1,
-			parser: input => new Buffer([Number(input)])
+			size: 1
 		},
 		sensor_pairing: {
 			index: 241,
