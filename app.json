@@ -2458,7 +2458,7 @@
         {
             "id": "DSD37",
             "name": {
-                "en": "Z-Wave Repeater"
+                "en": "Repeater"
             },
             "zwave": {
                 "manufacturerId": 134,
