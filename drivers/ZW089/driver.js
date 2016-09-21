@@ -30,7 +30,8 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		},
 		'parameter-101': {
 			index: 101,
-			size: 1
+			size: 1,
+			parser: input => new Buffer([(input) ? 1 : 0])
 		},
 		'parameter-121': {
 			index: 121,

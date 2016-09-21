@@ -1149,7 +1149,7 @@
                         "en": "Low battery warning",
                         "nl": "Lege batterij waarschuwing"
                     },
-                    "value": true,
+                    "value": false,
                     "hint": {
                         "en": "Send low battery Report",
                         "nl": "Stuur lege batterij waarschuwing"

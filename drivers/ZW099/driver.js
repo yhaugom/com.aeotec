@@ -78,7 +78,8 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 	settings: {
 		current_overload_protection: {
 			index: 3,
-			size: 1
+			size: 1,
+			parser: input => new Buffer([(input) ? 1 : 0])
 		},
 		output_load_status: {
 			index: 20,

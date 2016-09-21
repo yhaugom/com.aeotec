@@ -97,7 +97,8 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 	settings: {
 		wake_up_after_repower: {
 			index: 2,
-			size: 1
+			size: 1,
+			parser: input => new Buffer([(input) ? 1 : 0])
 		},
 		pir_sensitivity: {
 			index: 4,
@@ -117,7 +118,8 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		},
 		selective_reporting: {
 			index: 40,
-			size: 1
+			size: 1,
+			parser: input => new Buffer([(input) ? 1 : 0])
 		},
 		temperature_threshold: {
 			index: 41,

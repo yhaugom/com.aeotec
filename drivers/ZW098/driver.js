@@ -269,8 +269,19 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 	},
 	settings: {
 		color_report: {
-			index: 32,
-			size: 1
+			index: 80,
+			size: 1,
+			parser: input => new Buffer([(input) ? 2 : 0])
+		},
+		external_switch_toggle: {
+			index: 34,
+			size: 1,
+			parser: input => new Buffer([(input) ? 1 : 0])
+		},
+		external_switch_color: {
+			index: 35,
+			size: 1,
+			parser: input => new Buffer([(input) ? 1 : 0])
 		},
 	}
 });
