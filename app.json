@@ -1000,10 +1000,10 @@
                         "en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 3",
                         "nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de derde associatie group zou moeten sturen"
                     },
-										"attr":{
-											"min": 1,
-											"max": 268435456
-										},
+					"attr":{
+						"min": 1,
+						"max": 268435456
+					},
                     "value": 600
                 }
             ]
@@ -1019,12 +1019,19 @@
                 "productId": 88,
                 "learnmode": {
                     "instruction": {
-                        "en": "Press the inclusion button on your Key Fob",
-                        "nl": "Druk op de inclusie knop op de Key Fob"
+                        "en": "Press the 'Learn' button on your Key Fob.\n\nAfter pairing, press 'Learn' and 'Mode' for 3 seconds.",
+                        "nl": "Druk op de 'Learn' knop op de Key Fob.\n\nNa het toevoegen, houdt 'Learn' en 'Mode' voor 3 seconden ingedrukt."
                     }
                 },
                 "associationGroups": [
                     1
+                ],
+                "defaultConfiguration": [
+	                {
+		                "id": 250,
+		                "size": 1,
+		                "value": 1
+	                }
                 ]
             },
             "class": "other",
@@ -1047,34 +1054,7 @@
             "images": {
                 "large": "/drivers/ZW088/assets/images/large.png",
                 "small": "/drivers/ZW088/assets/images/small.png"
-            },
-            "settings": [
-                {
-                    "id": "mode_control",
-                    "type": "dropdown",
-                    "value": "0",
-                    "label": {
-                        "en": "Set mode",
-                        "nl": "Stel modus in"
-                    },
-                    "values": [
-                        {
-                            "id": "0",
-                            "label": {
-                                "en": "Group mode",
-                                "nl": "Group modus"
-                            }
-                        },
-                        {
-                            "id": "1",
-                            "label": {
-                                "en": "Scene mode",
-                                "nl": "Scene modus"
-                            }
-                        }
-                    ]
-                }
-            ]
+            }
         },
         {
             "id": "ZW089",
@@ -1207,27 +1187,27 @@
                 ],
                 "defaultConfiguration": [
                     {
-                        "id": "current_overload_protection",
+                        "id": 3,
                         "size": 1,
                         "value": true
                     },
                     {
-                        "id": "notify_associated_devices",
+                        "id": 80,
                         "size": 1,
                         "value": 2
                     },
                     {
-                        "id": "min_watt_change",
+                        "id": 91,
                         "size": 4,
                         "value": 3
                     },
                     {
-                        "id": "report_group_1",
+                        "id": 101,
                         "size": 4,
-                        "value": "4"
+                        "value": 4
                     },
                     {
-                        "id": "time_interval_1",
+                        "id": 102,
                         "size": 4,
                         "value": 15
                     }
@@ -1619,17 +1599,17 @@
                 ],
                 "defaultConfiguration": [
                     {
-                        "id": "current_overload_protection",
+                        "id": 3,
                         "size": 1,
-                        "value": true
+                        "value": 1
                     },
                     {
-                        "id": "notify_associated_devices",
+                        "id": 80,
                         "size": 1,
                         "value": 2
                     },
                     {
-                        "id": "min_watt_change",
+                        "id": 91,
                         "size": 4,
                         "value": 3
                     },
@@ -2485,5 +2465,121 @@
             "settings": [
             ]
         }
-    ]
+    ],
+    "flow": {
+	    "triggers": [
+		    {
+			    "id": "zw088_press_1",
+			    "title": {
+				    "en": "Left top short pressed",
+				    "nl": "Linksboven kort ingedrukt"
+			    },
+			    "args": [
+				    {
+					    "name": "device",
+					    "type": "device",
+					    "filter": "driver_id=ZW088"
+				    }
+			    ]
+		    },
+		    {
+			    "id": "zw088_hold_1",
+			    "title": {
+				    "en": "Left top long pressed",
+				    "nl": "Linksboven lang ingedrukt"
+			    },
+			    "args": [
+				    {
+					    "name": "device",
+					    "type": "device",
+					    "filter": "driver_id=ZW088"
+				    }
+			    ]
+		    },
+		    {
+			    "id": "zw088_press_2",
+			    "title": {
+				    "en": "Right top short pressed",
+				    "nl": "Rechtsboven kort ingedrukt"
+			    },
+			    "args": [
+				    {
+					    "name": "device",
+					    "type": "device",
+					    "filter": "driver_id=ZW088"
+				    }
+			    ]
+		    },
+		    {
+			    "id": "zw088_hold_2",
+			    "title": {
+				    "en": "Right top long pressed",
+				    "nl": "Rechtsboven lang ingedrukt"
+			    },
+			    "args": [
+				    {
+					    "name": "device",
+					    "type": "device",
+					    "filter": "driver_id=ZW088"
+				    }
+			    ]
+		    },
+		    {
+			    "id": "zw088_press_3",
+			    "title": {
+				    "en": "Left bottom short pressed",
+				    "nl": "Linksonder kort ingedrukt"
+			    },
+			    "args": [
+				    {
+					    "name": "device",
+					    "type": "device",
+					    "filter": "driver_id=ZW088"
+				    }
+			    ]
+		    },
+		    {
+			    "id": "zw088_hold_3",
+			    "title": {
+				    "en": "Left bottom long pressed",
+				    "nl": "Linksonder lang ingedrukt"
+			    },
+			    "args": [
+				    {
+					    "name": "device",
+					    "type": "device",
+					    "filter": "driver_id=ZW088"
+				    }
+			    ]
+		    },
+		    {
+			    "id": "zw088_press_4",
+			    "title": {
+				    "en": "Right bottom short pressed",
+				    "nl": "Rechtsonder kort ingedrukt"
+			    },
+			    "args": [
+				    {
+					    "name": "device",
+					    "type": "device",
+					    "filter": "driver_id=ZW088"
+				    }
+			    ]
+		    },
+		    {
+			    "id": "zw088_hold_4",
+			    "title": {
+				    "en": "Right bottom long pressed",
+				    "nl": "Rechtsonder lang ingedrukt"
+			    },
+			    "args": [
+				    {
+					    "name": "device",
+					    "type": "device",
+					    "filter": "driver_id=ZW088"
+				    }
+			    ]
+		    }
+	    ]
+    }
 }
