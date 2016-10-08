@@ -4,7 +4,7 @@
         "en": "Aeotec"
     },
     "version": "1.0.4",
-    "compatibility": ">=0.9.1",
+    "compatibility": ">=0.10.4",
     "category": [
         "appliances",
         "lights",
