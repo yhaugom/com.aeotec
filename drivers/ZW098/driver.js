@@ -8,7 +8,6 @@ const tinycolor = require('tinycolor2');
 // http://www.smarthome.com.au/media/manuals/Aeotec_Z-Wave_LED_Bulb_Product_Manual.pdf
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
-	debug: true,
 	capabilities: {
 		onoff: {
 			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
