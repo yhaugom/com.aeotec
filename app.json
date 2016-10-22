@@ -1520,7 +1520,11 @@
             "class": "light",
             "capabilities": [
                 "onoff",
-                "dim"
+                "dim",
+                "light_hue",
+                "light_saturation",
+                "light_temperature",
+                "light_mode"
             ],
             "images": {
                 "large": "/drivers/ZW098/assets/images/large.png",
