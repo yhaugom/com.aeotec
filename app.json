@@ -1065,6 +1065,7 @@
                 "manufacturerId": 134,
                 "productTypeId": 2,
                 "productId": [89,54],
+                "wakeUpInterval": 300,
                 "learnmode": {
                     "image": "/drivers/ZW089/assets/learnmode.svg",
                     "instruction": {
@@ -1137,7 +1138,7 @@
                 },
                 {
                     "id": "parameter-121",
-                    "type": "text",
+                    "type": "dropdown",
                     "label": {
                         "en": "Command to send",
                         "nl": "Te sturen commando"
