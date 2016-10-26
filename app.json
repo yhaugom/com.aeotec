@@ -1970,27 +1970,17 @@
                 ],
                 "defaultConfiguration": [
                     {
-                        "id": "motion_sensor_trigger_command",
-                        "value": "2",
+                        "id": 5,
+                        "value": 2,
                         "size": 1
                     },
                     {
-                        "id": "time_interval_1",
+                        "id": 111,
                         "value": 15,
                         "size": 4
                     },
                     {
-                        "id": "report_group_1",
-                        "value": "128",
-                        "size": 4
-                    },
-                    {
-                        "id": "report_group_1",
-                        "value": "241",
-                        "size": 4
-                    },
-                    {
-                        "id": "selective_reporting",
+                        "id": 40,
                         "value": true,
                         "size": 1
                     }
@@ -2011,7 +2001,7 @@
             },
             "settings": [
                 {
-                    "id": "wake_up_after_repower",
+                    "id": 2,
                     "type": "checkbox",
                     "label": {
                         "en": "Wake up for 10 minutes after re-power (on battery mode)",
@@ -2024,7 +2014,7 @@
                     }
                 },
                 {
-                    "id": "pir_off_time",
+                    "id": 3,
                     "type": "number",
                     "label": {
                         "en": "Motion alarm will be cancelled in the main controller and the associated devices after the period of time set in this parameter",
@@ -2039,7 +2029,7 @@
                     }
                 },
                 {
-                    "id": "pir_sensitivity",
+                    "id": 4,
                     "type": "dropdown",
                     "label": {
                         "en": "Motion sensor sensitivity",
@@ -2096,7 +2086,7 @@
                     ]
                 },
                 {
-                    "id": "motion_sensor_trigger_command",
+                    "id": 5,
                     "type": "dropdown",
                     "label": {
                         "en": "Command to send when motion sensor triggered",
@@ -2119,7 +2109,7 @@
                     ]
                 },
                 {
-                    "id": "low_battery_value",
+                    "id": 39,
                     "type": "number",
                     "label": {
                         "en": "Percentage of battery power below which the device should send a low battery alarm",
@@ -2130,7 +2120,7 @@
                     "max": 50
                 },
                 {
-                    "id": "selective_reporting",
+                    "id": 40,
                     "type": "checkbox",
                     "label": {
                         "en": "Automatic reporting when value threshold reached",
@@ -2139,7 +2129,7 @@
                     "value": false
                 },
                 {
-                    "id": "temperature_threshold",
+                    "id": 41,
                     "type": "number",
                     "label": {
                         "en": "Temperature threshold value, if exceeded device will send an automatic report (Celsius)",
@@ -2150,7 +2140,7 @@
                     "max": 50
                 },
                 {
-                    "id": "humidity_threshold",
+                    "id": 42,
                     "type": "number",
                     "label": {
                         "en": "Humidity threshold value, if exceeded device will send an automatic report (%)",
@@ -2161,7 +2151,7 @@
                     "max": 100
                 },
                 {
-                    "id": "luminance_threshold",
+                    "id": 43,
                     "type": "number",
                     "label": {
                         "en": "Luminance threshold value, if exceeded device will send an automatic report (lux)",
@@ -2172,7 +2162,7 @@
                     "max": 10000
                 },
                 {
-                    "id": "battery_threshold",
+                    "id": 44,
                     "type": "number",
                     "label": {
                         "en": "Battery threshold value, if exceeded device will send an automatic report (%)",
@@ -2183,7 +2173,7 @@
                     "max": 100
                 },
                 {
-                    "id": "report_group_1",
+                    "id": 101,
                     "type": "dropdown",
                     "label": {
                         "en": "Information reports send to association group 1",
@@ -2240,7 +2230,7 @@
                     ]
                 },
                 {
-                    "id": "report_group_2",
+                    "id": 102,
                     "type": "dropdown",
                     "label": {
                         "en": "Information reports send to association group 2",
@@ -2297,7 +2287,7 @@
                     ]
                 },
                 {
-                    "id": "report_group_3",
+                    "id": 103,
                     "type": "dropdown",
                     "label": {
                         "en": "Information reports send to association group 3",
@@ -2354,7 +2344,7 @@
                     ]
                 },
                 {
-                    "id": "time_interval_1",
+                    "id": 111,
                     "type": "number",
                     "label": {
                         "en": "Reporting interval association group 1",
@@ -2369,7 +2359,7 @@
                     "value": 300
                 },
                 {
-                    "id": "time_interval_2",
+                    "id": 112,
                     "type": "number",
                     "label": {
                         "en": "Reporting interval association group 2",
@@ -2384,7 +2374,7 @@
                     "value": 3600
                 },
                 {
-                    "id": "time_interval_3",
+                    "id": 113,
                     "type": "number",
                     "label": {
                         "en": "Reporting interval association group 3",
@@ -2399,7 +2389,7 @@
                     "value": 3600
                 },
                 {
-                    "id": "temperature_calibration",
+                    "id": 201,
                     "type": "number",
                     "label": {
                         "en": "Temperature calibration value (Celsius)",
@@ -2414,7 +2404,7 @@
                     "value": 0
                 },
                 {
-                    "id": "humidity_calibration",
+                    "id": 202,
                     "type": "number",
                     "label": {
                         "en": "Humidity calibration value",
@@ -2429,7 +2419,7 @@
                     "value": 0
                 },
                 {
-                    "id": "luminance_calibration",
+                    "id": 203,
                     "type": "number",
                     "label": {
                         "en": "Luminance calibration value",
@@ -2444,7 +2434,7 @@
                     "value": 0
                 },
                 {
-                    "id": "ultraviolet_calibration",
+                    "id": 204,
                     "type": "number",
                     "label": {
                         "en": "Ultraviolet calibration value",

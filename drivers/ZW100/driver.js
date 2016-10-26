@@ -95,87 +95,87 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		},
 	},
 	settings: {
-		wake_up_after_repower: {
+		2: {
 			index: 2,
 			size: 1,
 			parser: input => new Buffer([(input) ? 1 : 0])
 		},
-		pir_sensitivity: {
+		4: {
 			index: 4,
 			size: 1
 		},
-		pir_off_time: {
+		3: {
 			index: 3,
 			size: 2
 		},
-		motion_sensor_trigger_command: {
+		5: {
 			index: 5,
 			size: 1
 		},
-		low_battery_value: {
+		39: {
 			index: 39,
 			size: 1
 		},
-		selective_reporting: {
+		40: {
 			index: 40,
 			size: 1,
 			parser: input => new Buffer([(input) ? 1 : 0])
 		},
-		temperature_threshold: {
+		41: {
 			index: 41,
 			size: 2,
 			parser: input => new Buffer([input * 10, 1])
 		},
-		humidity_threshold: {
+		42: {
 			index: 42,
 			size: 1
 		},
-		luminance_threshold: {
+		43: {
 			index: 43,
 			size: 2
 		},
-		battery_threshold: {
+		44: {
 			index: 44,
 			size: 1
 		},
-		report_group_1: {
+		101: {
 			index: 101,
 			size: 4
 		},
-		report_group_2: {
+		102: {
 			index: 102,
 			size: 4
 		},
-		report_group_3: {
+		103: {
 			index: 103,
 			size: 4
 		},
-		time_interval_1: {
+		111: {
 			index: 111,
 			size: 4
 		},
-		time_interval_2: {
+		112: {
 			index: 112,
 			size: 4
 		},
-		time_interval_3: {
+		113: {
 			index: 113,
 			size: 4
 		},
-		temperature_calibration: {
+		201: {
 			index: 201,
 			size: 2,
 			parser: input => new Buffer([input * 10, 1])
 		},
-		humidity_calibration: {
+		202: {
 			index: 202,
 			size: 1
 		},
-		luminance_calibration: {
+		203: {
 			index: 203,
 			size: 2
 		},
-		ultraviolet_calibration: {
+		204: {
 			index: 204,
 			size: 1
 		}
