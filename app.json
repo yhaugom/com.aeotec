@@ -374,12 +374,12 @@
                 ],
                 "defaultConfiguration": [
                     {
-                        "id": "startup_ringtone",
+                        "id": 32,
                         "value": false,
                         "size": 1
                     },
                     {
-                        "id": "report_type_state_changed",
+                        "id": 80,
                         "value": "2",
                         "size": 1
                     }
@@ -395,7 +395,7 @@
             },
             "settings": [
                 {
-                    "id": "startup_ringtone",
+                    "id": 32,
                     "type": "checkbox",
                     "label": {
                         "en": "Enable the startup ringtone",
@@ -404,7 +404,7 @@
                     "value": false
                 },
                 {
-                    "id": "sensor_calibration",
+                    "id": 24,
                     "type": "checkbox",
                     "label": {
                         "en": "Send calibration command on save",
@@ -424,7 +424,7 @@
                     },
                     "children": [
                         {
-                            "id": "opening_alarm_mode_led_frequency",
+                            "id": 371,
                             "type": "number",
                             "label": {
                                 "en": "LED blink frequency",
@@ -435,7 +435,7 @@
                             "max": 10
                         },
                         {
-                            "id": "opening_alarm_mode_sound",
+                            "id": 372,
                             "type": "number",
                             "label": {
                                 "en": "Sound number",
@@ -445,7 +445,7 @@
                             "min": 1
                         },
                         {
-                            "id": "opening_alarm_mode_volume",
+                            "id": 373,
                             "type": "number",
                             "label": {
                                 "en": "Sound volume",
@@ -456,7 +456,7 @@
                             "max": 10
                         },
                         {
-                            "id": "opening_alarm_enabled",
+                            "id": 374,
                             "type": "checkbox",
                             "label": {
                                 "en": "Alarm enabled",
@@ -474,7 +474,7 @@
                     },
                     "children": [
                         {
-                            "id": "closing_alarm_mode_led_frequency",
+                            "id": 381,
                             "type": "number",
                             "label": {
                                 "en": "LED blink frequency",
@@ -485,7 +485,7 @@
                             "max": 10
                         },
                         {
-                            "id": "closing_alarm_mode_sound",
+                            "id": 382,
                             "type": "number",
                             "label": {
                                 "en": "Sound number",
@@ -495,7 +495,7 @@
                             "min": 1
                         },
                         {
-                            "id": "closing_alarm_mode_volume",
+                            "id": 383,
                             "type": "number",
                             "label": {
                                 "en": "Sound volume",
@@ -506,7 +506,7 @@
                             "max": 10
                         },
                         {
-                            "id": "closing_alarm_enabled",
+                            "id": 384,
                             "type": "checkbox",
                             "label": {
                                 "en": "Alarm enabled",
@@ -524,7 +524,7 @@
                     },
                     "children": [
                         {
-                            "id": "unknown_alarm_mode_led_frequency",
+                            "id": 391,
                             "type": "number",
                             "label": {
                                 "en": "LED blink frequency",
@@ -535,7 +535,7 @@
                             "max": 10
                         },
                         {
-                            "id": "unknown_alarm_mode_sound",
+                            "id": 392,
                             "type": "number",
                             "label": {
                                 "en": "Sound number",
@@ -545,7 +545,7 @@
                             "min": 1
                         },
                         {
-                            "id": "unknown_alarm_mode_volume",
+                            "id": 393,
                             "type": "number",
                             "label": {
                                 "en": "Sound volume",
@@ -556,7 +556,7 @@
                             "max": 10
                         },
                         {
-                            "id": "unknown_alarm_enabled",
+                            "id": 394,
                             "type": "checkbox",
                             "label": {
                                 "en": "Alarm enabled",
@@ -574,7 +574,7 @@
                     },
                     "children": [
                         {
-                            "id": "closed_alarm_mode_led_frequency",
+                            "id": 401,
                             "type": "number",
                             "label": {
                                 "en": "LED blink frequency",
@@ -585,7 +585,7 @@
                             "max": 10
                         },
                         {
-                            "id": "closed_alarm_mode_sound",
+                            "id": 402,
                             "type": "number",
                             "label": {
                                 "en": "Sound number",
@@ -595,7 +595,7 @@
                             "min": 1
                         },
                         {
-                            "id": "closed_alarm_mode_volume",
+                            "id": 403,
                             "type": "number",
                             "label": {
                                 "en": "Sound volume",
@@ -606,7 +606,7 @@
                             "max": 10
                         },
                         {
-                            "id": "closed_alarm_enabled",
+                            "id": 404,
                             "type": "checkbox",
                             "label": {
                                 "en": "Alarm enabled",
@@ -617,7 +617,7 @@
                     ]
                 },
                 {
-                    "id": "report_type_state_changed",
+                    "id": 80,
                     "type": "dropdown",
                     "label": {
                         "en": "Send following report when garage door state is changed",
@@ -640,7 +640,7 @@
                     ]
                 },
                 {
-                    "id": "sensor_pairing",
+                    "id": 241,
                     "type": "checkbox",
                     "label": {
                         "en": "Send sensor pairing command on save",
