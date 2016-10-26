@@ -1245,7 +1245,7 @@
             },
             "settings": [
                 {
-                    "id": "current_overload_protection",
+                    "id": 3,
                     "type": "checkbox",
                     "label": {
                         "en": "Current overload protection",
@@ -1258,7 +1258,7 @@
                     }
                 },
                 {
-                    "id": "output_load_status",
+                    "id": 20,
                     "type": "dropdown",
                     "label": {
                         "en": "Configure the output load status after re-power",
@@ -1294,7 +1294,7 @@
                     ]
                 },
                 {
-                    "id": "notify_associated_devices",
+                    "id": 80,
                     "type": "checkbox",
                     "label": {
                         "en": "Notify associated devices when Smart Switch is toggled",
@@ -1307,7 +1307,7 @@
                     "value": true
                 },
                 {
-                    "id": "configure_led_state",
+                    "id": 81,
                     "type": "dropdown",
                     "label": {
                         "en": "Configure the color of the LED",
@@ -1343,7 +1343,7 @@
                     ]
                 },
                 {
-                    "id": "min_watt_change",
+                    "id": 91,
                     "type": "number",
                     "label": {
                         "en": "Minimum wattage change needed before an update report is send",
@@ -1358,7 +1358,7 @@
                     }
                 },
                 {
-                    "id": "report_group_1",
+                    "id": 101,
                     "type": "dropdown",
                     "label": {
                         "en": "Information reports send to association group 1",
@@ -1401,7 +1401,7 @@
                     ]
                 },
                 {
-                    "id": "report_group_2",
+                    "id": 102,
                     "type": "dropdown",
                     "label": {
                         "en": "Information reports send to association group 2",
@@ -1444,7 +1444,7 @@
                     ]
                 },
                 {
-                    "id": "report_group_3",
+                    "id": 103,
                     "type": "dropdown",
                     "label": {
                         "en": "Information reports send to association group 3",
@@ -1487,7 +1487,7 @@
                     ]
                 },
                 {
-                    "id": "time_interval_1",
+                    "id": 111,
                     "type": "number",
                     "label": {
                         "en": "Reporting interval association group 1",
@@ -1502,7 +1502,7 @@
                     "value": 15
                 },
                 {
-                    "id": "time_interval_2",
+                    "id": 112,
                     "type": "number",
                     "label": {
                         "en": "Reporting interval association group 2",
@@ -1517,7 +1517,7 @@
                     "value": 600
                 },
                 {
-                    "id": "time_interval_3",
+                    "id": 113,
                     "type": "number",
                     "label": {
                         "en": "Reporting interval association group 3",
