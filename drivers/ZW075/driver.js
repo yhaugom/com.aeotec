@@ -40,48 +40,49 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		}
 	},
 	settings: {
-		current_overload_protection: {
+		3: {
 			index: 3,
 			size: 1,
 			parser: input => new Buffer([(input) ? 1 : 0])
 		},
-		output_load_status: {
+		20: {
 			index: 20,
 			size: 1
 		},
-		notify_associated_devices: {
+		80: {
 			index: 80,
 			size: 1,
 			parser: input => new Buffer([(input) ? 2 : 0])
 		},
-		configure_led_state: {
+		81: {
 			index: 81,
 			size: 1
 		},
-		min_watt_change: {
+		91: {
 			index: 91,
 			size: 4
 		},
-		report_group_1: {
+		101: {
 			index: 101,
 			size: 4
 		},
-		report_group_2: {
+		102: {
 			index: 102,
 			size: 4
 		},
-		report_group_3: {
+		103: {
 			index: 103,
 			size: 4
-		}, time_interval_1: {
+		},
+		111: {
 			index: 111,
 			size: 4
 		},
-		time_interval_2: {
+		112: {
 			index: 112,
 			size: 4
 		},
-		time_interval_3: {
+		113: {
 			index: 113,
 			size: 4
 		}
