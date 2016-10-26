@@ -2476,9 +2476,7 @@
             "images": {
                 "large": "/drivers/DSD37/assets/images/large.png",
                 "small": "/drivers/DSD37/assets/images/small.png"
-            },
-            "settings": [
-            ]
+            }
         }
     ],
     "flow": {
