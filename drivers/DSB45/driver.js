@@ -28,11 +28,11 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		}
 	},
 	settings: {
-		sensor_binary_report: {
+		1: {
 			index: 1,
 			size: 1
 		},
-		reports_that_will_be_sent: {
+		121: {
 			index: 121,
 			size: 4
 		}

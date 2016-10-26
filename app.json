@@ -287,12 +287,12 @@
                 ],
                 "defaultConfiguration": [
                     {
-                        "id": "sensor_binary_report",
+                        "id": 1,
                         "size": 1,
                         "value": 0
                     },
                     {
-                        "id": "reports_that_will_be_sent",
+                        "id": 121,
                         "size": 4,
                         "value": 256
                     }
@@ -309,7 +309,7 @@
             },
             "settings": [
                 {
-                    "id": "sensor_binary_report",
+                    "id": 1,
                     "type": "radio",
                     "value": "0",
                     "label": {
@@ -338,7 +338,7 @@
                     ]
                 },
                 {
-                    "id": "Reports_that_will_be_sent",
+                    "id": 121,
                     "type": "number",
                     "label": {
                         "en": "Command to send",
