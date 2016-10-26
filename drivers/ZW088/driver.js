@@ -13,7 +13,8 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_report: 'BATTERY_REPORT',
 			command_report_parser: report => {
 				return report['Battery Level (Raw)'][0];
-			}
+			},
+			pollInterval: 'poll_interval'
 		}
 	}
 });

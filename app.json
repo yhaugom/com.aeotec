@@ -1058,7 +1058,7 @@
             },
             "settings": [
                 {
-                    "id": 999,
+                    "id": "poll_interval",
                     "type": "number",
                     "attr": {
                         "min": 60,
