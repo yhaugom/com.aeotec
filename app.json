@@ -54,43 +54,43 @@
                 ],
                 "defaultConfiguration": [
                     {
-                        "id": "sensor_report_type_on_get_without_instances",
+                        "id": 1,
                         "size": 1,
                         "value": 0
                     }, {
-                        "id": "wake_up_for_10_minutes_when_batteries_are_inserted",
+                        "id": 2,
                         "size": 1,
                         "value": 0
                     }, {
-                        "id": "on_time",
+                        "id": 3,
                         "size": 2,
                         "value": 240
                     }, {
-                        "id": "enable_motion_sensor",
+                        "id": 4,
                         "size": 1,
                         "value": 1
                     }, {
-                        "id": "send_unsolicited_reports_periodicaly_interval_group_1",
+                        "id": 101,
                         "size": 4,
                         "value": 0
                     }, {
-                        "id": "send_unsolicited_reports_periodicaly_interval_group_2",
+                        "id": 102,
                         "size": 4,
                         "value": 0
                     }, {
-                        "id": "send_unsolicited_reports_periodicaly_interval_group_3",
+                        "id": 103,
                         "size": 4,
                         "value": 0
                     }, {
-                        "id": "unsolicitate_reports_interval_for_timing_groups_1",
+                        "id": 111,
                         "size": 4,
                         "value": 720
                     }, {
-                        "id": "unsolicitate_reports_interval_for_timing_groups_2",
+                        "id": 112,
                         "size": 4,
                         "value": 720
                     }, {
-                        "id": "unsolicitate_reports_interval_for_timing_groups_3",
+                        "id": 113,
                         "size": 4,
                         "value": 720
                     }
@@ -109,7 +109,7 @@
                 "small": "/drivers/DSB05/assets/images/small.jpg"
             },
             "settings": [{
-                    "id": "sensor_report_type_on_get_without_instances",
+                    "id": 1,
                     "type": "dropdown",
                     "label": {
                         "en": "Sensor report type on Get without instances"
@@ -146,7 +146,7 @@
                         }
                     ]
                 }, {
-                    "id": "wake_up_for_10_minutes_when_batteries_are_inserted",
+                    "id": 2,
                     "type": "dropdown",
                     "label": {
                         "en": "Wake up 10 minutes when batteries are inserted"
@@ -169,7 +169,7 @@
                         "en": "Stay awake for 10 minutes after batteries are inserted"
                     }
                 }, {
-                    "id": "on_time",
+                    "id": 3,
                     "type": "number",
                     "label": {
                         "en": "On time"
@@ -179,7 +179,7 @@
                         "en": "How long should the device associated to multi senor keep state On before sending it Off command (if the value is bigger than 255, the value would be rounded to next integer in minutes)"
                     }
                 }, {
-                    "id": "enable_motion_sensor",
+                    "id": 4,
                     "type": "dropdown",
                     "label": {
                         "en": "Enable motion sensor"
@@ -204,37 +204,37 @@
                         "en": "How long should the device associated to multi sensor keep state On before sending it Off command (if the value is bigger than 255, the value would be rounded to next integer in minutes)"
                     }
                 }, {
-                    "id": "send_unsolicited_reports_periodicaly_interval_group_1",
+                    "id": 101,
                     "type": "number",
                     "label": {
-                        "en": "Which reports to send. Intervcal group 1"
+                        "en": "Which reports to send. Interval group 1"
                     },
                     "value": 1,
                     "hint": {
                         "en": "Which reports need to send automatically in timing intervals for group 1. Bit: 0=Battery report, 5=Temperature, 6=Luminosity, 7=Humidity"
                     }
                 }, {
-                    "id": "send_unsolicited_reports_periodicaly_interval_group_2",
+                    "id": 102,
                     "type": "number",
                     "label": {
-                        "en": "Which reports to send. Intervcal group 2"
+                        "en": "Which reports to send. Interval group 2"
                     },
                     "value": 0,
                     "hint": {
                         "en": "Which reports need to send automatically in timing intervals for group 2. Bit: 0=Battery report, 5=Temperature, 6=Luminosity, 7=Humidity"
                     }
                 }, {
-                    "id": "send_unsolicited_reports_periodicaly_interval_group_3",
+                    "id": 103,
                     "type": "number",
                     "label": {
-                        "en": "Which reports to send. Intervcal group 3"
+                        "en": "Which reports to send. Interval group 3"
                     },
                     "value": 0,
                     "hint": {
                         "en": "Which reports need to send automatically in timing intervals for group 3. Bit: 0=Battery report, 5=Temperature, 6=Luminosity, 7=Humidity"
                     }
                 }, {
-                    "id": "unsolicitate_reports_interval_for_timing_groups_1",
+                    "id": 111,
                     "type": "number",
                     "label": {
                         "en": "Unsolicitate reports interval for timing groups 1."
@@ -244,7 +244,7 @@
                         "en": "Interval to send out reports to timing group 1. (1 seconds - 2678400 seconds)"
                     }
                 }, {
-                    "id": "unsolicitate_reports_interval_for_timing_groups_2",
+                    "id": 112,
                     "type": "number",
                     "label": {
                         "en": "Unsolicitate reports interval for timing groups 2."
@@ -254,7 +254,7 @@
                         "en": "Interval to send out reports to timing group 2. (1 seconds - 2678400 seconds)"
                     }
                 }, {
-                    "id": "unsolicitate_reports_interval_for_timing_groups_3",
+                    "id": 113,
                     "type": "number",
                     "label": {
                         "en": "Unsolicitate reports interval for timing groups 3."

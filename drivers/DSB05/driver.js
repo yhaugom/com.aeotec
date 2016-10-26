@@ -57,43 +57,43 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		}
 	},
 	settings: {
-		sensor_report_type_on_get_without_instances: {
+		1: {
 			index: 1,
 			size: 1
 		},
-		wake_up_for_10_minutes_when_batteries_are_inserted: {
+		2: {
 			index: 2,
 			size: 1
 		},
-		on_time: {
+		3: {
 			index: 3,
 			size: 2
 		},
-		enable_motion_sensor: {
-			index: 1,
+		4: {
+			index: 4,
 			size: 1
 		},
-		send_unsolicited_reports_periodicaly_interval_group_1: {
+		101: {
 			index: 101,
 			size: 4
 		},
-		send_unsolicited_reports_periodicaly_interval_group_2: {
+		102: {
 			index: 102,
 			size: 4
 		},
-		send_unsolicited_reports_periodicaly_interval_group_3: {
+		103: {
 			index: 103,
 			size: 4
 		},
-		unsolicitate_reports_interval_for_timing_groups_1: {
+		111: {
 			index: 111,
 			size: 4
 		},
-		unsolicitate_reports_interval_for_timing_groups_2: {
+		112: {
 			index: 112,
 			size: 4
 		},
-		unsolicitate_reports_interval_for_timing_groups_3: {
+		113: {
 			index: 113,
 			size: 4
 		}
