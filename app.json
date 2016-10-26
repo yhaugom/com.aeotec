@@ -1536,8 +1536,8 @@
                 "productId": 98,
                 "learnmode": {
                     "instruction": {
-                        "en": "Turn the bulb off and on to enter learning mode",
-                        "nl": "Schakel de lamp uit en aan om leer modus te activeren"
+                        "en": "To include: turn the bulb off and on to enter learning mode \n\n To exclude: turn the bulb off and on 5 times very quickly",
+                        "nl": "Om toe te voegen: schakel de lamp uit en aan \n\n Om te verwijderen: schakel de lamp 5 keer snel uit en aan"
                     }
                 },
                 "associationGroups": [
