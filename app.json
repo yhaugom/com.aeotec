@@ -1016,7 +1016,7 @@
             "zwave": {
                 "manufacturerId": 134,
                 "productTypeId": 1,
-                "productId": 88,
+                "productId": [22, 88],
                 "learnmode": {
                     "instruction": {
                         "en": "Press the 'Learn' button on your Key Fob.\n\nAfter pairing, press 'Learn' and 'Mode' for 3 seconds.",
