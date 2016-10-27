@@ -1634,14 +1634,14 @@
                         "value": 2
                     },
                     {
-                        "id": 91,
-                        "size": 4,
-                        "value": 3
+                        "id": 90,
+                        "size": 1,
+                        "value": 1
                     },
                     {
-                        "id": 101,
-                        "size": 4,
-                        "value": 4
+                        "id": 91,
+                        "size": 2,
+                        "value": 3
                     },
                     {
                         "id": 111,
@@ -1654,7 +1654,8 @@
             "capabilities": [
                 "onoff",
                 "dim",
-                "measure_power"
+                "measure_power",
+                "meter_power"
             ],
             "images": {
                 "large": "/drivers/ZW099/assets/images/large.png",
@@ -1679,7 +1680,7 @@
                     "type": "dropdown",
                     "label": {
                         "en": "Configure the output load status after re-power",
-                        "nl": "Zet na een stroomonderbreking deze Smart Switch:"
+                        "nl": "Zet na een stroomonderbreking deze status"
                     },
                     "value": "0",
                     "hint": {
@@ -1714,12 +1715,12 @@
                     "id": 80,
                     "type": "checkbox",
                     "label": {
-                        "en": "Notify associated devices when Smart Switch is toggled",
-                        "nl": "Stuur notificaties naar geassocieerde apparaten wanneer de Smart Switch aan of uit wordt gezet"
+                        "en": "Notify associated devices when Smart Dimmer is toggled",
+                        "nl": "Stuur notificaties naar geassocieerde apparaten wanneer de Smart Dimmer aan of uit wordt gezet"
                     },
                     "hint": {
-                        "en": "Enable this to let Homey know when you or another device turned the Smart Switch on or off",
-                        "nl": "Zet dit aan om Homey te laten weten wanneer jij of een ander apparaat de Smart Switch aan of uit hebt gezet"
+                        "en": "Enable this to let Homey know when you or another device turned the Smart Dimmer on or off",
+                        "nl": "Zet dit aan om Homey te laten weten wanneer jij of een ander apparaat de Smart Dimmer aan of uit hebt gezet"
                     },
                     "value": true
                 },
@@ -1754,7 +1755,7 @@
                             "id": "2",
                             "label": {
                                 "en": "Night light mode",
-                                "nl": "Nacht licht modus"
+                                "nl": "Nacht lamp modus"
                             }
                         }
                     ]
@@ -1767,98 +1768,14 @@
                         "nl": "Minimale verandering in wattage nodig voor het verzenden van een update"
                     },
                     "value": 3,
-                    "min": 0,
-                    "max": 60000,
+                    "attr": {
+                        "min": 0,
+                        "max": 60000
+                    },
                     "hint": {
                         "en": "Minimum change of wattage value needed before value is updated",
                         "nl": "Minimale verandering in wattage nodig voor het verzenden van een update"
                     }
-                },
-                {
-                    "id": 101,
-                    "type": "dropdown",
-                    "label": {
-                        "en": "Information reports send to association group 1",
-                        "nl": "Informatie updates naar associatie groep 1"
-                    },
-                    "hint": {
-                        "en": "Which information needs to be send to devices in association group 1",
-                        "nl": "Welke informatie moet naar apparaten in associatie groep 1 worden gestuurd"
-                    },
-                    "value": "4",
-                    "values": [
-                        {
-                            "id": "1",
-                            "label": {
-                                "en": "Voltage (V)",
-                                "nl": "Voltage (V)"
-                            }
-                        },
-                        {
-                            "id": "2",
-                            "label": {
-                                "en": "Current (A)",
-                                "nl": "Current (A)"
-                            }
-                        },
-                        {
-                            "id": "4",
-                            "label": {
-                                "en": "Power (Watt)",
-                                "nl": "Vermogen (Watt)"
-                            }
-                        },
-                        {
-                            "id": "8",
-                            "label": {
-                                "en": "Energy (kWh)",
-                                "nl": "Energie (kWh)"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "id": 102,
-                    "type": "dropdown",
-                    "label": {
-                        "en": "Information reports send to association group 2",
-                        "nl": "Informatie updates naar associatie groep 2"
-                    },
-                    "hint": {
-                        "en": "Which information needs to be send to devices in association group 2",
-                        "nl": "Welke informatie moet naar apparaten in associatie groep 2 worden gestuurd"
-                    },
-                    "value": "4",
-                    "values": [
-                        {
-                            "id": "1",
-                            "label": {
-                                "en": "Voltage (V)",
-                                "nl": "Voltage (V)"
-                            }
-                        },
-                        {
-                            "id": "2",
-                            "label": {
-                                "en": "Current (A)",
-                                "nl": "Current (A)"
-                            }
-                        },
-                        {
-                            "id": "4",
-                            "label": {
-                                "en": "Power (Watt)",
-                                "nl": "Vermogen (Watt)"
-                            }
-                        },
-                        {
-                            "id": "8",
-                            "label": {
-                                "en": "Energy (kWh)",
-                                "nl": "Energie (kWh)"
-                            }
-                        }
-                    ]
                 },
                 {
                     "id": 103,
@@ -1911,11 +1828,13 @@
                         "nl": "Informatie update interval associatie groep 1"
                     },
                     "hint": {
-                        "en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 1",
-                        "nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de eerste associatie group zou moeten sturen"
+                        "en": "This parameter indicates how often the Smart Dimmer should send an update Wattage",
+                        "nl": "Deze parameter geeft aan hoe vaak de Smart Dimmer een update met Wattage stuurt"
                     },
-                    "min": 1,
-                    "max": 268435456,
+                    "attr": {
+                        "min": 1,
+                        "max": 268435456
+                    },
                     "value": 15
                 },
                 {
@@ -1926,11 +1845,13 @@
                         "nl": "Informatie update interval associatie groep 2"
                     },
                     "hint": {
-                        "en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 2",
-                        "nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de tweede associatie group zou moeten sturen"
+                        "en": "This parameter indicates how often the Smart Dimmer should send an update kWh (Kilo Watt Hour)",
+                        "nl": "Deze parameter geeft aan hoe vaak de Smart Dimmer een update met kWh (Kilo Watt Uur) stuurt"
                     },
-                    "min": 1,
-                    "max": 268435456,
+                    "attr": {
+                        "min": 1,
+                        "max": 268435456
+                    },
                     "value": 600
                 },
                 {
@@ -1941,11 +1862,13 @@
                         "nl": "Informatie update interval associatie groep 3"
                     },
                     "hint": {
-                        "en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 3",
-                        "nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de derde associatie group zou moeten sturen"
+                        "en": "This parameter indicates how often the Smart Dimmer should send an update with new information to devices in association group 3",
+                        "nl": "Deze parameter geeft aan hoe vaak de Smart Dimmer een update met nieuwe informatie naar apparaten in de derde associatie group zou moeten sturen"
                     },
-                    "min": 1,
-                    "max": 268435456,
+                    "attr": {
+                        "min": 1,
+                        "max": 268435456
+                    },
                     "value": 600
                 }
             ]
