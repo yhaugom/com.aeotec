@@ -3,7 +3,7 @@
 const path = require('path');
 const ZwaveDriver = require('homey-zwavedriver');
 
-// http://www.pepper1.net/zwavedb/device/833
+// http://www.pepper1.net/zwavedb/device/609
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	capabilities: {
@@ -21,7 +21,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 
 module.exports.on('initNode', function (token) {
 	let node = module.exports.nodes[token];
-	if( node ) {
+	if (node) {
 		node.instance.CommandClass['COMMAND_CLASS_SCENE_ACTIVATION'].on('report', (command, report) => {
 			if (command.name === 'SCENE_ACTIVATION_SET') {
 
@@ -37,7 +37,7 @@ module.exports.on('initNode', function (token) {
 				}
 
 				var triggerId = triggerMap[ report['Scene ID'] ];
-				if( triggerId ) {
+				if (triggerId) {
 					Homey.manager('flow').triggerDevice(`zw088_${triggerId}`, null, null, node.device_data);
 				}
 			}

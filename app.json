@@ -1016,12 +1016,15 @@
             "zwave": {
                 "manufacturerId": 134,
                 "productTypeId": 1,
-                "productId": [22, 88],
+                "productId": [
+					22,
+					88
+				],
                 "wakeUpInterval": 300,
                 "learnmode": {
                     "instruction": {
-                        "en": "Press the Learn button on your Key Fob. \n\nAfter pairing, press Learn and Mode for 3 seconds.",
-                        "nl": "Druk op de Learn knop op de Key Fob. \n\nNa het toevoegen, houdt Learn en Mode voor 3 seconden ingedrukt."
+                        "en": "Press the Learn button on your Key Fob. \n\nAfter pairing, press Learn and Mode for 3 seconds\,nto change the keyfob to User Mode.",
+                        "nl": "Druk op de Learn knop op de Key Fob. \n\nNa het toevoegen, houdt de Learn en Mode voor 3 seconden ingedrukt,\nom de sleutelhanger in Gebruiker Modus te zetten."
                     }
                 },
                 "associationGroups": [
@@ -1036,7 +1039,9 @@
                 ]
             },
             "class": "sensor",
-            "capabilities": ["measure_battery"],
+            "capabilities": [
+				"measure_battery"
+			],
             "mobile": {
                 "components": [
                     {
