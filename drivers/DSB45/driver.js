@@ -14,6 +14,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_report: 'SENSOR_BINARY_REPORT',
 			command_report_parser: report => {
 				if (report['Sensor Value'] !== 'detected an event') return false;
+				
 				return true;
 			}
 		},
@@ -23,6 +24,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_report: 'BATTERY_REPORT',
 			command_report_parser: report => {
 				if (report['Battery Level'] === 'battery low warning') return 1;
+				
 				return report['Battery Level (Raw)'][0];
 			}
 		}
