@@ -8,29 +8,27 @@ const ZwaveDriver = require('homey-zwavedriver');
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	capabilities: {
-		locked: [{
+		locked: {
 			command_class: 'COMMAND_CLASS_BARRIER_OPERATOR',
 			command_get: 'BARRIER_OPERATOR_GET',
 			command_report: 'BARRIER_OPERATOR_REPORT',
-			command_report_parser: report => (report['State'] !== 'Closed'),
+			command_report_parser: report => report['State'] !== 'Closed',
 			command_set: 'BARRIER_OPERATOR_SET',
 			command_set_parser: input => {
 				return {
 					'Target Value': (input) ? 'OPEN' : 'CLOSE'
 				};
 			}
-		}]
+		}
 	},
 	settings: {
 		32: {
 			index: 32,
 			size: 1,
-			parser: input => new Buffer([(input) ? 1 : 0])
 		},
 		24: {
 			index: 24,
 			size: 1,
-			parser: input => new Buffer([(input) ? 1 : 0])
 		},
 		371: {
 			index: 37,
