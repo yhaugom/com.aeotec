@@ -131,7 +131,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				value = Math.round(value * 10);
 				
 				// Return buffer with celcius (1) selected
-				new Buffer([value, 1])
+				return new Buffer([value, 1]);
 		},
 		42: {
 			index: 42,
