@@ -35,38 +35,38 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 4,
 			parser: (input, newSettings) => new Buffer([
 				Number(input),
-				Number(newSettings.opening_alarm_mode_sound),
-				Number(newSettings.opening_alarm_mode_volume),
-				Number(newSettings.opening_alarm_enabled)
+				Number(newSettings[372]),
+				Number(newSettings[373]),
+				Number(newSettings[374])
 			])
 		},
 		372: {
 			index: 37,
 			size: 4,
 			parser: (input, newSettings) => new Buffer([
-				Number(newSettings.opening_alarm_mode_led_frequency),
+				Number(newSettings[371]),
 				Number(input),
-				Number(newSettings.opening_alarm_mode_volume),
-				Number(newSettings.opening_alarm_enabled)
+				Number(newSettings[373]),
+				Number(newSettings[374])
 			])
 		},
 		373: {
 			index: 37,
 			size: 4,
 			parser: (input, newSettings) => new Buffer([
-				Number(newSettings.opening_alarm_mode_led_frequency),
-				Number(newSettings.opening_alarm_mode_sound),
+				Number(newSettings[371]),
+				Number(newSettings[372]),
 				Number(input),
-				Number(newSettings.opening_alarm_enabled)
+				Number(newSettings[374])
 			])
 		},
 		374: {
 			index: 37,
 			size: 4,
 			parser: (input, newSettings) => new Buffer([
-				Number(newSettings.opening_alarm_mode_led_frequency),
-				Number(newSettings.opening_alarm_mode_sound),
-				Number(newSettings.opening_alarm_mode_volume),
+				Number(newSettings[371]),
+				Number(newSettings[372]),
+				Number(newSettings[373]),
 				Number(input)
 			])
 		},
@@ -75,38 +75,38 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 4,
 			parser: (input, newSettings) => new Buffer([
 				Number(input),
-				Number(newSettings.closing_alarm_mode_sound),
-				Number(newSettings.closing_alarm_mode_volume),
-				Number(newSettings.closing_alarm_enabled)
+				Number(newSettings[382]),
+				Number(newSettings[383]),
+				Number(newSettings[384])
 			])
 		},
 		382: {
 			index: 38,
 			size: 4,
 			parser: (input, newSettings) => new Buffer([
-				Number(newSettings.closing_alarm_mode_led_frequency),
+				Number(newSettings[381]),
 				Number(input),
-				Number(newSettings.closing_alarm_mode_volume),
-				Number(newSettings.closing_alarm_enabled)
+				Number(newSettings[383]),
+				Number(newSettings[384])
 			])
 		},
 		383: {
 			index: 38,
 			size: 4,
 			parser: (input, newSettings) => new Buffer([
-				Number(newSettings.closing_alarm_mode_led_frequency),
-				Number(newSettings.closing_alarm_mode_sound),
+				Number(newSettings[381]),
+				Number(newSettings[382]),
 				Number(input),
-				Number(newSettings.closing_alarm_enabled)
+				Number(newSettings[384])
 			])
 		},
 		384: {
 			index: 38,
 			size: 4,
 			parser: (input, newSettings) => new Buffer([
-				Number(newSettings.closing_alarm_mode_led_frequency),
-				Number(newSettings.closing_alarm_mode_sound),
-				Number(newSettings.closing_alarm_mode_volume),
+				Number(newSettings[381]),
+				Number(newSettings[382]),
+				Number(newSettings[383]),
 				Number(input)
 			])
 		},
@@ -115,38 +115,38 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 4,
 			parser: (input, newSettings) => new Buffer([
 				Number(input),
-				Number(newSettings.unknown_alarm_mode_sound),
-				Number(newSettings.unknown_alarm_mode_volume),
-				Number(newSettings.unknown_alarm_enabled)
+				Number(newSettings[392]),
+				Number(newSettings[393]),
+				Number(newSettings[394])
 			])
 		},
 		392: {
 			index: 39,
 			size: 4,
 			parser: (input, newSettings) => new Buffer([
-				Number(newSettings.unknown_alarm_mode_led_frequency),
+				Number(newSettings[391]),
 				Number(input),
-				Number(newSettings.unknown_alarm_mode_volume),
-				Number(newSettings.unknown_alarm_enabled)
+				Number(newSettings[393]),
+				Number(newSettings[394])
 			])
 		},
 		393: {
 			index: 39,
 			size: 4,
 			parser: (input, newSettings) => new Buffer([
-				Number(newSettings.unknown_alarm_mode_led_frequency),
-				Number(newSettings.unknown_alarm_mode_sound),
+				Number(newSettings[391]),
+				Number(newSettings[392]),
 				Number(input),
-				Number(newSettings.unknown_alarm_enabled)
+				Number(newSettings[394])
 			])
 		},
 		394: {
 			index: 39,
 			size: 4,
 			parser: (input, newSettings) => new Buffer([
-				Number(newSettings.unknown_alarm_mode_led_frequency),
-				Number(newSettings.unknown_alarm_mode_sound),
-				Number(newSettings.unknown_alarm_mode_volume),
+				Number(newSettings[391]),
+				Number(newSettings[392]),
+				Number(newSettings[393]),
 				Number(input)
 			])
 		},
@@ -155,38 +155,38 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 4,
 			parser: (input, newSettings) => new Buffer([
 				Number(input),
-				Number(newSettings.closed_alarm_mode_sound),
-				Number(newSettings.closed_alarm_mode_volume),
-				Number(newSettings.closed_alarm_enabled)
+				Number(newSettings[402]),
+				Number(newSettings[403]),
+				Number(newSettings[404])
 			])
 		},
 		402: {
 			index: 40,
 			size: 4,
 			parser: (input, newSettings) => new Buffer([
-				Number(newSettings.closed_alarm_mode_led_frequency),
+				Number(newSettings[401]),
 				Number(input),
-				Number(newSettings.closed_alarm_mode_volume),
-				Number(newSettings.closed_alarm_enabled)
+				Number(newSettings[403]),
+				Number(newSettings[404])
 			])
 		},
 		403: {
 			index: 40,
 			size: 4,
 			parser: (input, newSettings) => new Buffer([
-				Number(newSettings.closed_alarm_mode_led_frequency),
-				Number(newSettings.closed_alarm_mode_sound),
+				Number(newSettings[401]),
+				Number(newSettings[402]),
 				Number(input),
-				Number(newSettings.closed_alarm_enabled)
+				Number(newSettings[404])
 			])
 		},
 		404: {
 			index: 40,
 			size: 4,
 			parser: (input, newSettings) => new Buffer([
-				Number(newSettings.closed_alarm_mode_led_frequency),
-				Number(newSettings.closed_alarm_mode_sound),
-				Number(newSettings.closed_alarm_mode_volume),
+				Number(newSettings[401]),
+				Number(newSettings[402]),
+				Number(newSettings[403]),
 				Number(input)
 			])
 		},
