@@ -1619,8 +1619,7 @@
                     }
                 },
                 "associationGroups": [
-                    1,
-                    2
+                    1
                 ],
                 "defaultConfiguration": [
                     {
@@ -1642,6 +1641,11 @@
                         "id": 91,
                         "size": 2,
                         "value": 3
+                    },
+                    {
+                        "id": 101,
+                        "size": 1,
+                        "value": 12
                     },
                     {
                         "id": 111,
@@ -1778,18 +1782,25 @@
                     }
                 },
                 {
-                    "id": 103,
+                    "id": 102,
                     "type": "dropdown",
                     "label": {
-                        "en": "Information reports send to association group 3",
-                        "nl": "Informatie updates naar associatie groep 3"
+                        "en": "Information reports send to association group 2",
+                        "nl": "Informatie updates naar associatie groep 2"
                     },
                     "hint": {
-                        "en": "Which information needs to be send to devices in association group 3",
-                        "nl": "Welke informatie moet naar apparaten in associatie groep 3 worden gestuurd"
+                        "en": "Which information needs to be send to devices in association group 2",
+                        "nl": "Welke informatie moet naar apparaten in associatie groep 2 worden gestuurd"
                     },
-                    "value": "4",
+                    "value": "8",
                     "values": [
+                        {
+                            "id": "0",
+                            "label": {
+                                "en": "Nothing",
+                                "nl": "Geen"
+                            }
+                        },
                         {
                             "id": "1",
                             "label": {
@@ -1817,6 +1828,84 @@
                                 "en": "Energy (kWh)",
                                 "nl": "Energie (kWh)"
                             }
+                        },
+                        {
+                            "id": "12",
+                            "label": {
+                                "en": "Power (Watt) & Energy (kWh)",
+                                "nl": "Vermogen (Watt) & Energie (kWh)"
+                            }
+                        },
+                        {
+                            "id": "15",
+                            "label": {
+                                "en": "Everything",
+                                "nl": "Alles"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 103,
+                    "type": "dropdown",
+                    "label": {
+                        "en": "Information reports send to association group 3",
+                        "nl": "Informatie updates naar associatie groep 3"
+                    },
+                    "hint": {
+                        "en": "Which information needs to be send to devices in association group 3",
+                        "nl": "Welke informatie moet naar apparaten in associatie groep 3 worden gestuurd"
+                    },
+                    "value": "0",
+                    "values": [
+                        {
+                            "id": "0",
+                            "label": {
+                                "en": "Nothing",
+                                "nl": "Geen"
+                            }
+                        },
+                        {
+                            "id": "1",
+                            "label": {
+                                "en": "Voltage (V)",
+                                "nl": "Voltage (V)"
+                            }
+                        },
+                        {
+                            "id": "2",
+                            "label": {
+                                "en": "Current (A)",
+                                "nl": "Current (A)"
+                            }
+                        },
+                        {
+                            "id": "4",
+                            "label": {
+                                "en": "Power (Watt)",
+                                "nl": "Vermogen (Watt)"
+                            }
+                        },
+                        {
+                            "id": "8",
+                            "label": {
+                                "en": "Energy (kWh)",
+                                "nl": "Energie (kWh)"
+                            }
+                        },
+                        {
+                            "id": "12",
+                            "label": {
+                                "en": "Power (Watt) & Energy (kWh)",
+                                "nl": "Vermogen (Watt) & Energie (kWh)"
+                            }
+                        },
+                        {
+                            "id": "15",
+                            "label": {
+                                "en": "Everything",
+                                "nl": "Alles"
+                            }
                         }
                     ]
                 },
@@ -1828,8 +1917,8 @@
                         "nl": "Informatie update interval associatie groep 1"
                     },
                     "hint": {
-                        "en": "This parameter indicates how often the Smart Dimmer should send an update Wattage",
-                        "nl": "Deze parameter geeft aan hoe vaak de Smart Dimmer een update met Wattage stuurt"
+                        "en": "This parameter indicates how often the Smart Dimmer should send an update with new information to Homey",
+                        "nl": "Deze parameter geeft aan hoe vaak de Smart Dimmer een update met nieuwe informatie naar Homey"
                     },
                     "attr": {
                         "min": 1,
@@ -1845,8 +1934,8 @@
                         "nl": "Informatie update interval associatie groep 2"
                     },
                     "hint": {
-                        "en": "This parameter indicates how often the Smart Dimmer should send an update kWh (Kilo Watt Hour)",
-                        "nl": "Deze parameter geeft aan hoe vaak de Smart Dimmer een update met kWh (Kilo Watt Uur) stuurt"
+                        "en": "This parameter indicates how often the Smart Dimmer should send an update with new information to devices in association group 2",
+                        "nl": "Deze parameter geeft aan hoe vaak de Smart Dimmer een update met nieuwe informatie naar apparaten in de tweede associatie group zou moeten sturen"
                     },
                     "attr": {
                         "min": 1,
