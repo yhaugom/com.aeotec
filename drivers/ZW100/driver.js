@@ -126,7 +126,12 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		41: {
 			index: 41,
 			size: 2,
-			parser: input => new Buffer([input, 1])
+			parser: value => {
+				// Round value to whole number
+				value = Math.round(value * 10);
+				
+				// Return buffer with celcius (1) selected
+				new Buffer([value, 1])
 		},
 		42: {
 			index: 42,
@@ -167,18 +172,52 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		201: {
 			index: 201,
 			size: 2,
+			parser: value => {
+				// Round value to whole number
+				value = Math.round(value * 10);
+				
+				// If value is negative, subtract value from 256
+				if (value < 0)
+					temp = 256 + value;
+				
+				// Return buffer with celcius (1) selected
+				return new Buffer([temp, 1]);
+			}
 		},
 		202: {
 			index: 202,
-			size: 1
+			size: 1,
+			parser: value => {
+				// If value is negative, subtract value from 256
+				if (value < 0)
+					value = 256 + value;
+				
+				return new Buffer([value]);
+			}
 		},
 		203: {
 			index: 203,
-			size: 2
+			size: 2,
+			parser: value => {
+				// If value is negative, subtract value from 65535
+				if (value < 0)
+					value = 65535 + value;
+				
+				// Return 2 byte buffer
+				let lux = new Buffer(2);
+				return lux.writeUInt16BE(value);
+			}
 		},
 		204: {
 			index: 204,
-			size: 1
+			size: 1,
+			parser: value => {
+				// If value is negative, subtract value from 256
+				if (value < 0)
+					value = 256 + value;
+				
+				return new Buffer([value]);
+			}
 		}
 	}
 });
