@@ -93,6 +93,10 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			index: 91,
 			size: 2
 		},
+		102: {
+			index: 102,
+			size: 4
+		},
 		103: {
 			index: 103,
 			size: 4
