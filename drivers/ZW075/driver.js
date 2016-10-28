@@ -32,6 +32,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_get: 'METER_GET',
 			command_get_parser: () => {
 				return {
+					'Sensor Type': 'Electric meter',
 					'Properties1': {
 						'Scale': 0
 					}
@@ -53,6 +54,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_get: 'METER_GET',
 			command_get_parser: () => {
 				return {
+					'Sensor Type': 'Electric meter',
 					'Properties1': {
 						'Scale': 2
 					}
