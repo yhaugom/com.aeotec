@@ -199,9 +199,9 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			index: 203,
 			size: 2,
 			parser: value => {
-				// If value is negative, subtract value from 65535
+				// If value is negative, subtract value from 65536
 				if (value < 0)
-					value = 65535 + value;
+					value = 65536 + value;
 				
 				// Return 2 byte buffer
 				let lux = new Buffer(2);
