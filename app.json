@@ -353,6 +353,154 @@
             ]
         },
         {
+        	"id": "ZW080",
+        	"name": {
+        		"en": "Siren Gen5",
+        		"nl": "Sirene Gen5"
+        	},
+        	"zwave": {
+                "manufacturerId": 134,
+                "productTypeId": 4,
+                "productId": 80,
+                "requireSecure": true,
+                "learnmode": {
+                    "instruction": {
+                        "en": "Press the (z-wave) button on your Siren",
+                        "nl": "Druk op de (z-wave) knop op de Sirene"
+                    }
+                },
+                "associationGroups": [ 1 ],
+                "defaultConfiguration": [
+                ]
+        	},
+        	"class": "light",
+        	"capabilities": [
+        		"onoff"
+        	],
+             "images": {
+                "large": "/drivers/ZW080/assets/images/large.jpg",
+                "small": "/drivers/ZW080/assets/images/small.jpg"
+            },
+            "settings": [
+            	{
+                    "id": 37,
+                    "type": "dropdown",
+                    "label": {
+                        "en": "Siren sound and volume",
+                        "nl": "Geluid en volume van sirene"
+                    },
+                    "value": "259",
+                    "values": [
+                        {
+                            "id": "257",
+                            "label": {
+                                "en": "Sound 1 (Low volume)",
+                                "nl": "Geluid 1 (Laag volume)"
+                            }
+                        },
+                        {
+                            "id": "258",
+                            "label": {
+                                "en": "Sound 1 (Medium volume)",
+                                "nl": "Geluid 1 (Middel volume)"
+                            }
+                        },
+                        {
+                            "id": "259",
+                            "label": {
+                                "en": "Sound 1 (High volume)",
+                                "nl": "Geluid 1 (Hoog volume)"
+                            }
+                        },
+                        {
+                            "id": "513",
+                            "label": {
+                                "en": "Sound 2 (Low volume)",
+                                "nl": "Geluid 2 (Laag volume)"
+                            }
+                        },
+                        {
+                            "id": "514",
+                            "label": {
+                                "en": "Sound 2 (Medium volume)",
+                                "nl": "Geluid 2 (Middel volume)"
+                            }
+                        },
+                        {
+                            "id": "515",
+                            "label": {
+                                "en": "Sound 2 (High volume)",
+                                "nl": "Geluid 2 (Hoog volume)"
+                            }
+                        },
+                        {
+                            "id": "769",
+                            "label": {
+                                "en": "Sound 3 (Low volume)",
+                                "nl": "Geluid 3 (Laag volume)"
+                            }
+                        },
+                        {
+                            "id": "770",
+                            "label": {
+                                "en": "Sound 3 (Medium volume)",
+                                "nl": "Geluid 3 (Middel volume)"
+                            }
+                        },
+                        {
+                            "id": "771",
+                            "label": {
+                                "en": "Sound 3 (High volume)",
+                                "nl": "Geluid 3 (Hoog volume)"
+                            }
+                        },
+                        {
+                            "id": "1025",
+                            "label": {
+                                "en": "Sound 4 (Low volume)",
+                                "nl": "Geluid 4 (Laag volume)"
+                            }
+                        },
+                        {
+                            "id": "1026",
+                            "label": {
+                                "en": "Sound 4 (Medium volume)",
+                                "nl": "Geluid 4 (Middel volume)"
+                            }
+                        },
+                        {
+                            "id": "1027",
+                            "label": {
+                                "en": "Sound 4 (High volume)",
+                                "nl": "Geluid 4 (Hoog volume)"
+                            }
+                        },
+                        {
+                            "id": "1281",
+                            "label": {
+                                "en": "Sound 5 (Low volume)",
+                                "nl": "Geluid 5 (Laag volume)"
+                            }
+                        },
+                        {
+                            "id": "1282",
+                            "label": {
+                                "en": "Sound 5 (Medium volume)",
+                                "nl": "Geluid 5 (Middel volume)"
+                            }
+                        },
+                        {
+                            "id": "1283",
+                            "label": {
+                                "en": "Sound 5 (High volume)",
+                                "nl": "Geluid 5 (Hoog volume)"
+                            }
+                        }
+                    ]
+                }
+            ]
+       },
+        {
             "id": "ZW062",
             "name": {
                 "en": "Garage Door Controller Gen5"
