@@ -1020,8 +1020,8 @@
                 "wakeUpInterval": 300,
                 "learnmode": {
                     "instruction": {
-                        "en": "Press the Learn button on your Key Fob. \n\nAfter pairing, press Learn and Mode for 3 seconds.",
-                        "nl": "Druk op de Learn knop op de Key Fob. \n\nNa het toevoegen, houdt Learn en Mode voor 3 seconden ingedrukt."
+                        "en": "Press the Learn button on your Key Fob. \n\nAfter the device was added to Homey, press Learn and Mode for 3 seconds.",
+                        "nl": "Druk op de Learn knop op de Key Fob. \n\nNadat het apparaat aan Homey is toegevoegd, houd Learn en Mode voor 3 seconden ingedrukt."
                     }
                 },
                 "associationGroups": [
