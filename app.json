@@ -1365,6 +1365,63 @@
                     }
                 },
                 {
+                    "id": 101,
+                    "type": "dropdown",
+                    "label": {
+                        "en": "Information reports send to association group 1",
+                        "nl": "Informatie updates naar associatie groep 1"
+                    },
+                    "hint": {
+                        "en": "Which information needs to be send to devices in association group 1",
+                        "nl": "Welke informatie moet naar apparaten in associatie groep 1 worden gestuurd"
+                    },
+                    "value": "12",
+                    "values": [
+                        {
+                            "id": "1",
+                            "label": {
+                                "en": "Voltage (V)",
+                                "nl": "Voltage (V)"
+                            }
+                        },
+                        {
+                            "id": "2",
+                            "label": {
+                                "en": "Current (A)",
+                                "nl": "Current (A)"
+                            }
+                        },
+                        {
+                            "id": "4",
+                            "label": {
+                                "en": "Power (Watt)",
+                                "nl": "Vermogen (Watt)"
+                            }
+                        },
+                        {
+                            "id": "8",
+                            "label": {
+                                "en": "Energy (kWh)",
+                                "nl": "Energie (kWh)"
+                            }
+                        },
+                        {
+                            "id": "12",
+                            "label": {
+                                "en": "Power (Watt) & Energy (kWh)",
+                                "nl": "Vermogen (Watt) & Energie (kWh)"
+                            }
+                        },
+                        {
+                            "id": "15",
+                            "label": {
+                                "en": "Everything",
+                                "nl": "Alles"
+                            }
+                        }
+                    ]
+                },
+                {
                     "id": 102,
                     "type": "dropdown",
                     "label": {
@@ -1501,7 +1558,7 @@
                     },
                     "hint": {
                         "en": "This parameter indicates how often the Smart Switch should send an update with new information to Homey",
-                        "nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar Homey"
+                        "nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar Homey zou moeten sturen"
                     },
                     "attr": {
                         "min": 1,
