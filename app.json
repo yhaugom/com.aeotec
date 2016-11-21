@@ -1637,20 +1637,11 @@
                 "defaultConfiguration": [
                     {
                         "id": 80,
-                        "value": true,
+                        "value": 2,
                         "size": 1
                     }
                 ],
                 "settings": [
-                    {
-                        "id": 80,
-                        "type": "checkbox",
-                        "label": {
-                            "en": "Enable report when color changed",
-                            "nl": "Verstuur bericht wanneer kleur is veranderd"
-                        },
-                        "value": true
-                    },
                     {
                         "id": 34,
                         "type": "checkbox",
