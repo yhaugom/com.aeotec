@@ -36,17 +36,18 @@
         {
             "id": "DSB05",
             "name": {
-                "en": "Motion Sensor"
+                "en": "Multi Sensor 4-in-1"
             },
             "zwave": {
                 "manufacturerId": 134,
                 "productTypeId": 2,
                 "productId": 5,
+                "wakeUpInterval": 7200,
                 "learnmode": {
                     "image": "/drivers/DSB05/assets/learnmode.svg",
                     "instruction": {
-                        "en": "Press the Z-Wave button on your Motion Sensor",
-                        "nl": "Druk op de Z-Wave knop op de Bewegings Sensor"
+                        "en": "Press the Z-Wave button on your Multi Sensor",
+                        "nl": "Druk op de Z-Wave knop op de Multi Sensor"
                     }
                 },
                 "associationGroups": [
@@ -54,45 +55,9 @@
                 ],
                 "defaultConfiguration": [
                     {
-                        "id": 1,
-                        "size": 1,
-                        "value": 0
-                    }, {
-                        "id": 2,
-                        "size": 1,
-                        "value": 0
-                    }, {
-                        "id": 3,
-                        "size": 2,
-                        "value": 240
-                    }, {
-                        "id": 4,
-                        "size": 1,
-                        "value": 1
-                    }, {
                         "id": 101,
                         "size": 4,
-                        "value": 0
-                    }, {
-                        "id": 102,
-                        "size": 4,
-                        "value": 0
-                    }, {
-                        "id": 103,
-                        "size": 4,
-                        "value": 0
-                    }, {
-                        "id": 111,
-                        "size": 4,
-                        "value": 720
-                    }, {
-                        "id": 112,
-                        "size": 4,
-                        "value": 720
-                    }, {
-                        "id": 113,
-                        "size": 4,
-                        "value": 720
+                        "value": 225
                     }
                 ]
             },
@@ -108,7 +73,8 @@
                 "large": "/drivers/DSB05/assets/images/large.jpg",
                 "small": "/drivers/DSB05/assets/images/small.jpg"
             },
-            "settings": [{
+            "settings": [
+                {
                     "id": 1,
                     "type": "dropdown",
                     "label": {
@@ -123,145 +89,230 @@
                             "id": "0",
                             "label": {
                                 "en": "Temperature, humidity and luminance"
-                            },
-                            "value": 0
-                        }, {
+                            }
+                        },
+                        {
                             "id": "1",
                             "label": {
                                 "en": "Temperature"
-                            },
-                            "value": 1
-                        }, {
+                            }
+                        },
+                        {
                             "id": "2",
                             "label": {
                                 "en": "Luminance"
-                            },
-                            "value": 2
-                        }, {
+                            }
+                        },
+                        {
                             "id": "3",
                             "label": {
                                 "en": "Humidity"
-                            },
-                            "value": 3
+                            }
                         }
                     ]
-                }, {
+                },
+                {
                     "id": 2,
-                    "type": "dropdown",
+                    "type": "checkbox",
                     "label": {
                         "en": "Wake up 10 minutes when batteries are inserted"
                     },
-                    "value": "0",
-                    "values": [
-                        {
-                            "id": "0",
-                            "label": {
-                                "en": "No"
-                            }
-                        }, {
-                            "id": "1",
-                            "label": {
-                                "en": "Yes"
-                            }
-                        }
-                    ],
+                    "value": false,
                     "hint": {
                         "en": "Stay awake for 10 minutes after batteries are inserted"
                     }
-                }, {
+                },
+                {
                     "id": 3,
                     "type": "number",
                     "label": {
                         "en": "On time"
                     },
                     "value": 240,
+                    "attr": {
+                        "min": 1,
+                        "max": 15300
+                    },
                     "hint": {
-                        "en": "How long should the device associated to multi senor keep state On before sending it Off command (if the value is bigger than 255, the value would be rounded to next integer in minutes)"
+                        "en": "How long should the device associated to the multi sensor keep state On before sending it Off command (if the value is bigger than 255, the value would be rounded to next integer in minutes)"
                     }
-                }, {
+                },
+                {
                     "id": 4,
-                    "type": "dropdown",
+                    "type": "checkbox",
                     "label": {
                         "en": "Enable motion sensor"
                     },
-                    "value": "1",
+                    "value": true,
+                    "hint": {
+                        "en": "Should the motion sensor be enabled?"
+                    }
+                },
+                {
+                    "id": 102,
+                    "type": "dropdown",
+                    "label": {
+                        "en": "Which reports to send to association group 2"
+                    },
+                    "value": "0",
                     "values": [
                         {
                             "id": "0",
                             "label": {
-                                "en": "Disabled"
-                            },
-                            "value": 0
-                        }, {
-                            "id": "1",
+                                "en": "Nothing"
+                            }
+                        },
+                        {
+                            "id": "33",
                             "label": {
-                                "en": "Enabled"
-                            },
-                            "value": 1
+                                "en": "Battery & Temperature"
+                            }
+                        },
+                        {
+                            "id": "65",
+                            "label": {
+                                "en": "Battery & Luminosity"
+                            }
+                        },
+                        {
+                            "id": "129",
+                            "label": {
+                                "en": "Battery & Humidity"
+                            }
+                        },
+                        {
+                            "id": "97",
+                            "label": {
+                                "en": "Battery & Temperature & Luminosity"
+                            }
+                        },
+                        {
+                            "id": "161",
+                            "label": {
+                                "en": "Battery & Temperature & Humidity"
+                            }
+                        },
+                        {
+                            "id": "193",
+                            "label": {
+                                "en": "Battery & Luminosity & Humidity"
+                            }
+                        },
+                        {
+                            "id": "225",
+                            "label": {
+                                "en": "Battery & Temperature & Luminosity & Humidity"
+                            }
                         }
                     ],
                     "hint": {
-                        "en": "How long should the device associated to multi sensor keep state On before sending it Off command (if the value is bigger than 255, the value would be rounded to next integer in minutes)"
+                        "en": "Which reports need to send automatically in timing intervals for group 2."
                     }
-                }, {
-                    "id": 101,
-                    "type": "number",
-                    "label": {
-                        "en": "Which reports to send. Interval group 1"
-                    },
-                    "value": 1,
-                    "hint": {
-                        "en": "Which reports need to send automatically in timing intervals for group 1. Bit: 0=Battery report, 5=Temperature, 6=Luminosity, 7=Humidity"
-                    }
-                }, {
-                    "id": 102,
-                    "type": "number",
-                    "label": {
-                        "en": "Which reports to send. Interval group 2"
-                    },
-                    "value": 0,
-                    "hint": {
-                        "en": "Which reports need to send automatically in timing intervals for group 2. Bit: 0=Battery report, 5=Temperature, 6=Luminosity, 7=Humidity"
-                    }
-                }, {
+                },
+                {
                     "id": 103,
-                    "type": "number",
+                    "type": "dropdown",
                     "label": {
-                        "en": "Which reports to send. Interval group 3"
+                        "en": "Which reports to send to association group 3"
                     },
-                    "value": 0,
+                    "value": "0",
+                    "values": [
+                        {
+                            "id": "0",
+                            "label": {
+                                "en": "Nothing"
+                            }
+                        },
+                        {
+                            "id": "33",
+                            "label": {
+                                "en": "Battery & Temperature"
+                            }
+                        },
+                        {
+                            "id": "65",
+                            "label": {
+                                "en": "Battery & Luminosity"
+                            }
+                        },
+                        {
+                            "id": "129",
+                            "label": {
+                                "en": "Battery & Humidity"
+                            }
+                        },
+                        {
+                            "id": "97",
+                            "label": {
+                                "en": "Battery & Temperature & Luminosity"
+                            }
+                        },
+                        {
+                            "id": "161",
+                            "label": {
+                                "en": "Battery & Temperature & Humidity"
+                            }
+                        },
+                        {
+                            "id": "193",
+                            "label": {
+                                "en": "Battery & Luminosity & Humidity"
+                            }
+                        },
+                        {
+                            "id": "225",
+                            "label": {
+                                "en": "Battery & Temperature & Luminosity & Humidity"
+                            }
+                        }
+                    ],
                     "hint": {
-                        "en": "Which reports need to send automatically in timing intervals for group 3. Bit: 0=Battery report, 5=Temperature, 6=Luminosity, 7=Humidity"
+                        "en": "Which reports need to send automatically in timing intervals for group 3."
                     }
-                }, {
+                },
+                {
                     "id": 111,
                     "type": "number",
                     "label": {
-                        "en": "Unsolicitate reports interval for timing groups 1."
+                        "en": "Unsolicited reports interval for association group 1."
                     },
-                    "value": 0,
+                    "value": 720,
+                    "attr": {
+                        "min": 1,
+                        "max": 2678400
+                    },
                     "hint": {
-                        "en": "Interval to send out reports to timing group 1. (1 seconds - 2678400 seconds)"
+                        "en": "Interval to send out reports to association group 1 (Homey). (1 seconds - 2678400 seconds)"
                     }
-                }, {
+                },
+                {
                     "id": 112,
                     "type": "number",
                     "label": {
-                        "en": "Unsolicitate reports interval for timing groups 2."
+                        "en": "Unsolicited reports interval for association group 2."
                     },
-                    "value": 0,
+                    "value": 720,
+                    "attr": {
+                        "min": 1,
+                        "max": 2678400
+                    },
                     "hint": {
-                        "en": "Interval to send out reports to timing group 2. (1 seconds - 2678400 seconds)"
+                        "en": "Interval to send out reports to association group 2. (1 seconds - 2678400 seconds)"
                     }
-                }, {
+                },
+                {
                     "id": 113,
                     "type": "number",
                     "label": {
-                        "en": "Unsolicitate reports interval for timing groups 3."
+                        "en": "Unsolicited reports interval for association group 3."
                     },
-                    "value": 0,
+                    "value": 720,
+                    "attr": {
+                        "min": 1,
+                        "max": 2678400
+                    },
                     "hint": {
-                        "en": "Interval to send out reports to timing group 3. (1 seconds - 2678400 seconds)"
+                        "en": "Interval to send out reports to association group 3. (1 seconds - 2678400 seconds)"
                     }
                 }
             ]

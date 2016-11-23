@@ -1,58 +1,59 @@
 'use strict';
 const path = require('path');
 const ZwaveDriver = require('homey-zwavedriver');
+
 // http://www.cd-jackson.com/zwave_device_uploads/355/9-Multisensor-6-V1-07.pdf
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	capabilities: {
 		measure_battery: {
 			command_class: 'COMMAND_CLASS_BATTERY',
+			command_get: 'BATTERY_GET',
 			command_report: 'BATTERY_REPORT',
-			command_report_parser: function (report) {
-				if (report['Battery Level (Raw)']) {
-					return report['Battery Level (Raw)'][0];
-				} else {
-					return null;
-				}
+			command_report_parser: report => {
+				if (report['Battery Level'] === "battery low warning") return 1;
+				
+				return report['Battery Level (Raw)'][0];
 			}
 		},
+		
 		alarm_motion: {
 			command_class: 'COMMAND_CLASS_BASIC',
 			command_report: 'BASIC_SET',
-			command_report_parser: function (report) {
-				return report['Value'] === 255;
-			}
+			command_report_parser: report => report['Value'] === 255
 		},
+		
 		measure_temperature: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
-			command_report_parser: function (report) {
+			command_report_parser: report => {
 				if (report['Sensor Type'] === 'Temperature (version 1)')
 					return report['Sensor Value (Parsed)'];
+				
 				return null;
 			}
 
 		},
+		
 		measure_luminance: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
-			command_report_parser: function (report) {
-				if (report['Sensor Type'] === 'Luminance (version 1)') {
+			command_report_parser: report => {
+				if (report['Sensor Type'] === 'Luminance (version 1)')
 					return report['Sensor Value (Parsed)'];
-				} else {
-					return null;
-				}
+				
+				return null;
 			}
 		},
+		
 		measure_humidity: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
-			command_report_parser: function (report) {
-				if (report['Sensor Type'] === 'Relative humidity (version 2)') {
+			command_report_parser: report => {
+				if (report['Sensor Type'] === 'Relative humidity (version 2)')
 					return report['Sensor Value (Parsed)'];
-				} else {
-					return null;
-				}
+				
+				return null;
 			}
 		}
 	},
@@ -72,10 +73,6 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		4: {
 			index: 4,
 			size: 1
-		},
-		101: {
-			index: 101,
-			size: 4
 		},
 		102: {
 			index: 102,
