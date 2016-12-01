@@ -1135,7 +1135,10 @@
             "zwave": {
                 "manufacturerId": 134,
                 "productTypeId": 2,
-                "productId": [89,54],
+                "productId": [
+					89,
+					54
+				],
                 "wakeUpInterval": 300,
                 "learnmode": {
                     "image": "/drivers/ZW089/assets/learnmode.svg",
@@ -1148,6 +1151,11 @@
                     1
                 ],
                 "defaultConfiguration": [
+                    {
+                        "id": 101,
+                        "size": 1,
+                        "value": 1
+                    },
                     {
                         "id": 121,
                         "size": 4,
@@ -1170,26 +1178,26 @@
                     "type": "dropdown",
                     "value": "0",
                     "label": {
-                        "en": "Sensor Binary Report",
-                        "nl": "Sensor Binary Report"
+                        "en": "Sensor Behaviour",
+                        "nl": "Sensor Gedrag"
                     },
                     "hint": {
-                        "en": "Which value of the Sensor Binary Report will be sent when the magnet switches to open/close.",
-                        "nl": "Welke waarde van de Sensor Binary Report wordt er gestuurd als de magneet schakelaar opent/sluit."
+                        "en": "When must the sensor give an \"On\" signal, when the door/window is open or closed.",
+                        "nl": "Wanneer zal het sensor \"Aan\" aan geven, bij het open of dicht zijn van de deur/raam."
                     },
                     "values": [
                         {
                             "id": "0",
                             "label": {
-                                "en": "Open=0xFF, Close=0x00",
-                                "nl": "Open=0xFF, Gesloten=0x00"
+                                "en": "Open = On, Closed = Off",
+                                "nl": "Open = Aan, Gesloten = Uit"
                             }
                         },
                         {
                             "id": "1",
                             "label": {
-                                "en": "Open=0x00, Close=0xFF",
-                                "nl": "Open=0x00, Gesloten=0xFF"
+                                "en": "Open = Off, Closed = On",
+                                "nl": "Open = Uit, Gesloten = Aan"
                             }
                         }
                     ]
@@ -1201,40 +1209,11 @@
                         "en": "Low battery warning",
                         "nl": "Lege batterij waarschuwing"
                     },
-                    "value": false,
+                    "value": true,
                     "hint": {
                         "en": "Send low battery Report",
                         "nl": "Stuur lege batterij waarschuwing"
                     }
-                },
-                {
-                    "id": 121,
-                    "type": "dropdown",
-                    "label": {
-                        "en": "Command to send",
-                        "nl": "Te sturen commando"
-                    },
-                    "value": "16",
-                    "hint": {
-                        "en": "To set which command will be sent to the associated nodes when the magnet switch is triggered",
-                        "nl": "Configureer welk commando er gestuurd wordt naar de geassocieerde nodes als de magneetschakelaar van status wijzigt"
-                    },
-                    "values":[
-                    {
-                            "id": "16",
-                            "label": {
-                                "en": "Send 'Sensor Binary' commands",
-                                "nl": "Verstuur 'Sensor Binary' opdrachten"
-                            }
-                        },
-                        {
-                            "id": "256",
-                            "label": {
-                                "en": "Send 'Basic Set' commands",
-                                "nl": "Verstuur 'Basic Set' opdrachten"
-                            }
-                        }
-                    ]
                 }
             ]
         },

@@ -13,12 +13,14 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_report: 'SENSOR_BINARY_REPORT',
 			command_report_parser: report => report['Sensor Value'] === 'detected an event'
 		},
+		
 		measure_battery: {
 			command_class: 'COMMAND_CLASS_BATTERY',
 			command_get: 'BATTERY_GET',
 			command_report: 'BATTERY_REPORT',
 			command_report_parser: report => {
 				if (report['Battery Level'] === 'battery low warning') return 1;
+				
 				return report['Battery Level (Raw)'][0];
 			}
 		}
@@ -31,11 +33,6 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		101: {
 			index: 101,
 			size: 1,
-			parser: input => new Buffer([(input) ? 1 : 0])
 		},
-		121: {
-			index: 121,
-			size: 4
-		}
 	}
 });
