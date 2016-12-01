@@ -763,14 +763,13 @@
 					}
 				},
 				"associationGroups": [
-					1,
-					2
+					1, 2
 				],
 				"defaultConfiguration": [
 					{
 						"id": 3,
 						"size": 1,
-						"value": true
+						"value": 1
 					},
 					{
 						"id": 80,
@@ -778,26 +777,32 @@
 						"value": 2
 					},
 					{
+						"id": 90,
+						"size": 1,
+						"value": 1
+					},
+					{
 						"id": 91,
-						"size": 4,
+						"size": 2,
 						"value": 3
 					},
 					{
 						"id": 101,
 						"size": 4,
-						"value": "4"
+						"value": 12
 					},
 					{
 						"id": 111,
 						"size": 4,
-						"value": 15
+						"value": 30
 					}
 				]
 			},
 			"class": "socket",
 			"capabilities": [
 				"onoff",
-				"measure_power"
+				"measure_power",
+				"meter_power"
 			],
 			"images": {
 				"large": "/drivers/ZW075/assets/images/large.png",
@@ -870,8 +875,8 @@
 					"id": 81,
 					"type": "dropdown",
 					"label": {
-						"en": "Configure the color of the LED",
-						"nl": "Stel de kleur van de LED in"
+						"en": "Configure the behaviour of the LED",
+						"nl": "Stel het gedrag van de LED in"
 					},
 					"hint": {
 						"en": "This parameter changes the behaviour of the LED",
@@ -897,7 +902,7 @@
 							"id": "2",
 							"label": {
 								"en": "Night light mode",
-								"nl": "Nacht licht modus"
+								"nl": "Nacht lamp modus"
 							}
 						}
 					]
@@ -912,55 +917,12 @@
 					"value": 3,
 					"attr": {
 						"min": 0,
-						"max": 60000
+						"max": 32000
 					},
 					"hint": {
 						"en": "Minimum change of wattage value needed before value is updated",
 						"nl": "Minimale verandering in wattage nodig voor het verzenden van een update"
 					}
-				},
-				{
-					"id": 101,
-					"type": "dropdown",
-					"label": {
-						"en": "Information reports send to association group 1",
-						"nl": "Informatie updates naar associatie groep 1"
-					},
-					"hint": {
-						"en": "Which information needs to be send to devices in association group 1",
-						"nl": "Welke informatie moet naar apparaten in associatie groep 1 worden gestuurd"
-					},
-					"value": "4",
-					"values": [
-						{
-							"id": "1",
-							"label": {
-								"en": "Voltage (V)",
-								"nl": "Voltage (V)"
-							}
-						},
-						{
-							"id": "2",
-							"label": {
-								"en": "Current (A)",
-								"nl": "Current (A)"
-							}
-						},
-						{
-							"id": "4",
-							"label": {
-								"en": "Power (Watt)",
-								"nl": "Vermogen (Watt)"
-							}
-						},
-						{
-							"id": "8",
-							"label": {
-								"en": "Energy (kWh)",
-								"nl": "Energie (kWh)"
-							}
-						}
-					]
 				},
 				{
 					"id": 102,
@@ -973,8 +935,15 @@
 						"en": "Which information needs to be send to devices in association group 2",
 						"nl": "Welke informatie moet naar apparaten in associatie groep 2 worden gestuurd"
 					},
-					"value": "4",
+					"value": "8",
 					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "Nothing",
+								"nl": "Geen"
+							}
+						},
 						{
 							"id": "1",
 							"label": {
@@ -1001,6 +970,20 @@
 							"label": {
 								"en": "Energy (kWh)",
 								"nl": "Energie (kWh)"
+							}
+						},
+						{
+							"id": "12",
+							"label": {
+								"en": "Power (Watt) & Energy (kWh)",
+								"nl": "Vermogen (Watt) & Energie (kWh)"
+							}
+						},
+						{
+							"id": "15",
+							"label": {
+								"en": "Everything",
+								"nl": "Alles"
 							}
 						}
 					]
@@ -1016,8 +999,15 @@
 						"en": "Which information needs to be send to devices in association group 3",
 						"nl": "Welke informatie moet naar apparaten in associatie groep 3 worden gestuurd"
 					},
-					"value": "4",
+					"value": "0",
 					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "Nothing",
+								"nl": "Geen"
+							}
+						},
 						{
 							"id": "1",
 							"label": {
@@ -1045,6 +1035,20 @@
 								"en": "Energy (kWh)",
 								"nl": "Energie (kWh)"
 							}
+						},
+						{
+							"id": "12",
+							"label": {
+								"en": "Power (Watt) & Energy (kWh)",
+								"nl": "Vermogen (Watt) & Energie (kWh)"
+							}
+						},
+						{
+							"id": "15",
+							"label": {
+								"en": "Everything",
+								"nl": "Alles"
+							}
 						}
 					]
 				},
@@ -1056,14 +1060,14 @@
 						"nl": "Informatie update interval associatie groep 1"
 					},
 					"hint": {
-						"en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 1",
-						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de eerste associatie group zou moeten sturen"
+						"en": "This parameter indicates how often the Smart Switch should send an update with new information to Homey",
+						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar Homey"
 					},
 					"attr": {
-						"min": 1,
+						"min": 0,
 						"max": 268435456
 					},
-					"value": 15
+					"value": 30
 				},
 				{
 					"id": 112,
@@ -1076,9 +1080,9 @@
 						"en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 2",
 						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de tweede associatie group zou moeten sturen"
 					},
-					"attr": {
-						"min": 1,
-						"max": 268435456
+					"attr":{
+						"min": 0,
+						"max": 65535
 					},
 					"value": 600
 				},
@@ -1093,7 +1097,7 @@
 						"en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 3",
 						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de derde associatie group zou moeten sturen"
 					},
-					"attr": {
+					"attr":{
 						"min": 1,
 						"max": 268435456
 					},
