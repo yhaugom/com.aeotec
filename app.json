@@ -763,7 +763,8 @@
 					}
 				},
 				"associationGroups": [
-					1, 2
+					1,
+					2
 				],
 				"defaultConfiguration": [
 					{
@@ -1080,7 +1081,7 @@
 						"en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 2",
 						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de tweede associatie group zou moeten sturen"
 					},
-					"attr":{
+					"attr": {
 						"min": 0,
 						"max": 65535
 					},
@@ -1097,7 +1098,7 @@
 						"en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 3",
 						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de derde associatie group zou moeten sturen"
 					},
-					"attr":{
+					"attr": {
 						"min": 1,
 						"max": 268435456
 					},
@@ -1122,7 +1123,9 @@
 						"nl": "Druk op de (z-wave) knop op de Sirene"
 					}
 				},
-				"associationGroups": [ 1 ]
+				"associationGroups": [
+					1
+				]
 			},
 			"class": "other",
 			"capabilities": [
@@ -2262,14 +2265,14 @@
 						"size": 1
 					},
 					{
-						"id": 111,
-						"value": 15,
-						"size": 4
+						"id": 40,
+						"value": 1,
+						"size": 1
 					},
 					{
-						"id": 40,
-						"value": true,
-						"size": 1
+						"id": 111,
+						"value": 300,
+						"size": 4
 					}
 				]
 			},
@@ -2308,8 +2311,10 @@
 						"nl": "Bewegingsalarm wordt geannuleerd na het verstrijken van de tijd in deze parameter"
 					},
 					"value": 240,
-					"min": 10,
-					"max": 3600,
+					"attr": {
+						"min": 10,
+						"max": 3600
+					},
 					"hint": {
 						"en": "Time before motion alarm is turned off since last motion detected event",
 						"nl": "Tijd voordat bewegingsdetectie alarm wordt uitgeschakeld na laatste beweging"
@@ -2373,29 +2378,6 @@
 					]
 				},
 				{
-					"id": 5,
-					"type": "dropdown",
-					"label": {
-						"en": "Command to send when motion sensor triggered",
-						"nl": "Commando om te verzenden wanneer beweging is gedetecteerd"
-					},
-					"value": "2",
-					"values": [
-						{
-							"id": "1",
-							"label": {
-								"en": "Basic Set CC"
-							}
-						},
-						{
-							"id": "2",
-							"label": {
-								"en": "Sensor Binary Report CC"
-							}
-						}
-					]
-				},
-				{
 					"id": 39,
 					"type": "number",
 					"label": {
@@ -2403,8 +2385,10 @@
 						"nl": "Percentage batterij niveau waaronder het apparaat een lege batterij waarschuwing zou moeten geven"
 					},
 					"value": 20,
-					"min": 10,
-					"max": 50
+					"attr": {
+						"min": 10,
+						"max": 50
+					}
 				},
 				{
 					"id": 40,
@@ -2413,108 +2397,72 @@
 						"en": "Automatic reporting when value threshold reached",
 						"nl": "Automatisch rapportern wanneer waarde grens heeft overschreden"
 					},
-					"value": false
+					"value": true
 				},
 				{
 					"id": 41,
 					"type": "number",
 					"label": {
-						"en": "Temperature threshold value, if exceeded device will send an automatic report (Celsius)",
-						"nl": "Temperatuur verandering nodig voordat het apparaat een automatische update verstuurt (Celsius)"
+						"en": "Temperature threshold value, if exceeded device will send an automatic report (Celsius), range: 0 (off), 1 - 10 degree",
+						"nl": "Temperatuur verandering nodig voordat het apparaat een automatische update verstuurt (Celsius), bereik: 0 (uit), 1 - 10 graden"
 					},
 					"value": 2,
-					"min": 1,
-					"max": 50
+					"attr": {
+						"min": 0,
+						"max": 10
+					}
 				},
 				{
 					"id": 42,
 					"type": "number",
 					"label": {
-						"en": "Humidity threshold value, if exceeded device will send an automatic report (%)",
-						"nl": "Vochtigheidsgraad verandering nodig voordat het apparaat een automatische update verstuurt (%)"
+						"en": "Humidity threshold value, if exceeded device will send an automatic report, range: 0 (off), 1 - 100 %",
+						"nl": "Vochtigheidsgraad verandering nodig voordat het apparaat een automatische update verstuurt, bereik: 0 (uit), 1 - 100 %"
 					},
 					"value": 10,
-					"min": 1,
-					"max": 100
+					"attr": {
+						"min": 0,
+						"max": 100
+					}
 				},
 				{
 					"id": 43,
 					"type": "number",
 					"label": {
-						"en": "Luminance threshold value, if exceeded device will send an automatic report (lux)",
-						"nl": "Licht verandering nodig voordat het apparaat een automatische update verstuurt (lux)"
+						"en": "Luminance threshold value, if exceeded device will send an automatic report, range: 0 (off), 1 - 1000 lux",
+						"nl": "Licht verandering nodig voordat het apparaat een automatische update verstuurt, bereik: 0 (uit), 1 - 1000 lux"
 					},
 					"value": 100,
-					"min": 1,
-					"max": 10000
+					"attr": {
+						"min": 0,
+						"max": 1000
+					}
 				},
 				{
 					"id": 44,
 					"type": "number",
 					"label": {
-						"en": "Battery threshold value, if exceeded device will send an automatic report (%)",
-						"nl": "Batterij lading verandering nodig voordat het apparaat een automatische update verstuurt (%)"
+						"en": "Battery threshold value, if exceeded device will send an automatic report, range: 0 (off), 1 - 100 %",
+						"nl": "Batterij lading verandering nodig voordat het apparaat een automatische update verstuurt, bereik: 0 (uit), 1 - 100 %"
 					},
 					"value": 10,
-					"min": 1,
-					"max": 100
+					"attr": {
+						"min": 0,
+						"max": 100
+					}
 				},
 				{
-					"id": 101,
-					"type": "dropdown",
+					"id": 45,
+					"type": "number",
 					"label": {
-						"en": "Information reports send to association group 1",
-						"nl": "Informatie updates naar associatie groep 1"
+						"en": "Ultraviolet threshold value, if exceeded device will send an automatic report, range: 0 (off), 1 - 100 %",
+						"nl": "Ultraviolet verandering nodig voordat het apparaat een automatische update verstuurt, bereik: 0 (uit), 1 - 100%"
 					},
-					"hint": {
-						"en": "Which information needs to be send to devices in association group 1",
-						"nl": "Welke informatie moet naar apparaten in associatie groep 1 worden gestuurd"
-					},
-					"value": "241",
-					"values": [
-						{
-							"id": "1",
-							"label": {
-								"en": "Battery",
-								"nl": "Batterij"
-							}
-						},
-						{
-							"id": "16",
-							"label": {
-								"en": "Ultraviolet",
-								"nl": "Ultraviolet"
-							}
-						},
-						{
-							"id": "32",
-							"label": {
-								"en": "Temperature",
-								"nl": "Temperatuur"
-							}
-						},
-						{
-							"id": "64",
-							"label": {
-								"en": "Humidity",
-								"nl": "Vochtigheid"
-							}
-						},
-						{
-							"id": "128",
-							"label": {
-								"en": "Luminance",
-								"nl": "Licht"
-							}
-						},
-						{
-							"id": "241",
-							"label": {
-								"en": "All",
-								"nl": "Alles"
-							}
-						}
-					]
+					"value": 2,
+					"attr": {
+						"min": 0,
+						"max": 100
+					}
 				},
 				{
 					"id": 102,
@@ -2638,11 +2586,13 @@
 						"nl": "Informatie update interval associatie groep 1"
 					},
 					"hint": {
-						"en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 1",
-						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de eerste associatie group zou moeten sturen"
+						"en": "This parameter indicates how often the Multi Sensor 6 should send an update with new information to devices in association group 1",
+						"nl": "Deze parameter geeft aan hoe vaak de Multi Sensor 6 een update met nieuwe informatie naar apparaten in de eerste associatie group zou moeten sturen"
 					},
-					"min": 5,
-					"max": 2678400,
+					"attr": {
+						"min": 5,
+						"max": 2678400
+					},
 					"value": 300
 				},
 				{
@@ -2653,11 +2603,13 @@
 						"nl": "Informatie update interval associatie groep 2"
 					},
 					"hint": {
-						"en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 2",
-						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de tweede associatie group zou moeten sturen"
+						"en": "This parameter indicates how often the Multi Sensor 6 should send an update with new information to devices in association group 2",
+						"nl": "Deze parameter geeft aan hoe vaak de Multi Sensor 6 een update met nieuwe informatie naar apparaten in de tweede associatie group zou moeten sturen"
 					},
-					"min": 5,
-					"max": 2678400,
+					"attr": {
+						"min": 5,
+						"max": 2678400
+					},
 					"value": 3600
 				},
 				{
@@ -2668,11 +2620,13 @@
 						"nl": "Informatie update interval associatie groep 3"
 					},
 					"hint": {
-						"en": "This parameter indicates how often the Smart Switch should send an update with new information to devices in association group 3",
-						"nl": "Deze parameter geeft aan hoe vaak de Smart Switch een update met nieuwe informatie naar apparaten in de derde associatie group zou moeten sturen"
+						"en": "This parameter indicates how often the Multi Sensor 6 should send an update with new information to devices in association group 3",
+						"nl": "Deze parameter geeft aan hoe vaak de Multi Sensor 6 een update met nieuwe informatie naar apparaten in de derde associatie group zou moeten sturen"
 					},
-					"min": 5,
-					"max": 2678400,
+					"attr": {
+						"min": 5,
+						"max": 2678400
+					},
 					"value": 3600
 				},
 				{
@@ -2683,11 +2637,14 @@
 						"nl": "Temperatuur kalibratie waarde (Celsius)"
 					},
 					"hint": {
-						"en": "This parameter determines the calibration offset, to calibrate take the calibration value (standard) and subtract the temperature measured by the sensor, this is the value to enter",
-						"nl": "Deze parameter bepaald de kalibratie, om te kalibreren neem de kalibratie waarde (standaard) en trek daar de door de sensor gemeten waarde van af, dit is de waarde om in te voeren"
+						"en": "Determine how much degree celsius needs to be offset to get the right temperature, range: -12.8 - +12.7 (Sensor Firmware v1.7 and up)",
+						"nl": "Bepaal hoeveel graden celsius de temperatuur gecompenseerd moet worden, bereik: -12,8 - +12,7 (Sensor Firmware v1.7 en hoger)"
 					},
-					"min": -12.8,
-					"max": 12.7,
+					"attr": {
+						"min": -12.8,
+						"max": 12.7,
+						"step": 0.1
+					},
 					"value": 0
 				},
 				{
@@ -2698,11 +2655,13 @@
 						"nl": "Vochtigheidsgraad kalibratie waarde"
 					},
 					"hint": {
-						"en": "This parameter determines the calibration offset, to calibrate take the calibration value (standard) and subtract the humidity value measured by the sensor, this is the value to enter",
-						"nl": "Deze parameter bepaald de kalibratie, om te kalibreren neem de kalibratie waarde (standaard) en trek daar de door de sensor gemeten waarde van af, dit is de waarde om in te voeren"
+						"en": "Determine what percentage needs to be offset to get the right humidity, range: -50 - +50",
+						"nl": "Bepaal welke percentage er moet worden gecompenseerd om de echte waarde te krijgen, bereik: -50 - +50"
 					},
-					"min": -50,
-					"max": 50,
+					"attr": {
+						"min": -50,
+						"max": 50
+					},
 					"value": 0
 				},
 				{
@@ -2713,11 +2672,13 @@
 						"nl": "Licht kalibratie waarde"
 					},
 					"hint": {
-						"en": "This parameter determines the calibration offset, to calibrate take the calibration value (standard) and subtract the luminance value measured by the sensor, this is the value to enter",
-						"nl": "Deze parameter bepaald de kalibratie, om te kalibreren neem de kalibratie waarde (standaard) en trek daar de door de sensor gemeten waarde van af, dit is de waarde om in te voeren"
+						"en": "Determine how much lux needs to be offset to get the right luminance, range: -1000 - +1000",
+						"nl": "Bepaal hoeveel lux er moet worden gecompenseerd om de goede waarde te krijgen, bereik: -1000 - +1000"
 					},
-					"min": -1000,
-					"max": 1000,
+					"attr": {
+						"min": -1000,
+						"max": 1000
+					},
 					"value": 0
 				},
 				{
@@ -2728,11 +2689,13 @@
 						"nl": "Ultraviolet kalibratie waarde"
 					},
 					"hint": {
-						"en": "This parameter determines the calibration offset, to calibrate take the calibration value (standard) and subtract the ultraviolet value measured by the sensor, this is the value to enter",
-						"nl": "Deze parameter bepaald de kalibratie, om te kalibreren neem de kalibratie waarde (standaard) en trek daar de door de sensor gemeten waarde van af, dit is de waarde om in te voeren"
+						"en": "Determine what percentage needs to be offset to get the right ultraviolet value, range: -10 - +10",
+						"nl": "Bepaal hoeveel percentage er gecompenseerd moet worden om de goede ultraviolet waarde te krijgen, bereik: -10 - +10"
 					},
-					"min": -10,
-					"max": 10,
+					"attr": {
+						"min": -10,
+						"max": 10
+					},
 					"value": 0
 				}
 			]
