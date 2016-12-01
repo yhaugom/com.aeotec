@@ -23,23 +23,24 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				command_get: 'BASIC_GET',
 				command_report: 'BASIC_REPORT',
 				command_report_parser: report => {
-					if (report.hasOwnProperty('Current Value')) return report['Current Value'] !== 0;
-					if (report.hasOwnProperty('Value')) return report['Value'] !== 0;
+					if (report.hasOwnProperty('Current Value'))
+						return report['Current Value'] !== 0;
+
+					if (report.hasOwnProperty('Value'))
+						return report['Value'] !== 0;
 				}
 			}
 		],
+
 		dim: [
 			{
 				command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
 				command_set: 'SWITCH_MULTILEVEL_SET',
 				command_set_parser: value => {
-
-					// Parse value from 0 - 1 to 0 - 99
-					if (value) value = value * 100;
-					if (value >= 100) value = 99;
+					if (value >= 1) value = 0.99;
 
 					return {
-						'Value': value,
+						'Value': value * 100,
 						'Dimming Duration': 255
 					}
 				}
@@ -49,17 +50,16 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				command_get: 'BASIC_GET',
 				command_report: 'BASIC_REPORT',
 				command_report_parser: report => {
-					if (report.hasOwnProperty('Value') && !isNaN(report['Value'])) {
-
-						// Parse value from 0 - 99 to 0 -1
-						let value = report['Value'];
-						if (value) value = value / 100;
-
-						return value;
+					if (report.hasOwnProperty('Current Value') && !isNaN(report['Value'])) {
+						return report['Current Value'] / 100;
+					}
+					if (report.hasOwnProperty('Value')) {
+						return report['Value'] / 100;
 					}
 				}
 			}
 		],
+
 		measure_power: {
 			command_class: 'COMMAND_CLASS_METER',
 			command_get: 'METER_GET',
@@ -72,14 +72,42 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				}
 			},
 			command_report: 'METER_REPORT',
-			command_report_parser: report => report['Meter Value (Parsed)']
+			command_report_parser: report => {
+				if (report.hasOwnProperty('Properties1') &&
+					report.Properties1.hasOwnProperty('Scale') &&
+					report.Properties1['Scale'] === 0)
+					return report['Meter Value (Parsed)'];
+
+				return null;
+			}
+		},
+
+		meter_power: {
+			command_class: 'COMMAND_CLASS_METER',
+			command_get: 'METER_GET',
+			command_get_parser: () => {
+				return {
+					'Sensor Type': 'Electric meter',
+					'Properties1': {
+						'Scale': 2
+					}
+				}
+			},
+			command_report: 'METER_REPORT',
+			command_report_parser: report => {
+				if (report.hasOwnProperty('Properties1') &&
+					report.Properties1.hasOwnProperty('Scale') &&
+					report.Properties1['Scale'] === 2)
+					return report['Meter Value (Parsed)'];
+
+				return null;
+			}
 		}
 	},
 	settings: {
 		3: {
 			index: 3,
 			size: 1,
-			parser: input => new Buffer([(input) ? 1 : 0])
 		},
 		20: {
 			index: 20,
@@ -96,10 +124,6 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		},
 		91: {
 			index: 91,
-			size: 4
-		},
-		101: {
-			index: 101,
 			size: 4
 		},
 		102: {
