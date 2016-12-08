@@ -133,91 +133,91 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				// Return buffer with celcius (1) selected
 				return new Buffer([value, 1]);
 			},
-			42: {
-				index: 42,
-				size: 1
-			},
-			43: {
-				index: 43,
-				size: 2
-			},
-			44: {
-				index: 44,
-				size: 1
-			},
-			45: {
-				index: 45,
-				size: 1
-			},
-			102: {
-				index: 102,
-				size: 4
-			},
-			103: {
-				index: 103,
-				size: 4
-			},
-			111: {
-				index: 111,
-				size: 4
-			},
-			112: {
-				index: 112,
-				size: 4
-			},
-			113: {
-				index: 113,
-				size: 4
-			},
-			201: {
-				index: 201,
-				size: 2,
-				parser: value => {
-					// Round value to whole number
-					value = Math.round(value * 10);
+		},
+		42: {
+			index: 42,
+			size: 1
+		},
+		43: {
+			index: 43,
+			size: 2
+		},
+		44: {
+			index: 44,
+			size: 1
+		},
+		45: {
+			index: 45,
+			size: 1
+		},
+		102: {
+			index: 102,
+			size: 4
+		},
+		103: {
+			index: 103,
+			size: 4
+		},
+		111: {
+			index: 111,
+			size: 4
+		},
+		112: {
+			index: 112,
+			size: 4
+		},
+		113: {
+			index: 113,
+			size: 4
+		},
+		201: {
+			index: 201,
+			size: 2,
+			parser: value => {
+				// Round value to whole number
+				value = Math.round(value * 10);
 
-					// If value is negative, subtract value from 256
-					if (value < 0)
-						value = 256 + value;
+				// If value is negative, subtract value from 256
+				if (value < 0)
+					value = 256 + value;
 
-					// Return buffer with celcius (1) selected
-					return new Buffer([value, 1]);
-				}
-			},
-			202: {
-				index: 202,
-				size: 1,
-				parser: value => {
-					// If value is negative, subtract value from 256
-					if (value < 0)
-						value = 256 + value;
+				// Return buffer with celcius (1) selected
+				return new Buffer([value, 1]);
+			}
+		},
+		202: {
+			index: 202,
+			size: 1,
+			parser: value => {
+				// If value is negative, subtract value from 256
+				if (value < 0)
+					value = 256 + value;
 
-					return new Buffer([value]);
-				}
-			},
-			203: {
-				index: 203,
-				size: 2,
-				parser: value => {
-					// If value is negative, subtract value from 65536
-					if (value < 0)
-						value = 65536 + value;
+				return new Buffer([value]);
+			}
+		},
+		203: {
+			index: 203,
+			size: 2,
+			parser: value => {
+				// If value is negative, subtract value from 65536
+				if (value < 0)
+					value = 65536 + value;
 
-					// Return 2 byte buffer
-					const lux = new Buffer(2);
-					return lux.writeUInt16BE(value);
-				}
-			},
-			204: {
-				index: 204,
-				size: 1,
-				parser: value => {
-					// If value is negative, subtract value from 256
-					if (value < 0)
-						value = 256 + value;
+				// Return 2 byte buffer
+				const lux = new Buffer(2);
+				return lux.writeUInt16BE(value);
+			}
+		},
+		204: {
+			index: 204,
+			size: 1,
+			parser: value => {
+				// If value is negative, subtract value from 256
+				if (value < 0)
+					value = 256 + value;
 
-					return new Buffer([value]);
-				}
+				return new Buffer([value]);
 			}
 		}
 	}
