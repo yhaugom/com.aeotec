@@ -384,6 +384,289 @@ function saturationCommandSetParser(value, node) {
 	}).toRgb();
 }
 
+/**
+ * Flow action handler that let the bulb
+ * fade from one colour to another.
+ */
+Homey.manager('flow').on('action.zw098_from_to', (callback, args) => {
+	if (args && args.device && args.device.token && args.speed && args.fadeType && args.cycles) {
+
+		// Map speed 100 - 0 to 0 - 254
+		args.speed = Math.round(map(100, 0, 0, 254, args.speed));
+
+		// Get fadeType as integer
+		args.fadeType = parseInt(args.fadeType);
+
+		// Parse integers from strings
+		args.color1 = parseInt(args.color1);
+		args.color2 = parseInt(args.color2);
+
+		const node = module.exports.nodes[args.device.token];
+
+		if (node.instance.CommandClass['COMMAND_CLASS_CONFIGURATION']) {
+
+			const colorCommand = new Buffer([getDecimalValueFromArrays(args.color2, 4, args.color1, 4), 0, 0, 0]);
+
+			//Send parameter values to module
+			node.instance.CommandClass['COMMAND_CLASS_CONFIGURATION'].CONFIGURATION_SET({
+				"Parameter Number": 38,
+				"Level": {
+					"Size": 4,
+					"Default": false
+				},
+				'Configuration Value': colorCommand
+
+			}, (err, result) => {
+
+				// If error, stop flow card
+				if (err) {
+					Homey.error(err);
+					return callback(null, false);
+				}
+
+				// If properly transmitted, change the setting and finish flow card
+				if (result === "TRANSMIT_COMPLETE_OK") {
+
+					//Set the device setting to this flow value
+					module.exports.setSettings(node.device_data, {
+						38: colorCommand
+					});
+
+					const colorModeCommand = createColourCommand(2, args.fadeType, Math.round(args.cycles), args.speed, 5);
+
+					//Send parameter values to module
+					node.instance.CommandClass['COMMAND_CLASS_CONFIGURATION'].CONFIGURATION_SET({
+						"Parameter Number": 37,
+						"Level": {
+							"Size": 4,
+							"Default": false
+						},
+						'Configuration Value': colorModeCommand
+
+					}, (err, result) => {
+
+						// If error, stop flow card
+						if (err) {
+							Homey.error(err);
+							return callback(null, false);
+						}
+
+						// If properly transmitted, change the setting and finish flow card
+						if (result === "TRANSMIT_COMPLETE_OK") {
+
+
+							//Set the device setting to this flow value
+							module.exports.setSettings(node.device_data, {
+								37: colorModeCommand
+							});
+
+							return callback(null, true);
+						}
+
+						// no transmition, stop flow card
+						return callback(null, false);
+					});
+				}
+			});
+		} else return callback('missing COMMAND_CLASS_CONFIGURATION');
+	} else return callback('invalid_device');
+
+});
+
+/**
+ * Flow action handler for rainbow mode.
+ */
+Homey.manager('flow').on('action.zw098_rainbow', (callback, args) => {
+	if (args && args.device && args.device.token && args.speed && args.fadeType && args.cycles) {
+
+		// Map speed 100 - 0 to 0 - 254
+		args.speed = Math.round(map(100, 0, 0, 254, args.speed));
+
+		// Get fadeType as integer
+		args.fadeType = parseInt(args.fadeType);
+
+		// Round cycles
+		args.cycles = Math.round(args.cycles);
+
+		const node = module.exports.nodes[args.device.token];
+
+		if (node.instance.CommandClass['COMMAND_CLASS_CONFIGURATION']) {
+
+			const command = createColourCommand(1, args.fadeType, args.cycles, args.speed, 5);
+
+			//Send parameter values to module
+			node.instance.CommandClass['COMMAND_CLASS_CONFIGURATION'].CONFIGURATION_SET({
+				"Parameter Number": 37,
+				"Level": {
+					"Size": 4,
+					"Default": false
+				},
+				'Configuration Value': command
+
+			}, (err, result) => {
+
+				// If error, stop flow card
+				if (err) {
+					Homey.error(err);
+					return callback(null, false);
+				}
+
+				// If properly transmitted, change the setting and finish flow card
+				if (result === "TRANSMIT_COMPLETE_OK") {
+
+
+					//Set the device setting to this flow value
+					module.exports.setSettings(node.device_data, {
+						37: command
+					});
+
+					return callback(null, true);
+				}
+
+				// no transmition, stop flow card
+				return callback(null, false);
+			});
+		} else return callback('missing COMMAND_CLASS_CONFIGURATION');
+	} else return callback('invalid_device');
+
+});
+
+/**
+ * Flow action handler to enable random colour mode.
+ */
+Homey.manager('flow').on('action.zw098_random', (callback, args) => {
+	if (args && args.device && args.device.token && args.speed && args.fadeType && args.cycles) {
+
+		// Map speed 100 - 0 to 0 - 254
+		args.speed = Math.round(map(100, 0, 0, 254, args.speed));
+
+		// Get fadeType as integer
+		args.fadeType = parseInt(args.fadeType);
+
+		// Round cycles
+		args.cycles = Math.round(args.cycles);
+
+		const node = module.exports.nodes[args.device.token];
+
+		if (node.instance.CommandClass['COMMAND_CLASS_CONFIGURATION']) {
+
+			const command = createColourCommand(3, args.fadeType, args.cycles, args.speed, 5);
+
+			//Send parameter values to module
+			node.instance.CommandClass['COMMAND_CLASS_CONFIGURATION'].CONFIGURATION_SET({
+				"Parameter Number": 37,
+				"Level": {
+					"Size": 4,
+					"Default": false
+				},
+				'Configuration Value': command
+
+			}, (err, result) => {
+
+				// If error, stop flow card
+				if (err) {
+					Homey.error(err);
+					return callback(null, false);
+				}
+
+				// If properly transmitted, change the setting and finish flow card
+				if (result === "TRANSMIT_COMPLETE_OK") {
+
+
+					//Set the device setting to this flow value
+					module.exports.setSettings(node.device_data, {
+						37: command
+					});
+
+					return callback(null, true);
+				}
+
+				// no transmition, stop flow card
+				return callback(null, false);
+			});
+		} else return callback('missing COMMAND_CLASS_CONFIGURATION');
+	} else return callback('invalid_device');
+
+});
+
+/**
+ * Create a color command for the LED Bulb
+ * @param colourDisplayCycle (0 = Single Colour Mode, 1 = Rainbow Mode, 2 = Multi Colour Mode), 3 = Random Mode, 15 = Inactive (keep the current configuration values)
+ * @param colourTransitionStyle (0 = Smooth Colour Transition, 1 = Fast/Direct Colour Transition, 2 = Fade Out Fale In Transition, 3 = Inactive)
+ * @param cycleCount (0 = Unlimited, 1 to 254 = Total number of repetitions/cycles before stopping, 255 = Inactive)
+ * @param colourChangeSpeed (0 to 254 = 0 is the slowest and 254 is the fastest, 255 = Inactive)
+ * @param colourResidenceTime (0 to 254 = Corresponds from 0 to 25.4 seconds, 255 = Inactive)
+ */
+function createColourCommand(colourDisplayCycle, colourTransitionStyle, cycleCount, colourChangeSpeed, colourResidenceTime) {
+	return new Buffer([getDecimalValueFromArrays(colourTransitionStyle, 2, colourDisplayCycle, 4, true), cycleCount, colourChangeSpeed, colourResidenceTime]);
+}
+
+/**
+ * Take a decimal value and size,
+ * and return an binary array.
+ * @param number
+ * @param size
+ * @returns {Array|*}
+ */
+function numberToBinaryArray(number, size) {
+	number = (number).toString(2);
+	const numbers = number.split('');
+
+	numbers.forEach(x => {
+		x = parseInt(x);
+	});
+
+	// Check if array has correct size
+	if (numbers.length !== size) {
+		for (let i = 0; i < size; i++) {
+
+			// Check if 0 prepend is needed to fill
+			if (numbers.length < size) {
+				numbers.unshift('0');
+			} else break;
+		}
+	}
+	return numbers;
+}
+
+/**
+ * Get decimal value of binary array.
+ * @param arr
+ * @returns {*}
+ */
+function getDecimalValue(arr) {
+	if (!arr) return new Error('no array provided');
+	let binaryString = '';
+	arr.forEach(item => {
+		binaryString += item;
+	});
+	return parseInt(binaryString, 2);
+}
+
+/**
+ * Get decimal value after adding binary values.
+ * @param value1
+ * @param value2
+ * @returns {*}
+ */
+function getDecimalValueFromArrays(value1, size1, value2, size2, fillPos5And4) {
+	if (fillPos5And4) {
+		return getDecimalValue(numberToBinaryArray(value1, size1)
+			.concat(['0', '0'].concat(numberToBinaryArray(value2, size2))));
+	}
+	return getDecimalValue(numberToBinaryArray(value1, size1)
+		.concat(numberToBinaryArray(value2, size2)));
+}
+
+/**
+ * Map a range of values to a different range of values
+ * @param inputStart
+ * @param inputEnd
+ * @param outputStart
+ * @param outputEnd
+ * @param input
+ * @returns {*}
+ */
 function map(inputStart, inputEnd, outputStart, outputEnd, input) {
 	return outputStart + ((outputEnd - outputStart) / (inputEnd - inputStart)) * (input - inputStart);
 }
