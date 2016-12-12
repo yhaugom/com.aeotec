@@ -3,7 +3,7 @@
 	"name": {
 		"en": "Aeotec"
 	},
-	"version": "1.2.2",
+	"version": "1.2.3",
 	"compatibility": ">=0.10.7",
 	"category": [
 		"appliances",
