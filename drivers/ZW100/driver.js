@@ -12,10 +12,9 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_get: 'BATTERY_GET',
 			command_report: 'BATTERY_REPORT',
 			command_report_parser: report => {
-				if (report['Battery Level'] === "battery low warning")
-					return 1;
-
-				return report['Battery Level (Raw)'][0];
+				if (report['Battery Level'] === "battery low warning") return 1;
+				if (report.hasOwnProperty('Battery Level (Raw)')) return report['Battery Level (Raw)'][0];
+				return null;
 			}
 		},
 
@@ -178,8 +177,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 				value = Math.round(value * 10);
 
 				// If value is negative, subtract value from 256
-				if (value < 0)
-					value = 256 + value;
+				if (value < 0) value = 256 + value;
 
 				// Return buffer with celcius (1) selected
 				return new Buffer([value, 1]);
@@ -190,8 +188,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 1,
 			parser: value => {
 				// If value is negative, subtract value from 256
-				if (value < 0)
-					value = 256 + value;
+				if (value < 0) value = 256 + value;
 
 				return new Buffer([value]);
 			}
@@ -201,12 +198,13 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 2,
 			parser: value => {
 				// If value is negative, subtract value from 65536
-				if (value < 0)
-					value = 65536 + value;
+				if (value < 0) value = 65536 + value;
 
 				// Return 2 byte buffer
 				const lux = new Buffer(2);
-				return lux.writeUInt16BE(value);
+				lux.writeUInt16BE(value);
+
+				return lux;
 			}
 		},
 		204: {
@@ -214,8 +212,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 1,
 			parser: value => {
 				// If value is negative, subtract value from 256
-				if (value < 0)
-					value = 256 + value;
+				if (value < 0) value = 256 + value;
 
 				return new Buffer([value]);
 			}
