@@ -2750,7 +2750,51 @@
 		}
 	],
 	"flow": {
+		"conditions": [
+			{
+				"id": "on",
+				"title": {
+					"en": "Is turned !{{on|off}}",
+					"nl": "Is !{{aan|uit}}"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZW080"
+					}
+				]
+			}
+		],
 		"triggers": [
+			{
+				"id": "onoff_true",
+				"title": {
+					"en": "Turned on",
+					"nl": "Aangezet "
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZW080"
+					}
+				]
+			},
+			{
+				"id": "onoff_false",
+				"title": {
+					"en": "Turned off",
+					"nl": "Uitgezet"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZW080"
+					}
+				]
+			},
 			{
 				"id": "zw088_press_1",
 				"title": {
@@ -2865,6 +2909,34 @@
 			}
 		],
 		"actions": [
+			{
+				"id": "on",
+				"title": {
+					"en": "Turn on",
+					"nl": "Zet aan"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZW080"
+					}
+				]
+			},
+			{
+				"id": "off",
+				"title": {
+					"en": "Turn off",
+					"nl": "Zet uit"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=ZW080"
+					}
+				]
+			},
 			{
 				"id": "zw098_random",
 				"title": {
