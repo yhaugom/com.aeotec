@@ -2,7 +2,7 @@
 const path = require('path');
 const ZwaveDriver = require('homey-zwavedriver');
 
-// http://www.cd-jackson.com/zwave_device_uploads/355/9-Multisensor-6-V1-07.pdf
+// https://www.google.nl/url?sa=t&rct=j&q=&esrc=s&source=web&cd=9&cad=rja&uact=8&ved=0ahUKEwiWgsTGvZnRAhWBdlAKHd0uDkYQFghEMAg&url=http%3A%2F%2Fwww.zwaveproducts.com%2Fproduct-documentation%2FDSB05106-ZWUS.pdf&usg=AFQjCNGbYiR8fhq43xttq_4uJslQad0_Qg
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	capabilities: {
@@ -12,47 +12,43 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_report: 'BATTERY_REPORT',
 			command_report_parser: report => {
 				if (report['Battery Level'] === "battery low warning") return 1;
-				
-				return report['Battery Level (Raw)'][0];
-			}
+				if (report.hasOwnProperty('Battery Level (Raw)')) return report['Battery Level (Raw)'][0];
+				return null;
+			},
+			getOnWakeUp: true,
 		},
-		
 		alarm_motion: {
 			command_class: 'COMMAND_CLASS_BASIC',
 			command_report: 'BASIC_SET',
-			command_report_parser: report => report['Value'] === 255
+			command_report_parser: report => report['Value'] === 255,
 		},
-		
 		measure_temperature: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
 			command_report_parser: report => {
-				if (report['Sensor Type'] === 'Temperature (version 1)')
-					return report['Sensor Value (Parsed)'];
-				
+				if (report.hasOwnProperty('Sensor Type') && report.hasOwnProperty('Sensor Value (Parsed)')) {
+					if (report['Sensor Type'] === 'Temperature (version 1)') return report['Sensor Value (Parsed)'];
+				}
 				return null;
 			}
-
 		},
-		
 		measure_luminance: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
 			command_report_parser: report => {
-				if (report['Sensor Type'] === 'Luminance (version 1)')
-					return report['Sensor Value (Parsed)'];
-				
+				if (report.hasOwnProperty('Sensor Type') && report.hasOwnProperty('Sensor Value (Parsed)')) {
+					if (report['Sensor Type'] === 'Luminance (version 1)') return report['Sensor Value (Parsed)'];
+				}
 				return null;
 			}
 		},
-		
 		measure_humidity: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
 			command_report_parser: report => {
-				if (report['Sensor Type'] === 'Relative humidity (version 2)')
-					return report['Sensor Value (Parsed)'];
-				
+				if (report.hasOwnProperty('Sensor Type') && report.hasOwnProperty('Sensor Value (Parsed)')) {
+					if (report['Sensor Type'] === 'Relative humidity (version 2)') return report['Sensor Value (Parsed)'];
+				}
 				return null;
 			}
 		}

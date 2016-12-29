@@ -40,58 +40,20 @@
 	},
 	"settings": [
 		{
-			"id": 1,
-			"type": "dropdown",
-			"label": {
-				"en": "Sensor report type on Get without instances"
-			},
-			"value": "0",
-			"hint": {
-				"en": "Which type of multi sensor report should be sent on multi sensor Get command without instances"
-			},
-			"values": [
-				{
-					"id": "0",
-					"label": {
-						"en": "Temperature, humidity and luminance"
-					}
-				},
-				{
-					"id": "1",
-					"label": {
-						"en": "Temperature"
-					}
-				},
-				{
-					"id": "2",
-					"label": {
-						"en": "Luminance"
-					}
-				},
-				{
-					"id": "3",
-					"label": {
-						"en": "Humidity"
-					}
-				}
-			]
-		},
-		{
 			"id": 2,
 			"type": "checkbox",
 			"label": {
-				"en": "Wake up 10 minutes when batteries are inserted"
+				"en": "Wake up for 10 minutes when batteries are inserted",
+				"nl": "Maak wakker voor 10 minuten nadat batterijen zijn ingevoegd"
 			},
-			"value": false,
-			"hint": {
-				"en": "Stay awake for 10 minutes after batteries are inserted"
-			}
+			"value": false
 		},
 		{
 			"id": 3,
 			"type": "number",
 			"label": {
-				"en": "On time"
+				"en": "No motion detection timeout",
+				"nl": "Geen beweging gedetecteerd na"
 			},
 			"value": 240,
 			"attr": {
@@ -99,147 +61,159 @@
 				"max": 15300
 			},
 			"hint": {
-				"en": "How long should the device associated to the multi sensor keep state On before sending it Off command (if the value is bigger than 255, the value would be rounded to next integer in minutes)"
+				"en": "How long should the motion detection be turned on after detection (if the value is bigger than 255, the value would be rounded to next integer in minutes)",
+				"nl": "Hoe lang na het detecteren van beweging moet het bewegingsalarm actief zijn (als de waarde hoger is dan 255 wordt het afgerond op de volgende integer in minuten)"
 			}
 		},
 		{
 			"id": 4,
 			"type": "checkbox",
 			"label": {
-				"en": "Enable motion sensor"
+				"en": "Enable motion sensor",
+				"nl": "Schakel bewegingsdetectie in"
 			},
-			"value": true,
-			"hint": {
-				"en": "Should the motion sensor be enabled?"
-			}
+			"value": true
 		},
 		{
 			"id": 102,
 			"type": "dropdown",
 			"label": {
-				"en": "Which reports to send to association group 2"
+				"en": "Which reports to send to association group 2",
+				"nl": "Welke informatie moet worden verstuurd naar associatie groep 2"
 			},
 			"value": "0",
 			"values": [
 				{
 					"id": "0",
 					"label": {
-						"en": "Nothing"
+						"en": "Nothing",
+						"nl": "Geen"
 					}
 				},
 				{
 					"id": "33",
 					"label": {
-						"en": "Battery & Temperature"
+						"en": "Battery and temperature",
+						"nl": "Batterij en temperatuur"
 					}
 				},
 				{
 					"id": "65",
 					"label": {
-						"en": "Battery & Luminosity"
+						"en": "Battery and luminosity",
+						"nl": "Batterij en lichtsterkte"
 					}
 				},
 				{
 					"id": "129",
 					"label": {
-						"en": "Battery & Humidity"
+						"en": "Battery and humidity",
+						"nl": "Batterij en vochtigheidsgraad"
 					}
 				},
 				{
 					"id": "97",
 					"label": {
-						"en": "Battery & Temperature & Luminosity"
+						"en": "Battery, temperature and luminosity",
+						"nl": "Batterij, temperatuur, en lichtsterkte"
 					}
 				},
 				{
 					"id": "161",
 					"label": {
-						"en": "Battery & Temperature & Humidity"
+						"en": "Battery, temperature and humidity",
+						"nl": "Batterij, temperatuur en vochtigheidsgraad"
 					}
 				},
 				{
 					"id": "193",
 					"label": {
-						"en": "Battery & Luminosity & Humidity"
+						"en": "Battery, luminosity and humidity",
+						"nl": "Batterij, lichtsterkte en vochtigheidsgraad"
 					}
 				},
 				{
 					"id": "225",
 					"label": {
-						"en": "Battery & Temperature & Luminosity & Humidity"
+						"en": "Battery, temperature, luminosity and humidity",
+						"nl": "Batterij, temperatuur, lichtsterkte en vochtigheidsgraad"
 					}
 				}
-			],
-			"hint": {
-				"en": "Which reports need to send automatically in timing intervals for group 2."
-			}
+			]
 		},
 		{
 			"id": 103,
 			"type": "dropdown",
 			"label": {
-				"en": "Which reports to send to association group 3"
+				"en": "Which reports to send to association group 3",
+				"nl": "Welke informatie moet worden verstuurd naar associatie groep 3"
 			},
 			"value": "0",
 			"values": [
 				{
 					"id": "0",
 					"label": {
-						"en": "Nothing"
+						"en": "Nothing",
+						"nl": "Geen"
 					}
 				},
 				{
 					"id": "33",
 					"label": {
-						"en": "Battery & Temperature"
+						"en": "Battery and temperature",
+						"nl": "Batterij en temperatuur"
 					}
 				},
 				{
 					"id": "65",
 					"label": {
-						"en": "Battery & Luminosity"
+						"en": "Battery and luminosity",
+						"nl": "Batterij en lichtsterkte"
 					}
 				},
 				{
 					"id": "129",
 					"label": {
-						"en": "Battery & Humidity"
+						"en": "Battery and humidity",
+						"nl": "Batterij en vochtigheidsgraad"
 					}
 				},
 				{
 					"id": "97",
 					"label": {
-						"en": "Battery & Temperature & Luminosity"
+						"en": "Battery, temperature and luminosity",
+						"nl": "Batterij, temperatuur, en lichtsterkte"
 					}
 				},
 				{
 					"id": "161",
 					"label": {
-						"en": "Battery & Temperature & Humidity"
+						"en": "Battery, temperature and humidity",
+						"nl": "Batterij, temperatuur en vochtigheidsgraad"
 					}
 				},
 				{
 					"id": "193",
 					"label": {
-						"en": "Battery & Luminosity & Humidity"
+						"en": "Battery, luminosity and humidity",
+						"nl": "Batterij, lichtsterkte en vochtigheidsgraad"
 					}
 				},
 				{
 					"id": "225",
 					"label": {
-						"en": "Battery & Temperature & Luminosity & Humidity"
+						"en": "Battery, temperature, luminosity and humidity",
+						"nl": "Batterij, temperatuur, lichtsterkte en vochtigheidsgraad"
 					}
 				}
-			],
-			"hint": {
-				"en": "Which reports need to send automatically in timing intervals for group 3."
-			}
+			]
 		},
 		{
 			"id": 111,
 			"type": "number",
 			"label": {
-				"en": "Unsolicited reports interval for association group 1."
+				"en": "Reports interval for association group 1",
+				"nl": "Reporting interval voor associatie groep 1"
 			},
 			"value": 720,
 			"attr": {
@@ -247,14 +221,16 @@
 				"max": 2678400
 			},
 			"hint": {
-				"en": "Interval to send out reports to association group 1 (Homey). (1 seconds - 2678400 seconds)"
+				"en": "Interval to send out reports to association group 1 (1 second - 2678400 seconds)",
+				"nl": "Interval voor het verzenden van reports naar associatie groep 1 (1 seconde - 2678400 seconden)"
 			}
 		},
 		{
 			"id": 112,
 			"type": "number",
 			"label": {
-				"en": "Unsolicited reports interval for association group 2."
+				"en": "Reports interval for association group 2",
+				"nl": "Reporting interval voor associatie groep 2"
 			},
 			"value": 720,
 			"attr": {
@@ -262,14 +238,16 @@
 				"max": 2678400
 			},
 			"hint": {
-				"en": "Interval to send out reports to association group 2. (1 seconds - 2678400 seconds)"
+				"en": "Interval to send out reports to association group 2 (1 second - 2678400 seconds)",
+				"nl": "Interval voor het verzenden van reports naar associatie groep 2 (1 seconde - 2678400 seconden)"
 			}
 		},
 		{
 			"id": 113,
 			"type": "number",
 			"label": {
-				"en": "Unsolicited reports interval for association group 3."
+				"en": "Reports interval for association group 3",
+				"nl": "Reporting interval voor associatie groep 3"
 			},
 			"value": 720,
 			"attr": {
@@ -277,7 +255,8 @@
 				"max": 2678400
 			},
 			"hint": {
-				"en": "Interval to send out reports to association group 3. (1 seconds - 2678400 seconds)"
+				"en": "Interval to send out reports to association group 3 (1 second - 2678400 seconds)",
+				"nl": "Interval voor het verzenden van reports naar associatie groep 3 (1 seconde - 2678400 seconden)"
 			}
 		}
 	]
