@@ -13,8 +13,8 @@
 		"wakeUpInterval": 300,
 		"learnmode": {
 			"instruction": {
-				"en": "Press the Learn button on your Key Fob. \n\nAfter pairing, press Learn and Mode for 3 seconds,\nto change the keyfob to User Mode.",
-				"nl": "Druk op de Learn knop op de Key Fob. \n\nNa het toevoegen, houdt de Learn en Mode voor 3 seconden ingedrukt,\nom de sleutelhanger in Gebruiker Modus te zetten."
+				"en": "Press the Learn button on your Key Fob. After pairing, press Learn and Mode for 3 seconds, to change the keyfob to User Mode.",
+				"nl": "Druk op de Learn knop op de Key Fob. Na het toevoegen, houd de Learn en Mode voor 3 seconden ingedrukt, om de sleutelhanger in Gebruiker Modus te zetten."
 			}
 		},
 		"associationGroups": [
