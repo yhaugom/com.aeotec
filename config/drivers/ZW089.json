@@ -53,8 +53,8 @@
 				"nl": "Sensor Gedrag"
 			},
 			"hint": {
-				"en": "When must the sensor turn on the contact alarm, when the door/window is open or closed.",
-				"nl": "Wanneer zal de sensor het contact alarm aanzetten, bij het open of dicht zijn van de deur of het raam."
+				"en": "When must the sensor turn on the contact alarm, when the door/window is open or closed",
+				"nl": "Wanneer zal de sensor het contact alarm aanzetten, bij het open of dicht zijn van de deur of het raam"
 			},
 			"values": [
 				{
