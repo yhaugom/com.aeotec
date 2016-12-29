@@ -50,7 +50,7 @@
 			"value": false
 		},
 		{
-			"id": 24,
+			"id": 34,
 			"type": "checkbox",
 			"label": {
 				"en": "Send calibration command on save",
