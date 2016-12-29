@@ -1,0 +1,284 @@
+{
+	"id": "DSB05",
+	"name": {
+		"en": "Multi Sensor 4-in-1"
+	},
+	"zwave": {
+		"manufacturerId": 134,
+		"productTypeId": 2,
+		"productId": 5,
+		"wakeUpInterval": 7200,
+		"learnmode": {
+			"image": "/drivers/DSB05/assets/learnmode.svg",
+			"instruction": {
+				"en": "Press the Z-Wave button on your Multi Sensor",
+				"nl": "Druk op de Z-Wave knop op de Multi Sensor"
+			}
+		},
+		"associationGroups": [
+			1
+		],
+		"defaultConfiguration": [
+			{
+				"id": 101,
+				"size": 4,
+				"value": 225
+			}
+		]
+	},
+	"class": "sensor",
+	"capabilities": [
+		"measure_battery",
+		"alarm_motion",
+		"measure_temperature",
+		"measure_luminance",
+		"measure_humidity"
+	],
+	"images": {
+		"large": "/drivers/DSB05/assets/images/large.jpg",
+		"small": "/drivers/DSB05/assets/images/small.jpg"
+	},
+	"settings": [
+		{
+			"id": 1,
+			"type": "dropdown",
+			"label": {
+				"en": "Sensor report type on Get without instances"
+			},
+			"value": "0",
+			"hint": {
+				"en": "Which type of multi sensor report should be sent on multi sensor Get command without instances"
+			},
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "Temperature, humidity and luminance"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "Temperature"
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "Luminance"
+					}
+				},
+				{
+					"id": "3",
+					"label": {
+						"en": "Humidity"
+					}
+				}
+			]
+		},
+		{
+			"id": 2,
+			"type": "checkbox",
+			"label": {
+				"en": "Wake up 10 minutes when batteries are inserted"
+			},
+			"value": false,
+			"hint": {
+				"en": "Stay awake for 10 minutes after batteries are inserted"
+			}
+		},
+		{
+			"id": 3,
+			"type": "number",
+			"label": {
+				"en": "On time"
+			},
+			"value": 240,
+			"attr": {
+				"min": 1,
+				"max": 15300
+			},
+			"hint": {
+				"en": "How long should the device associated to the multi sensor keep state On before sending it Off command (if the value is bigger than 255, the value would be rounded to next integer in minutes)"
+			}
+		},
+		{
+			"id": 4,
+			"type": "checkbox",
+			"label": {
+				"en": "Enable motion sensor"
+			},
+			"value": true,
+			"hint": {
+				"en": "Should the motion sensor be enabled?"
+			}
+		},
+		{
+			"id": 102,
+			"type": "dropdown",
+			"label": {
+				"en": "Which reports to send to association group 2"
+			},
+			"value": "0",
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "Nothing"
+					}
+				},
+				{
+					"id": "33",
+					"label": {
+						"en": "Battery & Temperature"
+					}
+				},
+				{
+					"id": "65",
+					"label": {
+						"en": "Battery & Luminosity"
+					}
+				},
+				{
+					"id": "129",
+					"label": {
+						"en": "Battery & Humidity"
+					}
+				},
+				{
+					"id": "97",
+					"label": {
+						"en": "Battery & Temperature & Luminosity"
+					}
+				},
+				{
+					"id": "161",
+					"label": {
+						"en": "Battery & Temperature & Humidity"
+					}
+				},
+				{
+					"id": "193",
+					"label": {
+						"en": "Battery & Luminosity & Humidity"
+					}
+				},
+				{
+					"id": "225",
+					"label": {
+						"en": "Battery & Temperature & Luminosity & Humidity"
+					}
+				}
+			],
+			"hint": {
+				"en": "Which reports need to send automatically in timing intervals for group 2."
+			}
+		},
+		{
+			"id": 103,
+			"type": "dropdown",
+			"label": {
+				"en": "Which reports to send to association group 3"
+			},
+			"value": "0",
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "Nothing"
+					}
+				},
+				{
+					"id": "33",
+					"label": {
+						"en": "Battery & Temperature"
+					}
+				},
+				{
+					"id": "65",
+					"label": {
+						"en": "Battery & Luminosity"
+					}
+				},
+				{
+					"id": "129",
+					"label": {
+						"en": "Battery & Humidity"
+					}
+				},
+				{
+					"id": "97",
+					"label": {
+						"en": "Battery & Temperature & Luminosity"
+					}
+				},
+				{
+					"id": "161",
+					"label": {
+						"en": "Battery & Temperature & Humidity"
+					}
+				},
+				{
+					"id": "193",
+					"label": {
+						"en": "Battery & Luminosity & Humidity"
+					}
+				},
+				{
+					"id": "225",
+					"label": {
+						"en": "Battery & Temperature & Luminosity & Humidity"
+					}
+				}
+			],
+			"hint": {
+				"en": "Which reports need to send automatically in timing intervals for group 3."
+			}
+		},
+		{
+			"id": 111,
+			"type": "number",
+			"label": {
+				"en": "Unsolicited reports interval for association group 1."
+			},
+			"value": 720,
+			"attr": {
+				"min": 1,
+				"max": 2678400
+			},
+			"hint": {
+				"en": "Interval to send out reports to association group 1 (Homey). (1 seconds - 2678400 seconds)"
+			}
+		},
+		{
+			"id": 112,
+			"type": "number",
+			"label": {
+				"en": "Unsolicited reports interval for association group 2."
+			},
+			"value": 720,
+			"attr": {
+				"min": 1,
+				"max": 2678400
+			},
+			"hint": {
+				"en": "Interval to send out reports to association group 2. (1 seconds - 2678400 seconds)"
+			}
+		},
+		{
+			"id": 113,
+			"type": "number",
+			"label": {
+				"en": "Unsolicited reports interval for association group 3."
+			},
+			"value": 720,
+			"attr": {
+				"min": 1,
+				"max": 2678400
+			},
+			"hint": {
+				"en": "Interval to send out reports to association group 3. (1 seconds - 2678400 seconds)"
+			}
+		}
+	]
+}
