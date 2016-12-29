@@ -3,7 +3,7 @@
   "name": {
     "en": "Aeotec"
   },
-  "version": "1.2.4",
+  "version": "1.2.5",
   "compatibility": ">=0.10.7",
   "category": [
     "appliances",
@@ -79,58 +79,20 @@
       },
       "settings": [
         {
-          "id": 1,
-          "type": "dropdown",
-          "label": {
-            "en": "Sensor report type on Get without instances"
-          },
-          "value": "0",
-          "hint": {
-            "en": "Which type of multi sensor report should be sent on multi sensor Get command without instances"
-          },
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Temperature, humidity and luminance"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "Temperature"
-              }
-            },
-            {
-              "id": "2",
-              "label": {
-                "en": "Luminance"
-              }
-            },
-            {
-              "id": "3",
-              "label": {
-                "en": "Humidity"
-              }
-            }
-          ]
-        },
-        {
           "id": 2,
           "type": "checkbox",
           "label": {
-            "en": "Wake up 10 minutes when batteries are inserted"
+            "en": "Wake up for 10 minutes when batteries are inserted",
+            "nl": "Maak wakker voor 10 minuten nadat batterijen zijn ingevoegd"
           },
-          "value": false,
-          "hint": {
-            "en": "Stay awake for 10 minutes after batteries are inserted"
-          }
+          "value": false
         },
         {
           "id": 3,
           "type": "number",
           "label": {
-            "en": "On time"
+            "en": "No motion detection timeout",
+            "nl": "Geen beweging gedetecteerd na"
           },
           "value": 240,
           "attr": {
@@ -138,147 +100,159 @@
             "max": 15300
           },
           "hint": {
-            "en": "How long should the device associated to the multi sensor keep state On before sending it Off command (if the value is bigger than 255, the value would be rounded to next integer in minutes)"
+            "en": "How long should the motion detection be turned on after detection (if the value is bigger than 255, the value would be rounded to next integer in minutes)",
+            "nl": "Hoe lang na het detecteren van beweging moet het bewegingsalarm actief zijn (als de waarde hoger is dan 255 wordt het afgerond op de volgende integer in minuten)"
           }
         },
         {
           "id": 4,
           "type": "checkbox",
           "label": {
-            "en": "Enable motion sensor"
+            "en": "Enable motion sensor",
+            "nl": "Schakel bewegingsdetectie in"
           },
-          "value": true,
-          "hint": {
-            "en": "Should the motion sensor be enabled?"
-          }
+          "value": true
         },
         {
           "id": 102,
           "type": "dropdown",
           "label": {
-            "en": "Which reports to send to association group 2"
+            "en": "Which reports to send to association group 2",
+            "nl": "Welke informatie moet worden verstuurd naar associatie groep 2"
           },
           "value": "0",
           "values": [
             {
               "id": "0",
               "label": {
-                "en": "Nothing"
+                "en": "Nothing",
+                "nl": "Geen"
               }
             },
             {
               "id": "33",
               "label": {
-                "en": "Battery & Temperature"
+                "en": "Battery and temperature",
+                "nl": "Batterij en temperatuur"
               }
             },
             {
               "id": "65",
               "label": {
-                "en": "Battery & Luminosity"
+                "en": "Battery and luminosity",
+                "nl": "Batterij en lichtsterkte"
               }
             },
             {
               "id": "129",
               "label": {
-                "en": "Battery & Humidity"
+                "en": "Battery and humidity",
+                "nl": "Batterij en vochtigheidsgraad"
               }
             },
             {
               "id": "97",
               "label": {
-                "en": "Battery & Temperature & Luminosity"
+                "en": "Battery, temperature and luminosity",
+                "nl": "Batterij, temperatuur, en lichtsterkte"
               }
             },
             {
               "id": "161",
               "label": {
-                "en": "Battery & Temperature & Humidity"
+                "en": "Battery, temperature and humidity",
+                "nl": "Batterij, temperatuur en vochtigheidsgraad"
               }
             },
             {
               "id": "193",
               "label": {
-                "en": "Battery & Luminosity & Humidity"
+                "en": "Battery, luminosity and humidity",
+                "nl": "Batterij, lichtsterkte en vochtigheidsgraad"
               }
             },
             {
               "id": "225",
               "label": {
-                "en": "Battery & Temperature & Luminosity & Humidity"
+                "en": "Battery, temperature, luminosity and humidity",
+                "nl": "Batterij, temperatuur, lichtsterkte en vochtigheidsgraad"
               }
             }
-          ],
-          "hint": {
-            "en": "Which reports need to send automatically in timing intervals for group 2."
-          }
+          ]
         },
         {
           "id": 103,
           "type": "dropdown",
           "label": {
-            "en": "Which reports to send to association group 3"
+            "en": "Which reports to send to association group 3",
+            "nl": "Welke informatie moet worden verstuurd naar associatie groep 3"
           },
           "value": "0",
           "values": [
             {
               "id": "0",
               "label": {
-                "en": "Nothing"
+                "en": "Nothing",
+                "nl": "Geen"
               }
             },
             {
               "id": "33",
               "label": {
-                "en": "Battery & Temperature"
+                "en": "Battery and temperature",
+                "nl": "Batterij en temperatuur"
               }
             },
             {
               "id": "65",
               "label": {
-                "en": "Battery & Luminosity"
+                "en": "Battery and luminosity",
+                "nl": "Batterij en lichtsterkte"
               }
             },
             {
               "id": "129",
               "label": {
-                "en": "Battery & Humidity"
+                "en": "Battery and humidity",
+                "nl": "Batterij en vochtigheidsgraad"
               }
             },
             {
               "id": "97",
               "label": {
-                "en": "Battery & Temperature & Luminosity"
+                "en": "Battery, temperature and luminosity",
+                "nl": "Batterij, temperatuur, en lichtsterkte"
               }
             },
             {
               "id": "161",
               "label": {
-                "en": "Battery & Temperature & Humidity"
+                "en": "Battery, temperature and humidity",
+                "nl": "Batterij, temperatuur en vochtigheidsgraad"
               }
             },
             {
               "id": "193",
               "label": {
-                "en": "Battery & Luminosity & Humidity"
+                "en": "Battery, luminosity and humidity",
+                "nl": "Batterij, lichtsterkte en vochtigheidsgraad"
               }
             },
             {
               "id": "225",
               "label": {
-                "en": "Battery & Temperature & Luminosity & Humidity"
+                "en": "Battery, temperature, luminosity and humidity",
+                "nl": "Batterij, temperatuur, lichtsterkte en vochtigheidsgraad"
               }
             }
-          ],
-          "hint": {
-            "en": "Which reports need to send automatically in timing intervals for group 3."
-          }
+          ]
         },
         {
           "id": 111,
           "type": "number",
           "label": {
-            "en": "Unsolicited reports interval for association group 1."
+            "en": "Reports interval for association group 1",
+            "nl": "Reporting interval voor associatie groep 1"
           },
           "value": 720,
           "attr": {
@@ -286,14 +260,16 @@
             "max": 2678400
           },
           "hint": {
-            "en": "Interval to send out reports to association group 1 (Homey). (1 seconds - 2678400 seconds)"
+            "en": "Interval to send out reports to association group 1 (1 second - 2678400 seconds)",
+            "nl": "Interval voor het verzenden van reports naar associatie groep 1 (1 seconde - 2678400 seconden)"
           }
         },
         {
           "id": 112,
           "type": "number",
           "label": {
-            "en": "Unsolicited reports interval for association group 2."
+            "en": "Reports interval for association group 2",
+            "nl": "Reporting interval voor associatie groep 2"
           },
           "value": 720,
           "attr": {
@@ -301,14 +277,16 @@
             "max": 2678400
           },
           "hint": {
-            "en": "Interval to send out reports to association group 2. (1 seconds - 2678400 seconds)"
+            "en": "Interval to send out reports to association group 2 (1 second - 2678400 seconds)",
+            "nl": "Interval voor het verzenden van reports naar associatie groep 2 (1 seconde - 2678400 seconden)"
           }
         },
         {
           "id": 113,
           "type": "number",
           "label": {
-            "en": "Unsolicited reports interval for association group 3."
+            "en": "Reports interval for association group 3",
+            "nl": "Reporting interval voor associatie groep 3"
           },
           "value": 720,
           "attr": {
@@ -316,7 +294,8 @@
             "max": 2678400
           },
           "hint": {
-            "en": "Interval to send out reports to association group 3. (1 seconds - 2678400 seconds)"
+            "en": "Interval to send out reports to association group 3 (1 second - 2678400 seconds)",
+            "nl": "Interval voor het verzenden van reports naar associatie groep 3 (1 seconde - 2678400 seconden)"
           }
         }
       ]
@@ -367,8 +346,8 @@
             "nl": "Werking"
           },
           "hint": {
-            "en": "With this setting you can control if you get an alarm when water is detected or when water is not detected",
-            "nl": "Met deze instelling kan je kiezen of je een alarm krijgt als er water gedetecteerd wordt of als er geen water meer gedetecteerd wordt"
+            "en": "With this setting you can control whether you get an alarm when water is detected or when water is not detected",
+            "nl": "Met deze instelling kan je kiezen of je een alarm krijgt als er water gedetecteerd is of als er geen water gedetecteerd is"
           },
           "values": [
             {
@@ -382,7 +361,7 @@
               "id": "1",
               "label": {
                 "en": "Warn when no water detected",
-                "nl": "Waarschuw als er geen water gedetecteerd wordt."
+                "nl": "Waarschuw als er geen water gedetecteerd wordt"
               }
             }
           ]
@@ -406,21 +385,21 @@
             {
               "id": "298",
               "label": {
-                "en": "Water Detect",
-                "nl": "Water Detectie"
+                "en": "Water detect",
+                "nl": "Water detectie"
               }
             },
             {
               "id": "299",
               "label": {
-                "en": "Water Detect & Battery",
-                "nl": "Water Detectie & Batterij"
+                "en": "Water detect and battery",
+                "nl": "Water detectie and batterij"
               }
             }
           ],
           "hint": {
-            "en": "To set which report will be sent to the associated nodes when the Water Sensor detects water",
-            "nl": "Configureer welk rapport er gestuurd wordt naar de geassocieerde nodes als de Water Sensor water detecteert"
+            "en": "Set which report will be sent to the associated nodes when the Water Sensor detects water",
+            "nl": "Configureer welk rapport er verstuurd wordt naar de geassocieerde nodes als de Water Sensor water detecteert"
           }
         }
       ]
@@ -504,7 +483,7 @@
           "value": false
         },
         {
-          "id": 24,
+          "id": 34,
           "type": "checkbox",
           "label": {
             "en": "Send calibration command on save",
@@ -862,7 +841,7 @@
           "type": "dropdown",
           "label": {
             "en": "Configure the output load status after re-power",
-            "nl": "Zet na een stroomonderbreking deze Smart Switch:"
+            "nl": "Zet na een stroomonderbreking deze Smart Switch"
           },
           "value": "0",
           "hint": {
@@ -1303,8 +1282,8 @@
         "wakeUpInterval": 300,
         "learnmode": {
           "instruction": {
-            "en": "Press the Learn button on your Key Fob. \n\nAfter pairing, press Learn and Mode for 3 seconds,\nto change the keyfob to User Mode.",
-            "nl": "Druk op de Learn knop op de Key Fob. \n\nNa het toevoegen, houdt de Learn en Mode voor 3 seconden ingedrukt,\nom de sleutelhanger in Gebruiker Modus te zetten."
+            "en": "Press the Learn button on your Key Fob. After pairing, press Learn and Mode for 3 seconds, to change the keyfob to User Mode.",
+            "nl": "Druk op de Learn knop op de Key Fob. Na het toevoegen, houd de Learn en Mode voor 3 seconden ingedrukt, om de sleutelhanger in Gebruiker Modus te zetten."
           }
         },
         "associationGroups": [
@@ -1415,8 +1394,8 @@
             "nl": "Sensor Gedrag"
           },
           "hint": {
-            "en": "When must the sensor turn on the contact alarm, when the door/window is open or closed.",
-            "nl": "Wanneer zal de sensor het contact alarm aanzetten, bij het open of dicht zijn van de deur of het raam."
+            "en": "When must the sensor turn on the contact alarm, when the door/window is open or closed",
+            "nl": "Wanneer zal de sensor het contact alarm aanzetten, bij het open of dicht zijn van de deur of het raam"
           },
           "values": [
             {
@@ -1825,7 +1804,7 @@
           },
           "attr": {
             "min": 1,
-            "max": 268435456
+            "max": 2147483647
           },
           "value": 15
         },
@@ -1842,7 +1821,7 @@
           },
           "attr": {
             "min": 1,
-            "max": 268435456
+            "max": 2147483647
           },
           "value": 600
         },
@@ -1859,7 +1838,7 @@
           },
           "attr": {
             "min": 1,
-            "max": 268435456
+            "max": 2147483647
           },
           "value": 600
         }
@@ -2246,7 +2225,7 @@
           },
           "attr": {
             "min": 1,
-            "max": 268435456
+            "max": 2147483647
           },
           "value": 15
         },
@@ -2263,7 +2242,7 @@
           },
           "attr": {
             "min": 1,
-            "max": 268435456
+            "max": 2147483647
           },
           "value": 600
         },
@@ -2280,7 +2259,7 @@
           },
           "attr": {
             "min": 1,
-            "max": 268435456
+            "max": 2147483647
           },
           "value": 600
         }
