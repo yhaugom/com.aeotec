@@ -82,7 +82,7 @@
 			"type": "dropdown",
 			"label": {
 				"en": "Configure the output load status after re-power",
-				"nl": "Zet na een stroomonderbreking deze Smart Switch:"
+				"nl": "Zet na een stroomonderbreking deze Smart Switch"
 			},
 			"value": "0",
 			"hint": {
