@@ -2,7 +2,6 @@
 
 const path = require('path');
 const ZwaveDriver = require('homey-zwavedriver');
-
 const tinycolor = require('tinycolor2');
 
 // http://www.smarthome.com.au/media/manuals/Aeotec_Z-Wave_LED_Bulb_Product_Manual.pdf
@@ -13,19 +12,18 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_class: 'COMMAND_CLASS_SWITCH_MULTILEVEL',
 			command_get: 'SWITCH_MULTILEVEL_GET',
 			command_set: 'SWITCH_MULTILEVEL_SET',
-			command_set_parser: value => {
-				return {
-					'Value': (value) ? 'on/enable' : 'off/disable',
-					'Dimming Duration': 'Factory default',
-				};
-			},
+			command_set_parser: value => ({
+				'Value': (value) ? 'on/enable' : 'off/disable',
+				'Dimming Duration': 'Factory default',
+			}),
 			command_report: 'SWITCH_MULTILEVEL_REPORT',
 			command_report_parser: report => {
 				if (typeof report['Value'] === 'string') {
 					return report['Value'] === 'on/enable';
-				} else {
+				} else if (report.hasOwnProperty('Value (Raw)')) {
 					return report['Value (Raw)'][0] > 0;
 				}
+				return null;
 			},
 		},
 		dim: {
@@ -47,8 +45,10 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_report_parser: report => {
 				if (typeof report['Value'] === 'string') {
 					return (report['Value'] === 'on/enable') ? 1.0 : 0.0;
+				} else if (report.hasOwnProperty('Value (Raw)')) {
+					return report['Value (Raw)'][0] / 100;
 				}
-				return report['Value (Raw)'][0] / 100;
+				return null;
 			},
 		},
 		light_hue: {
