@@ -44,8 +44,8 @@
 				"nl": "Werking"
 			},
 			"hint": {
-				"en": "With this setting you can control if you get an alarm when water is detected or when water is not detected",
-				"nl": "Met deze instelling kan je kiezen of je een alarm krijgt als er water gedetecteerd wordt of als er geen water meer gedetecteerd wordt"
+				"en": "With this setting you can control whether you get an alarm when water is detected or when water is not detected",
+				"nl": "Met deze instelling kan je kiezen of je een alarm krijgt als er water gedetecteerd is of als er geen water gedetecteerd is"
 			},
 			"values": [
 				{
@@ -59,7 +59,7 @@
 					"id": "1",
 					"label": {
 						"en": "Warn when no water detected",
-						"nl": "Waarschuw als er geen water gedetecteerd wordt."
+						"nl": "Waarschuw als er geen water gedetecteerd wordt"
 					}
 				}
 			]
@@ -83,21 +83,21 @@
 				{
 					"id": "298",
 					"label": {
-						"en": "Water Detect",
-						"nl": "Water Detectie"
+						"en": "Water detect",
+						"nl": "Water detectie"
 					}
 				},
 				{
 					"id": "299",
 					"label": {
-						"en": "Water Detect & Battery",
-						"nl": "Water Detectie & Batterij"
+						"en": "Water detect and battery",
+						"nl": "Water detectie and batterij"
 					}
 				}
 			],
 			"hint": {
-				"en": "To set which report will be sent to the associated nodes when the Water Sensor detects water",
-				"nl": "Configureer welk rapport er gestuurd wordt naar de geassocieerde nodes als de Water Sensor water detecteert"
+				"en": "Set which report will be sent to the associated nodes when the Water Sensor detects water",
+				"nl": "Configureer welk rapport er verstuurd wordt naar de geassocieerde nodes als de Water Sensor water detecteert"
 			}
 		}
 	]

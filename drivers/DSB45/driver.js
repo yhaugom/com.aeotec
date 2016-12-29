@@ -13,10 +13,9 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_get: 'SENSOR_BINARY_GET',
 			command_report: 'SENSOR_BINARY_REPORT',
 			command_report_parser: report => {
-				if (report['Sensor Value'] !== 'detected an event') return false;
-				
-				return true;
-			}
+				if (report.hasOwnProperty('Sensor Value')) return report['Sensor Value'] === 'detected an event';
+				return null;
+			},
 		},
 		measure_battery: {
 			command_class: 'COMMAND_CLASS_BATTERY',
@@ -24,19 +23,19 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_report: 'BATTERY_REPORT',
 			command_report_parser: report => {
 				if (report['Battery Level'] === 'battery low warning') return 1;
-				
-				return report['Battery Level (Raw)'][0];
-			}
-		}
+				if (report.hasOwnProperty('Battery Level (Raw)')) return report['Battery Level (Raw)'][0];
+				return null;
+			},
+		},
 	},
 	settings: {
 		1: {
 			index: 1,
-			size: 1
+			size: 1,
 		},
 		121: {
 			index: 121,
-			size: 4
-		}
-	}
+			size: 4,
+		},
+	},
 });
