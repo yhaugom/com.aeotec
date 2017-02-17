@@ -12,20 +12,17 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_get: 'BATTERY_GET',
 			command_report: 'BATTERY_REPORT',
 			command_report_parser: report => {
-				if (report['Battery Level'] === "battery low warning")
-					return 1;
-				
-				return report['Battery Level (Raw)'][0];
+				if (report['Battery Level'] === 'battery low warning') return 1;
+				if (report.hasOwnProperty('Battery Level (Raw)')) return report['Battery Level (Raw)'][0];
+				return null;
 			}
 		},
-		
 		alarm_motion: {
 			command_class: 'COMMAND_CLASS_SENSOR_BINARY',
 			command_get: 'SENSOR_BINARY_GET',
 			command_report: 'SENSOR_BINARY_REPORT',
 			command_report_parser: report => report['Sensor Value'] === 'detected an event'
 		},
-		
 		measure_temperature: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
 			command_get: 'SENSOR_MULTILEVEL_GET',
@@ -37,17 +34,12 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			}),
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
 			command_report_parser: report => {
-				if (report['Sensor Type'] === 'Temperature (version 1)' &&
-				report.hasOwnProperty("Properties1") &&
-				report.Properties1.hasOwnProperty("Scale") &&
-				report.Properties1.Scale === 0)
-					return report['Sensor Value (Parsed)'];
-				
+				if (report.hasOwnProperty('Sensor Type') && report.hasOwnProperty('Sensor Value (Parsed)')) {
+					if (report['Sensor Type'] === 'Temperature (version 1)') return report['Sensor Value (Parsed)'];
+				}
 				return null;
 			}
-
 		},
-		
 		measure_luminance: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
 			command_get: 'SENSOR_MULTILEVEL_GET',
@@ -59,16 +51,12 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			}),
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
 			command_report_parser: report => {
-				if (report['Sensor Type'] === 'Luminance (version 1)' &&
-				report.hasOwnProperty("Properties1") &&
-				report.Properties1.hasOwnProperty("Scale") &&
-				report.Properties1.Scale === 1)
-					return report['Sensor Value (Parsed)'];
-					
+				if (report.hasOwnProperty('Sensor Type') && report.hasOwnProperty('Sensor Value (Parsed)')) {
+					if (report['Sensor Type'] === 'Luminance (version 1)') return report['Sensor Value (Parsed)'];
+				}
 				return null;
 			}
 		},
-		
 		measure_humidity: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
 			command_get: 'SENSOR_MULTILEVEL_GET',
@@ -80,12 +68,9 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			}),
 			command_report: 'SENSOR_MULTILEVEL_REPORT',
 			command_report_parser: report => {
-				if (report['Sensor Type'] === 'Relative humidity (version 2)' &&
-				report.hasOwnProperty("Properties1") &&
-				report.Properties1.hasOwnProperty("Scale") &&
-				report.Properties1.Scale === 0)
-					return report['Sensor Value (Parsed)'];
-					
+				if (report.hasOwnProperty('Sensor Type') && report.hasOwnProperty('Sensor Value (Parsed)')) {
+					if (report['Sensor Type'] === 'Relative humidity (version 2)') return report['Sensor Value (Parsed)'];
+				}
 				return null;
 			}
 		}

@@ -63,7 +63,7 @@
 			"type": "number",
 			"label": {
 				"en": "Motion cancellation (seconds)",
-				"nl": "Beweging Annulering (seconden)"
+				"nl": "Beweging annulering (seconden)"
 			},
 			"hint": {
 				"en": "How many seconds does the motion alarm stay \"on\". If the value is bigger than 255, then the value should be rounded to next integer in minutes",
@@ -79,12 +79,12 @@
 			"id": 4,
 			"type": "checkbox",
 			"label": {
-				"en": "Motion Alarm",
-				"nl": "Beweging Melder"
+				"en": "Motion alarm",
+				"nl": "Bewegingsalarm"
 			},
 			"hint": {
-				"en": "Should the sensor's motion alarm enabled or not",
-				"nl": "Zal de sensor's beweging melder geactiveerd zijn of niet"
+				"en": "Should the sensor's motion alarm be enabled or not",
+				"nl": "Activeer de sensor's bewegingsalarm"
 			},
 			"value": true
 		},
@@ -92,12 +92,12 @@
 			"id": 40,
 			"type": "checkbox",
 			"label": {
-				"en": "Selective Reporting",
-				"nl": "Selectieve Verzending"
+				"en": "Selective reporting",
+				"nl": "Selectieve updates"
 			},
 			"hint": {
-				"en": "Will the sensor only send the value(s) if the value(s) is bigger then the threshold?",
-				"nl": "Zal de sensor alleen de waarde(s) doorgeven als de waarde(s) hoger is als de drempel?"
+				"en": "The sensor will only send the updated value if the value is bigger than the threshold",
+				"nl": "De sensor zal alleen de waarden doorgeven als deze hoger zijn dan de drempel"
 			},
 			"value": true
 		},
@@ -105,12 +105,12 @@
 			"id": 41,
 			"type": "number",
 			"label": {
-				"en": "Temperature Threshold",
-				"nl": "Temperatuur Drempel"
+				"en": "Temperature threshold",
+				"nl": "Temperatuur drempel"
 			},
 			"hint": {
-				"en": "The sensor will only send the value if the changed temperature (Percentage) value is bigger then the threshold",
-				"nl": "De sensor zal alleen de waarde doorgeven als de veranderde temperatuur (Percentage) waarde hoger is als de drempel"
+				"en": "The sensor will only send the value if the changed temperature (percentage) value is bigger than the threshold",
+				"nl": "De sensor zal alleen de waarde doorgeven als de veranderde temperatuur (percentage) waarde hoger is dan de drempel"
 			},
 			"value": 1,
 			"attr": {
@@ -122,12 +122,12 @@
 			"id": 42,
 			"type": "number",
 			"label": {
-				"en": "Humidity Threshold",
-				"nl": "Lucht Vochtigheid Drempel"
+				"en": "Humidity threshold",
+				"nl": "Lucht vochtigheid drempel"
 			},
 			"hint": {
-				"en": "The sensor will only send the value if the changed humidity (percentage) value is bigger then the threshold",
-				"nl": "De sensor zal alleen de waarde doorgeven als de veranderde lucht vochtigheid (percentage) waarde hoger is als de drempel"
+				"en": "The sensor will only send the value if the changed humidity (percentage) value is bigger than the threshold",
+				"nl": "De sensor zal alleen de waarde doorgeven als de veranderde lucht vochtigheid (percentage) waarde hoger is dan de drempel"
 			},
 			"value": 5,
 			"attr": {
@@ -139,12 +139,12 @@
 			"id": 43,
 			"type": "number",
 			"label": {
-				"en": "Luminance Threshold",
-				"nl": "Helderheid Drempel"
+				"en": "Luminance threshold",
+				"nl": "Helderheid drempel"
 			},
 			"hint": {
-				"en": "The sensor will only send the value if the changed luminance (lux) value is bigger then the threshold",
-				"nl": "De sensor zal alleen de waarde doorgeven als de veranderde helderheid (lux) waarde hoger is als de drempel"
+				"en": "The sensor will only send the value if the changed luminance (lux) value is bigger than the threshold",
+				"nl": "De sensor zal alleen de waarde doorgeven als de veranderde helderheid (lux) waarde hoger is dan de drempel"
 			},
 			"value": 50,
 			"attr": {
@@ -156,12 +156,12 @@
 			"id": 44,
 			"type": "number",
 			"label": {
-				"en": "Battery Level Threshold",
-				"nl": "Batterij Level Drempel"
+				"en": "Battery level threshold",
+				"nl": "Batterij level drempel"
 			},
 			"hint": {
-				"en": "The sensor will only send the value if the changed battery level (percentage) value is bigger then the threshold",
-				"nl": "De sensor zal alleen de waarde doorgeven als de veranderde batterij level (percentage) waarde hoger is als de drempel"
+				"en": "The sensor will only send the value if the changed battery level (percentage) value is bigger than the threshold",
+				"nl": "De sensor zal alleen de waarde doorgeven als de veranderde batterij level (percentage) waarde hoger is dan de drempel"
 			},
 			"value": 5,
 			"attr": {
@@ -177,8 +177,8 @@
 				"nl": "Metingen naar associatie groep 2"
 			},
 			"hint": {
-				"en": "Which reports need to send automatically in timing intervals for association group 2.",
-				"nl": "Welke metingen worden automatische op interval verzonden naar associatie groep 2"
+				"en": "Which reports need to send automatically in timing intervals for association group 2",
+				"nl": "Welke metingen worden automatisch per interval verzonden naar associatie groep 2"
 			},
 			"value": "0",
 			"values": [
@@ -192,50 +192,50 @@
 				{
 					"id": "33",
 					"label": {
-						"en": "Battery & Temperature",
-						"nl": "Batterij & Temperatuur"
+						"en": "Battery & temperature",
+						"nl": "Batterij & temperatuur"
 					}
 				},
 				{
 					"id": "65",
 					"label": {
-						"en": "Battery & Luminance",
-						"nl": "Batterij & Helderheid"
+						"en": "Battery & luminance",
+						"nl": "Batterij & helderheid"
 					}
 				},
 				{
 					"id": "129",
 					"label": {
-						"en": "Battery & Humidity",
-						"nl": "Batterij & Lucht Vochtigheid"
+						"en": "Battery & humidity",
+						"nl": "Batterij & luchtvochtigheid"
 					}
 				},
 				{
 					"id": "97",
 					"label": {
-						"en": "Battery & Temperature & Luminance",
-						"nl": "Batterij & Temperatuur & Helderheid"
+						"en": "Battery, temperature & luminance",
+						"nl": "Batterij, temperatuur & helderheid"
 					}
 				},
 				{
 					"id": "161",
 					"label": {
-						"en": "Battery & Temperature & Humidity",
-						"nl": "Batterij & Temperatuur & Lucht Vochtigheid"
+						"en": "Battery, temperature & humidity",
+						"nl": "Batterij, temperatuur & luchtvochtigheid"
 					}
 				},
 				{
 					"id": "193",
 					"label": {
-						"en": "Battery & Luminance & Humidity",
-						"nl": "Batterij & Helderheid & Lucht Vochtigheid"
+						"en": "Battery, luminance & humidity",
+						"nl": "Batterij, helderheid & luchtvochtigheid"
 					}
 				},
 				{
 					"id": "225",
 					"label": {
-						"en": "Battery & Temperature & Luminance & Humidity",
-						"nl": "Batterij & Temperatuur & Helderheid & Lucht Vochtigheid"
+						"en": "Battery, temperature, luminance & humidity",
+						"nl": "Batterij, temperatuur, helderheid & luchtvochtigheid"
 					}
 				}
 			]
@@ -248,8 +248,8 @@
 				"nl": "Metingen naar associatie groep 3"
 			},
 			"hint": {
-				"en": "Which reports need to send automatically in timing intervals for association group 3.",
-				"nl": "Welke metingen worden automatische op interval verzonden naar associatie groep 3"
+				"en": "Which reports need to be send automatically per interval for association group 3",
+				"nl": "Welke metingen worden automatisch per interval verzonden naar associatie groep 3"
 			},
 			"value": "0",
 			"values": [
@@ -263,50 +263,50 @@
 				{
 					"id": "33",
 					"label": {
-						"en": "Battery & Temperature",
-						"nl": "Batterij & Temperatuur"
+						"en": "Battery & temperature",
+						"nl": "Batterij & temperatuur"
 					}
 				},
 				{
 					"id": "65",
 					"label": {
-						"en": "Battery & Luminance",
-						"nl": "Batterij & Helderheid"
+						"en": "Battery & luminance",
+						"nl": "Batterij & helderheid"
 					}
 				},
 				{
 					"id": "129",
 					"label": {
-						"en": "Battery & Humidity",
-						"nl": "Batterij & Lucht Vochtigheid"
+						"en": "Battery & humidity",
+						"nl": "Batterij & luchtvochtigheid"
 					}
 				},
 				{
 					"id": "97",
 					"label": {
-						"en": "Battery & Temperature & Luminance",
-						"nl": "Batterij & Temperatuur & Helderheid"
+						"en": "Battery, temperature & luminance",
+						"nl": "Batterij, temperatuur & helderheid"
 					}
 				},
 				{
 					"id": "161",
 					"label": {
-						"en": "Battery & Temperature & Humidity",
-						"nl": "Batterij & Temperatuur & Lucht Vochtigheid"
+						"en": "Battery, temperature & humidity",
+						"nl": "Batterij, temperatuur & luchtvochtigheid"
 					}
 				},
 				{
 					"id": "193",
 					"label": {
-						"en": "Battery & Luminance & Humidity",
-						"nl": "Batterij & Helderheid & Lucht Vochtigheid"
+						"en": "Battery, luminance & humidity",
+						"nl": "Batterij, helderheid & luchtvochtigheid"
 					}
 				},
 				{
 					"id": "225",
 					"label": {
-						"en": "Battery & Temperature & Luminance & Humidity",
-						"nl": "Batterij & Temperatuur & Helderheid & Lucht Vochtigheid"
+						"en": "Battery, temperature, luminance & humidity",
+						"nl": "Batterij, temperatuur, helderheid & luchtvochtigheid"
 					}
 				}
 			]
@@ -315,8 +315,8 @@
 			"id": 111,
 			"type": "number",
 			"label": {
-				"en": "Unsolicited reports interval for Homey (group 1).",
-				"nl": "Ongevraagde meting zend inteval naar Homey (group 1)."
+				"en": "Unsolicited reports interval for Homey (group 1)",
+				"nl": "Ongevraagde meting verstuurinterval naar Homey (group 1)"
 			},
 			"value": 300,
 			"attr": {
@@ -332,8 +332,8 @@
 			"id": 112,
 			"type": "number",
 			"label": {
-				"en": "Unsolicited reports interval for association group 2.",
-				"nl": "Ongevraagde meting zend inteval naar associatie groep 2."
+				"en": "Unsolicited reports interval for association group 2",
+				"nl": "Ongevraagde meting verstuurinterval naar associatie groep 2"
 			},
 			"value": 1800,
 			"attr": {
@@ -349,8 +349,8 @@
 			"id": 113,
 			"type": "number",
 			"label": {
-				"en": "Unsolicited reports interval for association group 3.",
-				"nl": "Ongevraagde meting zend inteval naar associatie groep 3."
+				"en": "Unsolicited reports interval for association group 3",
+				"nl": "Ongevraagde meting verstuurinterval naar associatie groep 3"
 			},
 			"value": 1800,
 			"attr": {
