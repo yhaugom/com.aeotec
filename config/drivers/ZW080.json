@@ -15,6 +15,13 @@
 				"nl": "Druk op de (z-wave) knop op de Sirene"
 			}
 		},
+		"defaultConfiguration": [
+			{
+				"id": 80,
+				"size": 1,
+				"value": 2
+			}
+		],
 		"associationGroups": [
 			1
 		]
@@ -23,6 +30,22 @@
 	"capabilities": [
 		"onoff"
 	],
+	"mobile": {
+		"components": [
+			{
+				"capabilities": [
+					"onoff"
+				],
+				"id": "icon"
+			},
+			{
+				"capabilities": [
+					"onoff"
+				],
+				"id": "toggle"
+			}
+		]
+	},
 	"images": {
 		"large": "/drivers/ZW080/assets/images/large.jpg",
 		"small": "/drivers/ZW080/assets/images/small.jpg"
