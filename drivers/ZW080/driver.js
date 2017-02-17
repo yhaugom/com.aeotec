@@ -8,16 +8,46 @@ const ZwaveDriver = require('homey-zwavedriver');
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	capabilities: {
-		onoff: {
-			command_class: 'COMMAND_CLASS_SWITCH_BINARY',
-			command_get: 'SWITCH_BINARY_GET',
-			command_set: 'SWITCH_BINARY_SET',
-			command_set_parser: value => ({
-				'Switch Value': (value) ? 255 : 0,
-			}),
-			command_report: 'SWITCH_BINARY_REPORT',
-			command_report_parser: report => report['Value'] === 'on/enable',
-		},
+		onoff: [
+			{
+				command_class: 'COMMAND_CLASS_SWITCH_BINARY',
+				command_get: 'SWITCH_BINARY_GET',
+				command_set: 'SWITCH_BINARY_SET',
+				command_set_parser: value => {
+					console.log('onoff set', value);
+					return {
+						'Switch Value': (value) ? 255 : 0,
+					}
+				},
+				command_report: 'SWITCH_BINARY_REPORT',
+				command_report_parser: report => {
+
+					console.log('onoff get', report['Value'] === 'on/enable');
+
+					return report['Value'] === 'on/enable'
+				}
+			},
+			{
+				command_class: 'COMMAND_CLASS_BASIC',
+				command_report: 'BASIC_REPORT',
+				command_report_parser: (report, node) => {
+
+					console.log('onoff get', report['Value'] === 255);
+
+					if (report['Value'] === 255) {
+						Homey.manager('flow').triggerDevice('ZW080-alarm_on', {}, {}, node.device_data, (err, result) => {
+							console.log(err, result);
+						});
+					} else {
+						Homey.manager('flow').triggerDevice('ZW080-alarm_off', {}, {}, node.device_data, (err, result) => {
+							console.log(err, result);
+						});
+					}
+
+					return report['Value'] === 255
+				}
+			}
+		],
 	},
 	settings: {
 		37: {
@@ -25,4 +55,22 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			size: 2,
 		},
 	},
+});
+
+Homey.manager('flow').on('action.ZW080-turn_alarm_on', (callback, args) => {
+	const node = module.exports.nodes[args.device.token];
+	if (node && node.hasOwnProperty('instance') && node.instance.hasOwnProperty('CommandClass') && node.instance.CommandClass['COMMAND_CLASS_SWITCH_BINARY']) {
+		node.instance.CommandClass['COMMAND_CLASS_SWITCH_BINARY'].SWITCH_BINARY_SET({
+			'Switch Value': 255
+		}, (err, result) => callback(err, result));
+	} else return callback('invalid_device_command_class');
+});
+
+Homey.manager('flow').on('action.ZW080-turn_alarm_off', (callback, args) => {
+	const node = module.exports.nodes[args.device.token];
+	if (node && node.hasOwnProperty('instance') && node.instance.hasOwnProperty('CommandClass') && node.instance.CommandClass['COMMAND_CLASS_SWITCH_BINARY']) {
+		node.instance.CommandClass['COMMAND_CLASS_SWITCH_BINARY'].SWITCH_BINARY_SET({
+			'Switch Value': 0
+		}, (err, result) => callback(err, result));
+	} else return callback('invalid_device_command_class');
 });

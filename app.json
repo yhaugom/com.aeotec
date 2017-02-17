@@ -1136,6 +1136,13 @@
             "nl": "Druk op de (z-wave) knop op de Sirene"
           }
         },
+        "defaultConfiguration": [
+          {
+            "id": 80,
+            "size": 1,
+            "value": 2
+          }
+        ],
         "associationGroups": [
           1
         ]
@@ -1144,6 +1151,22 @@
       "capabilities": [
         "onoff"
       ],
+      "mobile": {
+        "components": [
+          {
+            "capabilities": [
+              "onoff"
+            ],
+            "id": "icon"
+          },
+          {
+            "capabilities": [
+              "onoff"
+            ],
+            "id": "toggle"
+          }
+        ]
+      },
       "images": {
         "large": "/drivers/ZW080/assets/images/large.jpg",
         "small": "/drivers/ZW080/assets/images/small.jpg"
@@ -2729,6 +2752,34 @@
   "flow": {
     "triggers": [
       {
+        "id": "ZW080-alarm_on",
+        "title": {
+          "en": "Siren turned on",
+          "nl": "Sirene ging aan"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=ZW080"
+          }
+        ]
+      },
+      {
+        "id": "ZW080-alarm_off",
+        "title": {
+          "en": "Siren turned off",
+          "nl": "Sirene ging uit"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=ZW080"
+          }
+        ]
+      },
+      {
         "id": "zw088_press_1",
         "title": {
           "en": "Left top short pressed",
@@ -2842,6 +2893,34 @@
       }
     ],
     "actions": [
+      {
+        "id": "ZW080-turn_alarm_on",
+        "title": {
+          "en": "Turn siren on",
+          "nl": "Zet sirene aan"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=ZW080"
+          }
+        ]
+      },
+      {
+        "id": "ZW080-turn_alarm_off",
+        "title": {
+          "en": "Turn siren off",
+          "nl": "Zet sirene uit"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=ZW080"
+          }
+        ]
+      },
       {
         "id": "zw098_random",
         "title": {
