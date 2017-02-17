@@ -4,8 +4,9 @@
   "description": "This app adds support for Aeotec devices in Homey.",
   "main": "app.js",
   "dependencies": {
-    "homey-log": "~1.0.1",
-    "tinycolor2": "~1.4.1"
+    "homey-log": "^1.0.2",
+    "homey-zwavedriver": "git+https://github.com/athombv/node-homey-zwavedriver.git",
+    "tinycolor2": "^1.4.1"
   },
   "devDependencies": {},
   "scripts": {
