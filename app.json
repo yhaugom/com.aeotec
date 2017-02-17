@@ -3,8 +3,8 @@
   "name": {
     "en": "Aeotec"
   },
-  "version": "1.2.6",
-  "compatibility": ">=0.10.7",
+  "version": "1.2.7",
+  "compatibility": ">=1.0.0",
   "category": [
     "appliances",
     "lights",
