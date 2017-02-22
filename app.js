@@ -2,6 +2,6 @@
 
 const Log = require('homey-log').Log;
 
-module.exports.init = function () {
-	console.log('com.aeotec running...');
+module.exports.init = () => {
+	console.log(`${Homey.manifest.id} running...`);
 };
