@@ -74,8 +74,8 @@
 				"max": 3600
 			},
 			"hint": {
-				"en": "Time before motion alarm is turned off since last motion detected event",
-				"nl": "Tijd voordat bewegingsdetectie alarm wordt uitgeschakeld na laatste beweging"
+				"en": "Time before motion alarm is turned off since last motion detected event, time unit is second if the value range is 10 - 255, if the range is 256 - 3600 the time unit will be minute and its value should be dividable by 60 without remainder",
+				"nl": "Tijd voordat bewegingsdetectie alarm wordt uitgeschakeld na laatste beweging, tijdseenheid is seconden als de waarde tussen 10 en 255 is, als de waarde tussen 256 en 3600 is is de tijdseenheid minuten en dan moet de waarde deelbaar zijn door 60 zonder restgetal"
 			}
 		},
 		{
