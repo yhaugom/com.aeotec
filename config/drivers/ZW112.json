@@ -23,7 +23,7 @@
 		"productId": [
 			112
 		],
-		"wakeUpInterval": 3600,
+		"wakeUpInterval": 300,
 		"learnmode": {
 			"instruction": {
 				"en": "Short press the action button on the back of the Door/Window Sensor 6.",
