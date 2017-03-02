@@ -3125,6 +3125,10 @@
         "alarm_contact",
         "measure_battery"
       ],
+			"images": {
+				"large": "/drivers/ZW112/assets/images/large.png",
+				"small": "/drivers/ZW112/assets/images/small.png"
+			},
       "zwave": {
         "manufacturerId": [
           134
