@@ -3139,7 +3139,7 @@
         "productId": [
           112
         ],
-        "wakeUpInterval": 3600,
+				"wakeUpInterval": 300,
         "learnmode": {
           "instruction": {
             "en": "Short press the action button on the back of the Door/Window Sensor 6.",
@@ -3155,7 +3155,8 @@
         "associationGroupsOptions": {
           "1": {
             "hint": {
-              "en": "Group 1 is assigned to the Lifeline association group and every device has 5 nodes to associate. The sensor binary report, basic set or notification report command can be sent in this group when the Sensor is triggered."
+							"en": "Group 1 is assigned to the Lifeline association group and every device has 5 nodes to associate. The sensor binary report, basic set or notification report command can be sent in this group when the Sensor is triggered.",
+							"nl": "Groep 1 is toegewezen aan de Lifeline associatie groep en elk apparaat heeft 5 nodes om te associëren. Sensory binary report, basic set of notification report commando's kunnen worden verstuurd in deze groep wanneer de sensor wordt getriggered."
             }
           }
         }
