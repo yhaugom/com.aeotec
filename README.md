@@ -3,8 +3,10 @@
 This app adds support for Aeotec devices in Homey.
 
 ###Changelog:
-**1.2.1**
-+ add Power Meter report (%) parameters
+**1.3.0**
+* add support for ZW112 - Door/Window Sensor 6
+* add support for ZW117 - Range Extender 6
+* add Power Meter report (%) parameters
   - ZW075
   - ZW096
   - ZW099
@@ -13,7 +15,7 @@ This app adds support for Aeotec devices in Homey.
 * Coding Clean-up
 * More Default Configuration fixes
 * Calibrations ZW100 now user friendly
-+ add Power Meter capability: (Re-Pair needed)
+* add Power Meter capability: (Re-Pair needed)
   - ZW075
   - ZW096
   - ZW099
