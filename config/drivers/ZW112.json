@@ -25,6 +25,7 @@
 		],
 		"wakeUpInterval": 300,
 		"learnmode": {
+			"image": "/drivers/ZW112/assets/learnmode.svg",
 			"instruction": {
 				"en": "Short press the action button on the back of the Door/Window Sensor 6.",
 				"nl": "Druk kort op de actie knop op de achterkant van de Deur/Raam Sensor 6"
