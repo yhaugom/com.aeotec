@@ -3,6 +3,12 @@
 This app adds support for Aeotec devices in Homey.
 
 ###Changelog:
+**1.2.1**
++ add Power Meter report (%) parameters
+  - ZW075
+  - ZW096
+  - ZW099
+
 **1.2.0**
 * Coding Clean-up
 * More Default Configuration fixes

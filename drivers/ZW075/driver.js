@@ -7,8 +7,7 @@ const ZwaveDriver = require('homey-zwavedriver');
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	capabilities: {
-		onoff: [
-			{
+		onoff: [{
 				command_class: 'COMMAND_CLASS_SWITCH_BINARY',
 				command_set: 'SWITCH_BINARY_SET',
 				command_set_parser: value => ({
@@ -85,6 +84,10 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		91: {
 			index: 91,
 			size: 2,
+		},
+		92: {
+			index: 92,
+			size: 1,
 		},
 		102: {
 			index: 102,
