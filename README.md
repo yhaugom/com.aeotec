@@ -3,6 +3,9 @@
 This app adds support for Aeotec devices in Homey.
 
 ###Changelog:
+**1.3.1**
+* add support for ZW130 - Wallmote Quad
+
 **1.3.0**
 * add support for ZW112 - Door/Window Sensor 6
 * add support for ZW117 - Range Extender 6
