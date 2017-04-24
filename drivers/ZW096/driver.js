@@ -3,7 +3,7 @@
 const path = require('path');
 const ZwaveDriver = require('homey-zwavedriver');
 
-// http://www.cd-jackson.com/index.php/zwave/zwave-device-database/zwave-device-list/devicesummary/63
+// http://products.z-wavealliance.org/ProductManual/File?folder=&filename=Manuals/1425/Aeon%20Labs%20Smart%20Switch%206%20manual%20(2)%20.pdf
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	capabilities: {
