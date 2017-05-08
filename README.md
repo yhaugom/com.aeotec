@@ -2,8 +2,11 @@
 
 This app adds support for Aeotec devices in Homey.
 
-###Changelog:
-**1.3.1**
+### Changelog:
+**1.4.1**
+* fix ZW130 - Wallmote Quad, multiple devices were not checked properly with triggers
+
+**1.4.0**
 * add support for ZW130 - Wallmote Quad
 
 **1.3.0**

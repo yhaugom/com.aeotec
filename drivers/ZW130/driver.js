@@ -184,7 +184,7 @@ module.exports.on('initNode', token => {
 					button: report['Scene Number'].toString(),
 					scene: report.Properties1['Key Attributes']
 				}
-				Homey.manager('flow').triggerDevice('zw130_scene', null, wallmoteValue, node.deviceData);
+				Homey.manager('flow').triggerDevice('zw130_scene', null, wallmoteValue, node.device_data);
 			}
 		});
 	}
@@ -200,7 +200,7 @@ module.exports.on('initNode', token => {
 						button: report['Configuration Value'][0].toString(),
 						scene: (report['Configuration Value'][1] === 1) ? 'Key Slide Up' : 'Key Slide Down'
 					}
-					Homey.manager('flow').triggerDevice('zw130_scene', null, wallmoteValue, node.deviceData);
+					Homey.manager('flow').triggerDevice('zw130_scene', null, wallmoteValue, node.device_data);
 				}
 				if (report['Parameter Number'] === 10) {
 					let value = Math.round(report['Configuration Value'][2] / 2) / 100;
@@ -211,7 +211,7 @@ module.exports.on('initNode', token => {
 					const wallmoteValue = {
 						button: report['Configuration Value'][0].toString(),
 					}
-					Homey.manager('flow').triggerDevice('zw130_dim', dimValue, wallmoteValue, node.deviceData);
+					Homey.manager('flow').triggerDevice('zw130_dim', dimValue, wallmoteValue, node.device_data);
 				}
 			}
 		});
