@@ -3,6 +3,9 @@
 This app adds support for Aeotec devices in Homey.
 
 ### Changelog:
+**1.5.0**
+* add sound selection Flow card for ZW080 - Siren Gen5
+
 **1.4.1**
 * fix ZW130 - Wallmote Quad, multiple devices were not checked properly with triggers
 
