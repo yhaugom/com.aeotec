@@ -74,3 +74,39 @@ Homey.manager('flow').on('action.ZW080-turn_alarm_off', (callback, args) => {
 		}, (err, result) => callback(err, result));
 	} else return callback('invalid_device_command_class');
 });
+
+Homey.manager('flow').on('action.ZW080-set_alarm', (callback, args) => {
+	const node = module.exports.nodes[args.device.token];
+
+	if (node && typeof node.instance.CommandClass.COMMAND_CLASS_CONFIGURATION !== 'undefined') {
+		let newValue, bufferValue;
+		try {
+			newValue = parseInt(args.sound) + parseInt(args.volume);
+			bufferValue = new Buffer(2);
+			bufferValue.writeUIntBE(newValue, 0, 2);
+		} catch(err) {
+			return callback(err, false);
+		}
+
+		if (newValue && bufferValue) {
+			node.instance.CommandClass.COMMAND_CLASS_CONFIGURATION.CONFIGURATION_SET({
+				'Parameter Number': 37,
+				Level: {
+					Size: 2,
+					Default: false,
+				},
+				'Configuration Value': bufferValue,
+			}, (err, result) => {
+				// If error, stop flow card
+				if (err) return callback(err, false);
+				if (result === 'TRANSMIT_COMPLETE_OK') {
+					module.exports.setSettings(node.device_data, {
+						37: newValue,
+					});
+					return callback(null, true);
+				}
+				return callback(result, false);
+			});
+		}
+	}
+});
