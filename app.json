@@ -1515,10 +1515,7 @@
       "zwave": {
         "manufacturerId": 134,
         "productTypeId": 3,
-        "productId": [
-          24,
-          75
-        ],
+        "productId": 6,
         "learnmode": {
           "instruction": {
             "en": "Press the (action) button on the Smart Switch to enter learn mode",
