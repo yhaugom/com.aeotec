@@ -3,6 +3,9 @@
 This app adds support for Aeotec devices in Homey.
 
 ### Changelog:
+**1.6.0**
+* add support for DSC06106 - Smart Energy Switch
+
 **1.5.0**
 * add sound selection Flow card for ZW080 - Siren Gen5
 
