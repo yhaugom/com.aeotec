@@ -3,6 +3,9 @@
 This app adds support for Aeotec devices in Homey.
 
 ### Changelog:
+**1.5.1**
+* fix minor bugs for ZW075 - Smart Switch and ZW089 - Recessed Door Sensor
+
 **1.5.0**
 * add sound selection Flow card for ZW080 - Siren Gen5
 

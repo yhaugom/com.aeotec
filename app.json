@@ -3,7 +3,7 @@
   "name": {
     "en": "Aeotec"
   },
-  "version": "1.5.0",
+  "version": "1.5.1",
   "compatibility": ">=1.0.0",
   "category": [
     "appliances",
@@ -1762,7 +1762,6 @@
           89,
           54
         ],
-        "wakeUpInterval": 300,
         "learnmode": {
           "image": "/drivers/ZW089/assets/learnmode.svg",
           "instruction": {
