@@ -10,7 +10,6 @@
 			89,
 			54
 		],
-		"wakeUpInterval": 300,
 		"learnmode": {
 			"image": "/drivers/ZW089/assets/learnmode.svg",
 			"instruction": {
