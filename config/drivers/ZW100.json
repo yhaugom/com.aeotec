@@ -16,6 +16,14 @@
 		"associationGroups": [
 			1
 		],
+		"associationGroupsOptions": {
+			"1": {
+				"hint": {
+					"en": "This is the lifeline, it is not recommended to remove Homey's id from this association group.",
+					"nl": "Dit is de levenslijn, het is niet aangeraden om Homey's zijn id te verwijderen uit deze associatie groep."
+				}
+			}
+		},
 		"defaultConfiguration": [
 			{
 				"id": 5,
@@ -29,7 +37,7 @@
 			},
 			{
 				"id": 111,
-				"value": 300,
+				"value": 600,
 				"size": 4
 			}
 		]
@@ -38,6 +46,7 @@
 	"capabilities": [
 		"measure_battery",
 		"alarm_motion",
+		"alarm_tamper",
 		"measure_temperature",
 		"measure_luminance",
 		"measure_humidity",
@@ -52,21 +61,21 @@
 			"id": 2,
 			"type": "checkbox",
 			"label": {
-				"en": "Wake up for 10 minutes after re-power (on battery mode)",
-				"nl": "Maak apparaat wakker voor 10 minuten na onderbreking van stroom (in batterij modus)"
+				"en": "10 Minutes Wake-Up",
+				"nl": "10 Minuten Wakker"
 			},
 			"value": false,
 			"hint": {
-				"en": "By enabling the device will be woken up for 10 minutes when the batteries are removed and inserted",
-				"nl": "Als deze optie is ingeschakeld zal het apparaat voor 10 minuten worden wakker gemaakt wanneer de batterijen zijn vervangen"
+				"en": "If this option is enabled, the device will stay awake for 10 minutes when the batteries are replaced",
+				"nl": "Als deze optie is ingeschakeld zal het apparaat voor 10 minuten wakker blijven wanneer de batterijen zijn vervangen"
 			}
 		},
 		{
 			"id": 3,
 			"type": "number",
 			"label": {
-				"en": "Motion alarm will be cancelled in the main controller and the associated devices after the period of time set in this parameter",
-				"nl": "Bewegingsalarm wordt geannuleerd na het verstrijken van de tijd in deze parameter"
+				"en": "Motion Alarm Cancellation",
+				"nl": "Bewegingsalarm Annulering"
 			},
 			"value": 240,
 			"attr": {
@@ -74,20 +83,20 @@
 				"max": 3600
 			},
 			"hint": {
-				"en": "Time before motion alarm is turned off since last motion detected event, time unit is second if the value range is 10 - 255, if the range is 256 - 3600 the time unit will be minute and its value should be dividable by 60 without remainder",
-				"nl": "Tijd voordat bewegingsdetectie alarm wordt uitgeschakeld na laatste beweging, tijdseenheid is seconden als de waarde tussen 10 en 255 is, als de waarde tussen 256 en 3600 is is de tijdseenheid minuten en dan moet de waarde deelbaar zijn door 60 zonder restgetal"
+				"en": "Time before motion alarm is turned off since last motion detected event.\nRange: 10 - 255 = seconds\n256 - 3600 = minutes when devided by 60",
+				"nl": "Tijd voor dat bewegingsdetectie alarm wordt uitgeschakeld na laatste beweging.\nBereik: 10 - 255 = seconden\n256 - 3600 = minuten wanneer gedeeld door 60"
 			}
 		},
 		{
 			"id": 4,
 			"type": "dropdown",
 			"label": {
-				"en": "Motion sensor sensitivity",
-				"nl": "Gevoeligheid bewegingssensor"
+				"en": "Motion Sensor Sensitivity",
+				"nl": "Gevoeligheid Bewegingssensor"
 			},
 			"hint": {
 				"en": "Determines sensitivity of the motion sensor.",
-				"nl": "Bepaald de gevoeligheid van de bewegingssensor"
+				"nl": "Bepaald de gevoeligheid van de bewegingssensor."
 			},
 			"value": "5",
 			"values": [
@@ -136,9 +145,30 @@
 			]
 		},
 		{
+				"id": "tamper_cancellation",
+				"type": "number",
+				"label": {
+						"en": "Tamper Alarm Cancellation",
+						"nl": "Sabotage Alarm Annulering"
+				},
+				"hint": {
+						"en": "After how many seconds will the tamper alarm be de-activated.\nRange: 0 (don't cancel), 1 - 86400 seconds",
+						"nl": "Na hoeveel seconden moet het tamper alarm worden ge-deactiveerd.\nBereik: 0 (niet annuleren), 1 - 86400 seconden"
+				},
+				"value": 120,
+				"attr": {
+						"min": 0,
+						"max": 86400
+				}
+		},
+		{
 			"id": 39,
 			"type": "number",
 			"label": {
+				"en": "Battery Low Threshold",
+				"nl": "Batterij Laag Drempel"
+			},
+			"hint": {
 				"en": "Percentage of battery power below which the device should send a low battery alarm",
 				"nl": "Percentage batterij niveau waaronder het apparaat een lege batterij waarschuwing zou moeten geven"
 			},
@@ -152,8 +182,12 @@
 			"id": 40,
 			"type": "checkbox",
 			"label": {
-				"en": "Automatic reporting when value threshold reached",
-				"nl": "Automatisch rapportern wanneer waarde grens heeft overschreden"
+				"en": "Threshold Dependend Updates",
+				"nl": "Drempel Afhankelijke Updates"
+			},
+			"hint": {
+				"en": "Determine if the new measured value(s) need to exceed the threshold (determined below) before it is send on the interval.",
+				"nl": "Bepaal of de nieuwe gemeten waarde(s) de drempel moeten overschrijden (hieronder bepaald) voor ze worden verzonden op het interval."
 			},
 			"value": true
 		},
@@ -161,8 +195,12 @@
 			"id": 41,
 			"type": "number",
 			"label": {
-				"en": "Temperature threshold value, if exceeded device will send an automatic report (Celsius), range: 0 (off), 1 - 10 degree",
-				"nl": "Temperatuur verandering nodig voordat het apparaat een automatische update verstuurt (Celsius), bereik: 0 (uit), 1 - 10 graden"
+				"en": "Temperature Threshold",
+				"nl": "Temperatuur Drempel"
+			},
+			"hint": {
+				"en": "If this temperature threshold (in Celsius) has been exceeded, the device will send the new value on the interval\nRange: 0 (no report), 1 - 10 degree",
+				"nl": "Als deze temperatuur drempel (in Celsius) wordt overschreden, zal het apparaat de nieuwe waarde versturen op het interval\nBereik: 0 (geen update), 1 - 10 graden"
 			},
 			"value": 2,
 			"attr": {
@@ -174,8 +212,12 @@
 			"id": 42,
 			"type": "number",
 			"label": {
-				"en": "Humidity threshold value, if exceeded device will send an automatic report, range: 0 (off), 1 - 100 %",
-				"nl": "Vochtigheidsgraad verandering nodig voordat het apparaat een automatische update verstuurt, bereik: 0 (uit), 1 - 100 %"
+				"en": "Humidity Threshold",
+				"nl": "Luchtvochtigheid Drempel"
+			},
+			"hint": {
+				"en": "If this humidity threshold (in percentage) has been exceeded, the device will send the new value on the interval\nRange: 0 (no report), 1 - 100%",
+				"nl": "Als deze luchtvochtigheid drempel (in percentage) wordt overschreden, zal het apparaat de nieuwe waarde versturen op het interval\nBereik: 0 (geen update), 1 - 100%"
 			},
 			"value": 10,
 			"attr": {
@@ -187,8 +229,12 @@
 			"id": 43,
 			"type": "number",
 			"label": {
-				"en": "Luminance threshold value, if exceeded device will send an automatic report, range: 0 (off), 1 - 1000 lux",
-				"nl": "Licht verandering nodig voordat het apparaat een automatische update verstuurt, bereik: 0 (uit), 1 - 1000 lux"
+				"en": "Luminance Threshold",
+				"nl": "Omgevingslicht Drempel"
+			},
+			"hint": {
+				"en": "If this luminance threshold (in lux) has been exceeded, the device will send the new value on the interval\nRange: 0 (no report), 1 - 1000 lux",
+				"nl": "Als deze omgevingslicht drempel (in lux) wordt overschreden, zal het apparaat de nieuwe waarde versturen op het interval\nBereik: 0 (geen update), 1 - 1000 lux"
 			},
 			"value": 100,
 			"attr": {
@@ -200,8 +246,12 @@
 			"id": 44,
 			"type": "number",
 			"label": {
-				"en": "Battery threshold value, if exceeded device will send an automatic report, range: 0 (off), 1 - 100 %",
-				"nl": "Batterij lading verandering nodig voordat het apparaat een automatische update verstuurt, bereik: 0 (uit), 1 - 100 %"
+				"en": "Battery Level Threshold",
+				"nl": "Batterijniveau Drempel"
+			},
+			"hint": {
+				"en": "If this battery level threshold (in percentage) has been exceeded, the device will send the new value on the interval\nRange: 0 (no report), 1 - 100%",
+				"nl": "Als dit batterijniveau drempel (in percentage) wordt overschreden, zal het apparaat de nieuwe waarde versturen op het interval\nBereik: 0 (geen update), 1 - 100%"
 			},
 			"value": 10,
 			"attr": {
@@ -213,8 +263,12 @@
 			"id": 45,
 			"type": "number",
 			"label": {
-				"en": "Ultraviolet threshold value, if exceeded device will send an automatic report, range: 0 (off), 1 - 100 %",
-				"nl": "Ultraviolet verandering nodig voordat het apparaat een automatische update verstuurt, bereik: 0 (uit), 1 - 100%"
+				"en": "Ultraviolet Threshold",
+				"nl": "Ultraviolet Drempel"
+			},
+			"hint": {
+				"en": "If this ultraviolet threshold (in percentage) has been exceeded, the device will send the new value on the interval\nRange: 0 (no report), 1 - 100%",
+				"nl": "Als deze ultraviolet drempel (in percentage) wordt overschreden, zal het apparaat de nieuwe waarde versturen op het interval\nBereik: 0 (geen update), 1 - 100%"
 			},
 			"value": 2,
 			"attr": {
@@ -223,180 +277,45 @@
 			}
 		},
 		{
-			"id": 102,
-			"type": "dropdown",
+			"id": 81,
+			"type": "checkbox",
 			"label": {
-				"en": "Information reports send to association group 2",
-				"nl": "Informatie updates naar associatie groep 2"
+				"en": "LED Behaviour On Alarms",
+				"nl": "LED Gedrag Bij Alarmen"
 			},
 			"hint": {
-				"en": "Which information needs to be send to devices in association group 2",
-				"nl": "Welke informatie moet naar apparaten in associatie groep 2 worden gestuurd"
+				"en": "Enable the LED on activating the motion and tamper alarms.\n\nDevice firmware v1.8 and up",
+				"nl": "Activeer de LED bij het activeren van de beweging en sabotage alarmen.\n\nDevice firmware v1.8 en hoger"
 			},
-			"value": "0",
-			"values": [
-				{
-					"id": "1",
-					"label": {
-						"en": "Battery",
-						"nl": "Batterij"
-					}
-				},
-				{
-					"id": "16",
-					"label": {
-						"en": "Ultraviolet",
-						"nl": "Ultraviolet"
-					}
-				},
-				{
-					"id": "32",
-					"label": {
-						"en": "Temperature",
-						"nl": "Temperatuur"
-					}
-				},
-				{
-					"id": "64",
-					"label": {
-						"en": "Humidity",
-						"nl": "Vochtigheid"
-					}
-				},
-				{
-					"id": "128",
-					"label": {
-						"en": "Luminance",
-						"nl": "Licht"
-					}
-				},
-				{
-					"id": "241",
-					"label": {
-						"en": "All",
-						"nl": "Alles"
-					}
-				}
-			]
-		},
-		{
-			"id": 103,
-			"type": "dropdown",
-			"label": {
-				"en": "Information reports send to association group 3",
-				"nl": "Informatie updates naar associatie groep 3"
-			},
-			"hint": {
-				"en": "Which information needs to be send to devices in association group 3",
-				"nl": "Welke informatie moet naar apparaten in associatie groep 3 worden gestuurd"
-			},
-			"value": "0",
-			"values": [
-				{
-					"id": "1",
-					"label": {
-						"en": "Battery",
-						"nl": "Batterij"
-					}
-				},
-				{
-					"id": "16",
-					"label": {
-						"en": "Ultraviolet",
-						"nl": "Ultraviolet"
-					}
-				},
-				{
-					"id": "32",
-					"label": {
-						"en": "Temperature",
-						"nl": "Temperatuur"
-					}
-				},
-				{
-					"id": "64",
-					"label": {
-						"en": "Humidity",
-						"nl": "Vochtigheid"
-					}
-				},
-				{
-					"id": "128",
-					"label": {
-						"en": "Luminance",
-						"nl": "Licht"
-					}
-				},
-				{
-					"id": "241",
-					"label": {
-						"en": "All",
-						"nl": "Alles"
-					}
-				}
-			]
+			"value": true
 		},
 		{
 			"id": 111,
 			"type": "number",
 			"label": {
-				"en": "Reporting interval association group 1",
-				"nl": "Informatie update interval associatie groep 1"
+				"en": "Update Value(s) Interval",
+				"nl": "Update Waarde(s) Update Interval"
 			},
 			"hint": {
-				"en": "This parameter indicates how often the Multi Sensor 6 should send an update with new information to devices in association group 1",
-				"nl": "Deze parameter geeft aan hoe vaak de Multi Sensor 6 een update met nieuwe informatie naar apparaten in de eerste associatie group zou moeten sturen"
+				"en": "This parameter indicates how often the MultiSensor 6 should send an update of (new) values to devices in association group 1 (including Homey).",
+				"nl": "Deze parameter geeft aan hoe vaak de MultiSensor 6 een update van (nieuwe) waardes naar apparaten in associatie group 1 verstuurd (inclusief Homey)"
 			},
 			"attr": {
 				"min": 5,
 				"max": 2678400
 			},
-			"value": 300
-		},
-		{
-			"id": 112,
-			"type": "number",
-			"label": {
-				"en": "Reporting interval association group 2",
-				"nl": "Informatie update interval associatie groep 2"
-			},
-			"hint": {
-				"en": "This parameter indicates how often the Multi Sensor 6 should send an update with new information to devices in association group 2",
-				"nl": "Deze parameter geeft aan hoe vaak de Multi Sensor 6 een update met nieuwe informatie naar apparaten in de tweede associatie group zou moeten sturen"
-			},
-			"attr": {
-				"min": 5,
-				"max": 2678400
-			},
-			"value": 3600
-		},
-		{
-			"id": 113,
-			"type": "number",
-			"label": {
-				"en": "Reporting interval association group 3",
-				"nl": "Informatie update interval associatie groep 3"
-			},
-			"hint": {
-				"en": "This parameter indicates how often the Multi Sensor 6 should send an update with new information to devices in association group 3",
-				"nl": "Deze parameter geeft aan hoe vaak de Multi Sensor 6 een update met nieuwe informatie naar apparaten in de derde associatie group zou moeten sturen"
-			},
-			"attr": {
-				"min": 5,
-				"max": 2678400
-			},
-			"value": 3600
+			"value": 600
 		},
 		{
 			"id": 201,
 			"type": "number",
 			"label": {
-				"en": "Temperature calibration value (Celsius)",
-				"nl": "Temperatuur kalibratie waarde (Celsius)"
+				"en": "Temperature Calibration",
+				"nl": "Temperatuur Kalibratie"
 			},
 			"hint": {
-				"en": "Determine how much degree celsius needs to be offset to get the right temperature, range: -12.8 - +12.7 (Sensor Firmware v1.7 and up)",
-				"nl": "Bepaal hoeveel graden celsius de temperatuur gecompenseerd moet worden, bereik: -12,8 - +12,7 (Sensor Firmware v1.7 en hoger)"
+				"en": "Determine how much degree Celsius needs to be offset to get the right temperature.\nRange: -12.8 - +12.7 degree\n\nDevice firmware v1.7 and up",
+				"nl": "Bepaal hoeveel graden Celsius de temperatuur gecompenseerd moet worden.\nBereik: -12,8 - +12,7 graden\n\nDevice firmware v1.7 en hoger"
 			},
 			"attr": {
 				"min": -12.8,
@@ -409,12 +328,12 @@
 			"id": 202,
 			"type": "number",
 			"label": {
-				"en": "Humidity calibration value",
-				"nl": "Vochtigheidsgraad kalibratie waarde"
+				"en": "Humidity Calibration",
+				"nl": "Luchtvochtigheid Kalibratie"
 			},
 			"hint": {
-				"en": "Determine what percentage needs to be offset to get the right humidity, range: -50 - +50",
-				"nl": "Bepaal welke percentage er moet worden gecompenseerd om de echte waarde te krijgen, bereik: -50 - +50"
+				"en": "Determine what percentage needs to be offset to get the right humidity.\nRange: -50% - +50%",
+				"nl": "Bepaal welke percentage er moet worden gecompenseerd om de echte waarde te krijgen.\nBereik: -50% - +50%"
 			},
 			"attr": {
 				"min": -50,
@@ -426,12 +345,12 @@
 			"id": 203,
 			"type": "number",
 			"label": {
-				"en": "Luminance calibration value",
-				"nl": "Licht kalibratie waarde"
+				"en": "Luminance Calibration",
+				"nl": "Omgevingslicht Kalibratie"
 			},
 			"hint": {
-				"en": "Determine how much lux needs to be offset to get the right luminance, range: -1000 - +1000",
-				"nl": "Bepaal hoeveel lux er moet worden gecompenseerd om de goede waarde te krijgen, bereik: -1000 - +1000"
+				"en": "Determine how much lux needs to be offset to get the right luminance.\nRange: -1000 - +1000 lux",
+				"nl": "Bepaal hoeveel lux er moet worden gecompenseerd om de goede waarde te krijgen.\nBereik: -1000 - +1000 lux"
 			},
 			"attr": {
 				"min": -1000,
@@ -443,12 +362,12 @@
 			"id": 204,
 			"type": "number",
 			"label": {
-				"en": "Ultraviolet calibration value",
-				"nl": "Ultraviolet kalibratie waarde"
+				"en": "Ultraviolet Calibration",
+				"nl": "Ultraviolet Kalibratie"
 			},
 			"hint": {
-				"en": "Determine what percentage needs to be offset to get the right ultraviolet value, range: -10 - +10",
-				"nl": "Bepaal hoeveel percentage er gecompenseerd moet worden om de goede ultraviolet waarde te krijgen, bereik: -10 - +10"
+				"en": "Determine what percentage needs to be offset to get the right ultraviolet value.\nRange: -10% - +10%",
+				"nl": "Bepaal hoeveel percentage er gecompenseerd moet worden om de goede ultraviolet waarde te krijgen.\nBereik: -10% - +10%"
 			},
 			"attr": {
 				"min": -10,

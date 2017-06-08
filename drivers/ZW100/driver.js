@@ -2,8 +2,9 @@
 
 const path = require('path');
 const ZwaveDriver = require('homey-zwavedriver');
+const tamperCancellation = {};
 
-// http://www.cd-jackson.com/zwave_device_uploads/355/9-Multisensor-6-V1-07.pdf
+// https://aeotec.freshdesk.com/helpdesk/attachments/6028954764
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
 	capabilities: {
@@ -21,10 +22,48 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_class: 'COMMAND_CLASS_SENSOR_BINARY',
 			command_get: 'SENSOR_BINARY_GET',
 			command_report: 'SENSOR_BINARY_REPORT',
-			command_report_parser: report => report['Sensor Value'] === 'detected an event',
+			command_report_parser: report => {
+				if (report && report.hasOwnProperty('Sensor Value')) return report['Sensor Value'] === 'detected an event';
+				return null;
+			},
+		},
+		alarm_tamper: {
+			command_class: 'COMMAND_CLASS_NOTIFICATION',
+			command_get: 'NOTIFICATION_GET',
+			command_get_parser: node => {
+				if (node && node.hasOwnProperty('state') && typeof node.state.alarm_tamper === 'undefined') {
+					node.state.alarm_tamper = false;
+				}
+				return null;
+			},
+			command_report: 'NOTIFICATION_REPORT',
+			command_report_parser: (report, node) => {
+				if (report && report.hasOwnProperty('Notification Type') && report['Notification Type'] === 'Burglar' && report.hasOwnProperty('Event')) {
+					// If there are multiple events you want to say "true" to
+					if (report['Event'] === 3) {
+						if (node) {
+							if (tamperCancellation.hasOwnProperty(node.device_data.token) && tamperCancellation[node.device_data.token]) {
+								clearTimeout(tamperCancellation[node.device_data.token]);
+								tamperCancellation[node.device_data.token] = null;
+							}
+							if (node.settings.hasOwnProperty('tamper_cancellation') && node.settings.tamper_cancellation > 0) {
+								if (!tamperCancellation.hasOwnProperty('node.device_data.token')) tamperCancellation[node.device_data.token];
+								tamperCancellation[node.device_data.token] = setTimeout(() => {
+									node.state.alarm_tamper = false;
+									module.exports.realtime(node.device_data, 'alarm_tamper', false);
+								}, node.settings.tamper_cancellation * 1000);
+							}
+						}
+						return true;
+					}
+					return null;
+				}
+				return null;
+			},
 		},
 		measure_temperature: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
+			command_get: 'SENSOR_MULTILEVEL_GET',
 			command_get_parser: () => ({
 				'Sensor Type': 'Temperature (version 1)',
 				'Properties1': {
@@ -41,6 +80,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		},
 		measure_luminance: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
+			command_get: 'SENSOR_MULTILEVEL_GET',
 			command_get_parser: () => ({
 				'Sensor Type': 'Luminance (version 1)',
 				'Properties1': {
@@ -57,6 +97,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		},
 		measure_humidity: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
+			command_get: 'SENSOR_MULTILEVEL_GET',
 			command_get_parser: () => ({
 				'Sensor Type': 'Relative humidity (version 2)',
 				'Properties1': {
@@ -73,6 +114,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		},
 		measure_ultraviolet: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
+			command_get: 'SENSOR_MULTILEVEL_GET',
 			command_get_parser: () => ({
 				'Sensor Type': 'Ultraviolet (v5)',
 				'Properties1': {
@@ -112,13 +154,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 		41: {
 			index: 41,
 			size: 2,
-			parser: value => {
-				// Round value to whole number
-				value = Math.round(value * 10);
-
-				// Return buffer with celsius (1) selected
-				return new Buffer([value, 1]);
-			},
+			parser: value => new Buffer([Math.round(value * 10), 1]),
 		},
 		42: {
 			index: 42,
@@ -136,73 +172,41 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			index: 45,
 			size: 1,
 		},
-		102: {
-			index: 102,
-			size: 4,
-		},
-		103: {
-			index: 103,
-			size: 4,
+		81: {
+			index: 81,
+			size: 1,
 		},
 		111: {
 			index: 111,
 			size: 4,
 		},
-		112: {
-			index: 112,
-			size: 4,
-		},
-		113: {
-			index: 113,
-			size: 4,
-		},
 		201: {
 			index: 201,
 			size: 2,
-			parser: value => {
-				// Round value to whole number
-				value = Math.round(value * 10);
-
-				// If value is negative, subtract value from 256
-				if (value < 0) value = 256 + value;
-
-				// Return buffer with celsius (1) selected
-				return new Buffer([value, 1]);
-			},
+			parser: value => new Buffer([Math.round(value * 10), 1]),
 		},
 		202: {
 			index: 202,
 			size: 1,
-			parser: value => {
-				// If value is negative, subtract value from 256
-				if (value < 0) value = 256 + value;
-
-				return new Buffer([value]);
-			},
 		},
 		203: {
 			index: 203,
 			size: 2,
-			parser: value => {
-				// If value is negative, subtract value from 65536
-				if (value < 0) value = 65536 + value;
-
-				// Return 2 byte buffer
-				const lux = new Buffer(2);
-				lux.writeUInt16BE(value);
-
-				return lux;
-			},
 		},
 		204: {
 			index: 204,
 			size: 1,
-			parser: value => {
-				// If value is negative, subtract value from 256
-				if (value < 0) value = 256 + value;
-
-				return new Buffer([value]);
-			},
+		},
+		tamper_cancellation: (newValue, oldValue, deviceData) => {
+			if (tamperCancellation.hasOwnProperty(deviceData.token) && tamperCancellation[deviceData.token]) {
+				clearTimeout(tamperCancellation[deviceData.token]);
+				tamperCancellation[deviceData.token] = null;
+				const node = module.exports.nodes[deviceData.token];
+				if (node) {
+					if (node.state.alarm_tamper) module.exports.realtime(deviceData, 'alarm_tamper', false);
+					node.state.alarm_tamper = false;
+				}
+			}
 		},
 	},
 });

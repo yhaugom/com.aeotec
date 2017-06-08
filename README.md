@@ -3,6 +3,13 @@
 This app adds support for Aeotec devices in Homey.
 
 ### Changelog:
+**1.5.2**
+* ZW100 - MultiSensor 6 update:
+  - Added Tamper Capability (re-pair needed)
+  - Added setting 81 - LED behavior on Alarms (working on Device Firmware v1.8 and higher only)
+  - Cleaned up device settings labels
+* Update Z-Wave driver to v1.1.8
+
 **1.5.1**
 * fix minor bugs for ZW075 - Smart Switch and ZW089 - Recessed Door Sensor
 
