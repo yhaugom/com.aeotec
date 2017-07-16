@@ -5,7 +5,7 @@
 	},
 	"zwave": {
 		"manufacturerId": 134,
-		"productTypeId": 2,
+		"productTypeId": [2, 514],
 		"productId": 74,
 		"wakeUpInterval": 21600,
 		"learnmode": {

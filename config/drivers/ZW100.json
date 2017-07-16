@@ -5,7 +5,7 @@
 	},
 	"zwave": {
 		"manufacturerId": 134,
-		"productTypeId": 2,
+		"productTypeId": [2, 514],
 		"productId": 100,
 		"learnmode": {
 			"instruction": {
@@ -145,21 +145,21 @@
 			]
 		},
 		{
-				"id": "tamper_cancellation",
-				"type": "number",
-				"label": {
-						"en": "Tamper Alarm Cancellation",
-						"nl": "Sabotage Alarm Annulering"
-				},
-				"hint": {
-						"en": "After how many seconds will the tamper alarm be de-activated.\nRange: 0 (don't cancel), 1 - 86400 seconds",
-						"nl": "Na hoeveel seconden moet het tamper alarm worden ge-deactiveerd.\nBereik: 0 (niet annuleren), 1 - 86400 seconden"
-				},
-				"value": 120,
-				"attr": {
-						"min": 0,
-						"max": 86400
-				}
+			"id": "tamper_cancellation",
+			"type": "number",
+			"label": {
+				"en": "Tamper Alarm Cancellation",
+				"nl": "Sabotage Alarm Annulering"
+			},
+			"hint": {
+				"en": "After how many seconds will the tamper alarm be de-activated.\nRange: 0 (don't cancel), 1 - 86400 seconds",
+				"nl": "Na hoeveel seconden moet het tamper alarm worden ge-deactiveerd.\nBereik: 0 (niet annuleren), 1 - 86400 seconden"
+			},
+			"value": 120,
+			"attr": {
+				"min": 0,
+				"max": 86400
+			}
 		},
 		{
 			"id": 39,
