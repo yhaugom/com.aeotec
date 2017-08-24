@@ -44,6 +44,10 @@
 	  "name": {
 	    "en": "Panic Button"
 	  },
+      "images": {
+        "large": "/drivers/DSA38/assets/images/large.png",
+        "small": "/drivers/DSA38/assets/images/small.png"
+      },
 	  "zwave": {
 	    "manufacturerId": [
 	      134
@@ -56,7 +60,8 @@
 	    ],
 	    "learnmode": {
 	      "instruction": {
-	        "en": "Insert a pin in the learn hole of your Panic Button."
+	        "en": "Insert a pin in the learn hole of your Panic Button.",
+	        "nl": "Druk een pin in de `leer knop` van je Panic Button"
 	      }
 	    },
 	    "associationGroups": [ 1 ],
