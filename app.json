@@ -37,6 +37,38 @@
     ]
   },
   "drivers": [
+	{
+	  "id": "DSA38",
+	  "class": "sensor",
+	  "capabilities": [ "measure_battery" ],
+	  "name": {
+	    "en": "Panic Button"
+	  },
+	  "zwave": {
+	    "manufacturerId": [
+	      134
+	    ],
+	    "productTypeId": [
+	      1
+	    ],
+	    "productId": [
+	      38
+	    ],
+	    "learnmode": {
+	      "instruction": {
+	        "en": "Insert a pin in the learn hole of your Panic Button."
+	      }
+	    },
+	    "associationGroups": [ 1 ],
+        "defaultConfiguration": [
+          {
+            "id": 250,
+            "size": 1,
+            "value": 1
+          }
+        ]
+	  }
+	},
     {
       "id": "DSB05",
       "name": {
@@ -3665,6 +3697,34 @@
             "name": "device",
             "type": "device",
             "filter": "driver_id=ZW080"
+          }
+        ]
+      },
+      {
+        "id": "dsa38_press_1",
+        "title": {
+          "en": "The button has been short pressed",
+          "nl": "De knop is kort ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=DSA38"
+          }
+        ]
+      },
+      {
+        "id": "dsa38_hold_1",
+        "title": {
+          "en": "The button has been long pressed",
+          "nl": "De knop is lang ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=DSA38"
           }
         ]
       },
