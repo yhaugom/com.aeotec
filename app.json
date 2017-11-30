@@ -1735,7 +1735,8 @@
         "manufacturerId": 134,
         "productTypeId": [
           1,
-          513
+          513,
+	  257
         ],
         "productId": [
           22,
@@ -3620,7 +3621,8 @@
           134
         ],
         "productTypeId": [
-          2
+          2,
+	  258
         ],
         "productId": [
           130
