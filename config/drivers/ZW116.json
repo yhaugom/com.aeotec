@@ -1,15 +1,17 @@
 {
-	"id": "ZW139-C",
+	"id": "ZW116",
 	"class": "light",
 	"name": {
 		"en": "Nano Switch"
 	},
 	"capabilities": [
-		"onoff"
+		"onoff",
+		"measure_power",
+		"meter_power"
 	],
 	"images": {
-		"large": "/drivers/ZW139-C/assets/images/large.png",
-		"small": "/drivers/ZW139-C/assets/images/small.png"
+		"large": "/drivers/ZW116/assets/images/large.png",
+		"small": "/drivers/ZW116/assets/images/small.png"
 	},
 	"zwave": {
 		"manufacturerId": [
@@ -19,7 +21,7 @@
 			3
 		],
 		"productId": [
-			139
+			116
 		],
 		"learnmode": {
 			"instruction": {

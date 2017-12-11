@@ -4,6 +4,10 @@ This app adds support for Aeotec devices in Homey.
 
 ### Changelog:
 
+**1.6.1**
+* Fixed support for ZW139
+* Added support for ZW116 as a separate device
+
 **1.6.0**
 * add support for DSA32 - Panic Button
 * add support for ZW111 - Nano Dimmer
