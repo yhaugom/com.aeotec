@@ -16,7 +16,7 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_report_parser: report => report['State'] === 'Closed',
 			command_set: 'BARRIER_OPERATOR_SET',
 			command_set_parser: input => ({
-			'Target Value': (input) ? 'CLOSE' : 'OPEN',
+				'Target Value': (input) ? 'CLOSE' : 'OPEN',
 			}),
 		},
 	
