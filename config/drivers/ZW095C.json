@@ -38,6 +38,10 @@
       }
     }
   },
+  "images": {
+    "large": "/drivers/ZW130/assets/images/large.png",
+    "small": "/drivers/ZW130/assets/images/small.png"
+  },
   "class": "sensor",
   "capabilities": [
     "measure_power",

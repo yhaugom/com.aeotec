@@ -2,7 +2,7 @@
 	"id": "ZW139-C",
 	"class": "light",
 	"name": {
-		"en": "Nano Switch"
+		"en": "Nano Switch (ZW139)"
 	},
 	"capabilities": [
 		"onoff"
