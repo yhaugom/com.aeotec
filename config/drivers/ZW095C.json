@@ -39,8 +39,8 @@
     }
   },
   "images": {
-    "large": "/drivers/ZW130/assets/images/large.png",
-    "small": "/drivers/ZW130/assets/images/small.png"
+    "large": "/drivers/ZW095C/assets/images/large.png",
+    "small": "/drivers/ZW095C/assets/images/small.png"
   },
   "class": "sensor",
   "capabilities": [
