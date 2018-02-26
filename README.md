@@ -4,6 +4,10 @@ This app adds support for Aeotec devices in Homey.
 
 ### Changelog:
 
+**1.6.4**
+* Add AUS product ids
+* Possible fix for ZW111 dim from Flow
+
 **1.6.3**
 * Fix product image of ZW095 - Home Energy Clamp
 
