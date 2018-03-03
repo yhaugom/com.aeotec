@@ -2,7 +2,7 @@
 	"id": "ZW116",
 	"class": "light",
 	"name": {
-		"en": "Nano Switch"
+		"en": "Nano Switch (ZW116)"
 	},
 	"capabilities": [
 		"onoff",
@@ -18,7 +18,8 @@
 			134
 		],
 		"productTypeId": [
-			3
+          3,
+          515
 		],
 		"productId": [
 			116

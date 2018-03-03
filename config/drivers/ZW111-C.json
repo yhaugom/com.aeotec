@@ -10,6 +10,11 @@
 		"measure_power",
 		"meter_power"
 	],
+  "capabilitiesOptions": {
+    "onoff": {
+      "setOnDim": false
+    }
+  },
 	"images": {
 		"large": "/drivers/ZW111-C/assets/images/large.png",
 		"small": "/drivers/ZW111-C/assets/images/small.png"
@@ -19,7 +24,8 @@
 			134
 		],
 		"productTypeId": [
-			3
+          3,
+          515
 		],
 		"productId": [
 			111
