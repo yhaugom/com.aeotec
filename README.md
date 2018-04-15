@@ -4,6 +4,9 @@ This app adds support for Aeotec devices in Homey.
 
 ### Changelog:
 
+**1.6.5**
+* Fixed support for DSB45
+
 **1.6.4**
 * Add AUS product ids
 * Possible fix for ZW111 dim from Flow
