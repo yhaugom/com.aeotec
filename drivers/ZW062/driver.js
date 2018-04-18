@@ -7,7 +7,7 @@ const ZwaveDriver = require('homey-zwavedriver');
 // http://www.zwaveproducts.com/product-documentation/AeonLabs-ZW062-A1_manual.pdf
 
 module.exports = new ZwaveDriver(path.basename(__dirname), {
-// 	debug: true,
+ 	debug: true,
 	capabilities: {
 		locked: {
 			command_class: 'COMMAND_CLASS_BARRIER_OPERATOR',
@@ -16,11 +16,17 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_report_parser: report => report['State'] === 'Closed',
 			command_set: 'BARRIER_OPERATOR_SET',
 			command_set_parser: input => ({
+				try {
+					flipped= this.getSetting(flipOpenStatus);
+					this._debug(flipped);
+				} catch(err) { 
+					this._debug(e);
+				}
+				input =  (flipped) ? !input : input;
+				
 				'Target Value': (input) ? 'CLOSE' : 'OPEN',
 			}),
-		},
-	
-		
+		},		
 	},
 	settings: {
 		32: {
