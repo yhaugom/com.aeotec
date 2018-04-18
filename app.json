@@ -799,6 +799,15 @@
             "nl": "Vink deze checkbox aan en sla de instellingen op. Klik dan op het wieltje achterop de sensor om te pairen. Na de tijd vink deze checkbox uit en sla de instellingen opnieuw op. Sensor is gepaired wanneer netwerk LED op de controller is gestopt met knipperen."
           },
           "value": false
+        },
+        {
+	        "id": "flipOpenStatus",
+	        "type": "checkbox",
+	        "label":{ "en": "Flip the status of your garage door." },
+	        "hint": {
+		        "en": "If your garage door shows up as open when it is closed and vice versa, you can tick this box to reverse it. Make sure you did the callibration steps of your garage door sensor correctly first. Also be aware of any flows this might affect in your setup."
+	        },
+	        "value": false
         }
       ]
     },
