@@ -18,9 +18,9 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_set_parser: input => ({
 				try {
 					flipped= this.getSetting(flipOpenStatus);
-					this._debug(flipped);
+					this._debug("Open/close status flipped: ", flipped);
 				} catch(err) { 
-					this._debug(e);
+					this._debug(err);
 				}
 				input =  (flipped) ? !input : input;
 				
