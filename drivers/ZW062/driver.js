@@ -12,10 +12,10 @@ module.exports = new ZwaveDriver(path.basename(__dirname), {
 			command_class: 'COMMAND_CLASS_BARRIER_OPERATOR',
 			command_get: 'BARRIER_OPERATOR_GET',
 			command_report: 'BARRIER_OPERATOR_REPORT',
-			command_report_parser: report => report['State'] !== 'Closed',
+			command_report_parser: report => report['State'] === 'Closed',
 			command_set: 'BARRIER_OPERATOR_SET',
 			command_set_parser: input => ({
-				'Target Value': (input) ? 'OPEN' : 'CLOSE',
+				'Target Value': (input) ? 'CLOSE' : 'OPEN',
 			}),
 		},
 	},
